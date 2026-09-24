@@ -310,6 +310,125 @@
     /* ==========================================================
        4. TOP ANNOUNCEMENT BAR & TICKER
        ========================================================== */
+        /* ==========================================================
+       STICKY TOP URGENT COUNTDOWN TIMER BAR
+       ========================================================== */
+    .sticky-countdown-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      background: linear-gradient(90deg, #160606 0%, #1D1405 40%, #09170D 100%);
+      border-bottom: 1.5px solid rgba(245, 208, 97, 0.45);
+      padding: 0.42rem 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(245, 208, 97, 0.15);
+      font-family: var(--font-body);
+    }
+    .countdown-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+    .countdown-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      flex-wrap: wrap;
+    }
+    .countdown-fire-icon {
+      font-size: 1rem;
+      animation: fireFlicker 1.2s ease-in-out infinite alternate;
+    }
+    @keyframes fireFlicker {
+      0% { transform: scale(1) rotate(-3deg); filter: drop-shadow(0 0 4px #FF4D4D); }
+      100% { transform: scale(1.18) rotate(4deg); filter: drop-shadow(0 0 10px #FF9900); }
+    }
+    .countdown-pulse-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #FF3B30;
+      box-shadow: 0 0 8px #FF3B30;
+      animation: pulseDot 1s infinite alternate;
+    }
+    .countdown-label {
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #F4F7F4;
+      letter-spacing: 0.02em;
+    }
+    .countdown-timer-digits {
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 800;
+      color: #F5D061;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(245, 208, 97, 0.4);
+      border-radius: 6px;
+      padding: 0.15rem 0.55rem;
+      letter-spacing: 0.06em;
+      text-shadow: 0 0 10px rgba(245, 208, 97, 0.5);
+      display: inline-flex;
+      align-items: center;
+    }
+    .countdown-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .countdown-slots-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: #E2E8F0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.18rem 0.6rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .slots-live-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: var(--accent-primary);
+      box-shadow: 0 0 5px var(--accent-primary);
+    }
+    .countdown-claim-btn {
+      background: linear-gradient(135deg, #B9F34B 0%, #82C41D 100%);
+      color: #050806;
+      border: none;
+      font-size: 0.75rem;
+      font-weight: 800;
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      box-shadow: 0 0 12px rgba(185, 243, 75, 0.4);
+    }
+    .countdown-claim-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 18px rgba(185, 243, 75, 0.65);
+    }
+    @media (max-width: 680px) {
+      .countdown-bar-inner {
+        justify-content: center;
+      }
+      .countdown-bar-right {
+        display: none;
+      }
+      .countdown-label {
+        font-size: 0.75rem;
+      }
+      .countdown-timer-digits {
+        font-size: 0.85rem;
+      }
+    }
+
     .top-announcement {
       background: #020403;
       border-bottom: 1px solid var(--border-subtle);
@@ -1261,6 +1380,206 @@
     /* ==========================================================
        8. ADVERTISING CONTAINERS (SLOTS A, B, C, D)
        ========================================================== */
+        /* ==========================================================
+       REFER A FRIEND DASHBOARD MODULE
+       ========================================================== */
+    .referral-module-card {
+      margin-top: 2rem;
+      background: linear-gradient(145deg, rgba(14, 24, 18, 0.85) 0%, rgba(8, 14, 10, 0.95) 100%);
+      border: 1px solid rgba(185, 243, 75, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 2rem;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+    .referral-module-card::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      right: -50px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(185, 243, 75, 0.15) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .referral-header-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin-bottom: 1.5rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 1rem;
+    }
+    .referral-title-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+    }
+    .referral-icon-badge {
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      background: rgba(185, 243, 75, 0.12);
+      border: 1px solid rgba(185, 243, 75, 0.35);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-primary);
+      box-shadow: 0 0 15px rgba(185, 243, 75, 0.15);
+    }
+    .referral-stats-pill-group {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      flex-wrap: wrap;
+    }
+    .referral-stat-pill {
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-md);
+      padding: 0.4rem 0.85rem;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .referral-stat-label {
+      font-size: 0.68rem;
+      color: #94A3B8;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .referral-stat-val {
+      font-family: var(--font-display);
+      font-size: 1.05rem;
+      font-weight: 800;
+      color: var(--accent-primary);
+    }
+    .referral-body-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .referral-link-box {
+      display: flex;
+      flex-direction: column;
+      gap: 0.85rem;
+    }
+    .referral-input-wrapper {
+      display: flex;
+      align-items: center;
+      background: #060B08;
+      border: 1.5px solid rgba(185, 243, 75, 0.3);
+      border-radius: var(--radius-md);
+      padding: 0.35rem 0.4rem 0.35rem 1rem;
+      box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.6);
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .referral-input-wrapper:focus-within {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 14px rgba(185, 243, 75, 0.3), inset 0 2px 6px rgba(0, 0, 0, 0.6);
+    }
+    .referral-input-field {
+      background: transparent;
+      border: none;
+      color: #FFFFFF;
+      font-size: 0.9rem;
+      font-family: monospace;
+      font-weight: 600;
+      width: 100%;
+      outline: none;
+    }
+    .referral-copy-btn {
+      background: var(--accent-primary);
+      color: #050806;
+      border: none;
+      font-size: 0.82rem;
+      font-weight: 800;
+      padding: 0.55rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      white-space: nowrap;
+      transition: transform 0.15s, background-color 0.15s;
+    }
+    .referral-copy-btn:hover {
+      transform: scale(1.03);
+      background: #C4F764;
+    }
+    .referral-share-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      flex-wrap: wrap;
+    }
+    .referral-share-btn {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 0.45rem 0.85rem;
+      border-radius: var(--radius-md);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      background: rgba(255, 255, 255, 0.05);
+      color: #E2E8F0;
+      transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .referral-share-btn:hover {
+      transform: translateY(-2px);
+    }
+    .referral-share-btn.wa:hover {
+      background: rgba(37, 211, 102, 0.18);
+      border-color: #25D366;
+      color: #25D366;
+    }
+    .referral-share-btn.fb:hover {
+      background: rgba(0, 132, 255, 0.18);
+      border-color: #0084FF;
+      color: #0084FF;
+    }
+    .referral-perks-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      padding: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .referral-perk-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      font-size: 0.84rem;
+      color: #A3B3A8;
+      line-height: 1.5;
+    }
+    .referral-perk-item strong {
+      color: #FFFFFF;
+    }
+    .referral-perk-check {
+      color: var(--accent-primary);
+      flex-shrink: 0;
+      margin-top: 0.15rem;
+    }
+    @media (max-width: 860px) {
+      .referral-body-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+      }
+      .referral-module-card {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+
     .ad-container {
       margin: 3.5rem 0;
       background: rgba(10, 15, 12, 0.55);
@@ -3243,6 +3562,237 @@
     }
 
     /* Scratch & Win Card Module */
+        /* ==========================================================
+       MYSTERY GIFT BOX STYLES & ANIMATIONS
+       ========================================================== */
+    .mystery-module-wrapper {
+      padding: 0.5rem 0 1rem;
+      text-align: center;
+    }
+    .mystery-header-row {
+      margin-bottom: 2rem;
+    }
+    .mystery-boxes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .mystery-box-card {
+      background: linear-gradient(145deg, rgba(18, 30, 23, 0.9) 0%, rgba(9, 16, 12, 0.95) 100%);
+      border: 1px solid rgba(185, 243, 75, 0.25);
+      border-radius: var(--radius-lg);
+      padding: 1.8rem 1.4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+      transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.28s ease;
+    }
+    .mystery-box-card:hover {
+      transform: translateY(-8px);
+      border-color: var(--accent-primary);
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75), 0 0 28px rgba(185, 243, 75, 0.22);
+    }
+    .mystery-box-card.featured-mystery-box {
+      border-color: rgba(245, 208, 97, 0.5);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(245, 208, 97, 0.15);
+    }
+    .mystery-box-card.featured-mystery-box:hover {
+      border-color: #F5D061;
+      box-shadow: 0 22px 50px rgba(0, 0, 0, 0.75), 0 0 35px rgba(245, 208, 97, 0.35);
+    }
+    .mystery-box-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #E2E8F0;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: var(--radius-pill);
+      padding: 0.25rem 0.75rem;
+      margin-bottom: 1.2rem;
+    }
+    .mystery-box-badge.featured-badge {
+      background: rgba(245, 208, 97, 0.15);
+      border-color: rgba(245, 208, 97, 0.4);
+      color: #F5D061;
+    }
+    .mystery-chest-visual {
+      width: 130px;
+      height: 130px;
+      margin: 0.8rem 0 1.4rem;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: chestFloat 3s ease-in-out infinite;
+    }
+    .mystery-box-card:nth-child(2) .mystery-chest-visual {
+      animation-delay: -1s;
+    }
+    .mystery-box-card:nth-child(3) .mystery-chest-visual {
+      animation-delay: -2s;
+    }
+    @keyframes chestFloat {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-7px) rotate(1deg); }
+    }
+    .mystery-glow-bg {
+      position: absolute;
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(185, 243, 75, 0.35) 0%, rgba(185, 243, 75, 0) 70%);
+      filter: blur(14px);
+      z-index: 1;
+    }
+    .mystery-glow-bg.diamond-glow {
+      background: radial-gradient(circle, rgba(245, 208, 97, 0.4) 0%, rgba(245, 208, 97, 0) 70%);
+    }
+    .mystery-chest-lid {
+      width: 90px;
+      height: 28px;
+      background: linear-gradient(135deg, #27402C 0%, #152419 100%);
+      border: 2px solid #B9F34B;
+      border-radius: 8px 8px 3px 3px;
+      position: relative;
+      z-index: 3;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    .mystery-box-card.featured-mystery-box .mystery-chest-lid {
+      background: linear-gradient(135deg, #4A3B18 0%, #29200D 100%);
+      border-color: #F5D061;
+    }
+    .chest-bow {
+      position: absolute;
+      top: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 1.3rem;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+    }
+    .chest-ribbon-vertical {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      width: 14px;
+      transform: translateX(-50%);
+      background: linear-gradient(180deg, #F5D061 0%, #D4AF37 100%);
+      border-left: 1px solid rgba(0,0,0,0.3);
+      border-right: 1px solid rgba(0,0,0,0.3);
+    }
+    .mystery-chest-body {
+      width: 82px;
+      height: 56px;
+      background: linear-gradient(180deg, #1C3021 0%, #0F1A12 100%);
+      border: 2px solid #B9F34B;
+      border-top: none;
+      border-radius: 0 0 8px 8px;
+      position: relative;
+      z-index: 2;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6);
+    }
+    .mystery-box-card.featured-mystery-box .mystery-chest-body {
+      background: linear-gradient(180deg, #382C10 0%, #1F1707 100%);
+      border-color: #F5D061;
+    }
+    .chest-lock-badge {
+      font-size: 1.5rem;
+      filter: drop-shadow(0 0 6px rgba(185, 243, 75, 0.5));
+      animation: chestPulse 2s ease-in-out infinite;
+    }
+    @keyframes chestPulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    .mystery-box-card.opened .mystery-chest-lid {
+      transform: translateY(-22px) rotate(-14deg);
+    }
+    .mystery-box-card.opened .mystery-chest-visual {
+      animation: none;
+    }
+    .mystery-reward-revealed {
+      margin: 0.5rem 0 1rem;
+      animation: rewardPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    @keyframes rewardPop {
+      0% { transform: scale(0.6); opacity: 0; }
+      100% { transform: scale(1); opacity: 1; }
+    }
+    .revealed-badge {
+      font-size: 0.74rem;
+      font-weight: 700;
+      color: #22C55E;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.2rem;
+    }
+    .revealed-amount {
+      font-size: 1.85rem;
+      font-weight: 800;
+      color: var(--accent-primary);
+      text-shadow: 0 0 16px rgba(185, 243, 75, 0.4);
+      line-height: 1.1;
+    }
+    .mystery-box-card.featured-mystery-box .revealed-amount {
+      color: #F5D061;
+      text-shadow: 0 0 16px rgba(245, 208, 97, 0.4);
+    }
+    .revealed-desc {
+      font-size: 0.8rem;
+      color: #94A3B8;
+      margin-top: 0.2rem;
+    }
+    .mystery-action-btn {
+      width: 100%;
+      justify-content: center;
+      font-size: 0.9rem;
+      padding: 0.7rem;
+    }
+    .mystery-result-banner {
+      margin-top: 2rem;
+      background: linear-gradient(135deg, rgba(185, 243, 75, 0.12) 0%, rgba(14, 24, 18, 0.9) 100%);
+      border: 1.5px solid var(--accent-primary);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.8rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7), 0 0 30px rgba(185, 243, 75, 0.15);
+      animation: bannerSlideUp 0.45s ease-out;
+    }
+    @keyframes bannerSlideUp {
+      from { transform: translateY(16px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    .mystery-banner-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+      text-align: left;
+    }
+    @media (max-width: 768px) {
+      .mystery-boxes-grid {
+        grid-template-columns: 1fr;
+        max-width: 360px;
+        gap: 1.2rem;
+      }
+      .mystery-banner-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+
     .scratch-card-wrapper {
       max-width: 820px;
       margin: 0 auto;
@@ -3644,45 +4194,285 @@
       border-bottom: 1px solid var(--border-subtle);
     }
 
+  
+    /* ==========================================================
+       ULTRA-CLEAN MODERN MOBILE & COMPACT HEADER STYLES
+       ========================================================== */
+    .sticky-countdown-bar {
+      position: sticky;
+      top: 0;
+      z-index: 1100;
+      background: linear-gradient(90deg, #130606 0%, #1A1204 45%, #08140B 100%);
+      border-bottom: 1px solid rgba(245, 208, 97, 0.35);
+      padding: 0.32rem 0.85rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.6);
+      font-family: var(--font-body);
+    }
+    .countdown-bar-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+    .countdown-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+    }
+    .countdown-fire-icon {
+      font-size: 0.85rem;
+      animation: fireFlicker 1.2s ease-in-out infinite alternate;
+    }
+    .countdown-label {
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: #E2E8F0;
+    }
+    .countdown-timer-digits {
+      font-family: var(--font-display);
+      font-size: 0.84rem;
+      font-weight: 800;
+      color: #F5D061;
+      background: rgba(0, 0, 0, 0.55);
+      border: 1px solid rgba(245, 208, 97, 0.4);
+      border-radius: 4px;
+      padding: 0.08rem 0.42rem;
+      letter-spacing: 0.04em;
+    }
+    .countdown-bar-right {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .countdown-slots-pill {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #CBD5E1;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 999px;
+      padding: 0.12rem 0.5rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .countdown-claim-btn {
+      background: linear-gradient(135deg, #B9F34B 0%, #82C41D 100%);
+      color: #050806;
+      border: none;
+      font-size: 0.72rem;
+      font-weight: 800;
+      padding: 0.24rem 0.65rem;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      transition: transform 0.15s;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 31px;
+      z-index: 1000;
+      background: rgba(5, 8, 6, 0.96);
+      border-bottom: 1px solid var(--border-subtle);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 56px;
+      position: relative;
+    }
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+    }
+    .brand-icon-wrapper svg {
+      width: 24px;
+      height: 24px;
+    }
+    .brand-title {
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+    }
+    .brand-tagline-sub {
+      font-size: 0.62rem;
+      color: var(--text-muted);
+      display: block;
+      line-height: 1;
+      margin-top: 1px;
+    }
+    .ssl-security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.25);
+      border-radius: 20px;
+      padding: 0.2rem 0.65rem;
+    }
+
+    .live-claim-ticker-bar {
+      background: #040805;
+      border-bottom: 1px solid rgba(185, 243, 75, 0.15);
+      padding: 0.32rem 0;
+      font-size: 0.74rem;
+    }
+    .ticker-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+    }
+
+    /* COMPACT HERO ANNOUNCEMENT PILL */
+    .hero-compact-announcement {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(185, 243, 75, 0.08);
+      border: 1px solid rgba(185, 243, 75, 0.25);
+      border-radius: 999px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 0 15px rgba(185, 243, 75, 0.1);
+    }
+    .hero-announcement-divider {
+      color: rgba(255, 255, 255, 0.3);
+    }
+
+    .hero-section {
+      padding: 2.2rem 0 2.5rem;
+    }
+    .hero-content h1 {
+      font-size: clamp(1.85rem, 4.5vw, 3.6rem);
+      margin-bottom: 0.85rem;
+      line-height: 1.15;
+    }
+    .hero-lead {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin-bottom: 1.4rem;
+      color: #A3B3A8;
+    }
+    .hero-cta-group {
+      margin-bottom: 1.5rem;
+      gap: 0.85rem;
+    }
+
+    /* MOBILE SPECIFIC REFINEMENTS */
+    @media (max-width: 768px) {
+      .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .nav-inner {
+        height: 50px;
+      }
+      .ssl-security-badge {
+        display: none;
+      }
+      .hero-section {
+        padding: 1.5rem 0 2rem;
+      }
+      .hero-grid {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+      }
+      .hero-content {
+        text-align: center;
+      }
+      .hero-compact-announcement {
+        font-size: 0.72rem;
+        padding: 0.3rem 0.7rem;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 360px;
+        text-align: center;
+      }
+      .hero-lead {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 0.9rem;
+      }
+      .trust-indicators {
+        grid-template-columns: 1fr 1fr;
+        gap: 0.5rem;
+        font-size: 0.76rem;
+      }
+      .ticker-stat-summary {
+        display: none;
+      }
+      .ticker-container {
+        justify-content: center;
+      }
+      .game-switcher-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      .game-tab-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.65rem 1rem;
+      }
+      .referral-module-card {
+        padding: 1.2rem 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .countdown-bar-inner {
+        justify-content: center;
+      }
+      .countdown-bar-right {
+        display: none;
+      }
+      .hero-content h1 {
+        font-size: 1.8rem;
+      }
+      .glass-reward-card {
+        padding: 1.2rem 1rem;
+      }
+      .reward-hero-amount {
+        font-size: 1.7rem;
+      }
+    }
+
   </style>
 </head>
 <body>
-
   <!-- ==========================================================
-       GLOBAL TOP ANNOUNCEMENT BAR
+       COMPACT STICKY COUNTDOWN TIMER BAR
        ========================================================== -->
-  <aside class="top-announcement" aria-label="Live Announcement">
-    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; width: 100%;">
-      <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #B9F34B; box-shadow: 0 0 8px #B9F34B;" aria-hidden="true"></span>
-      <span>⚡ সীমিত সময়ের বিশেষ অফার: নতুন মেম্বারদের জন্য ২০০% ওয়েলকাম বোনাস সক্রিয় · এখনই ক্লেইম করুন!</span>
-    </div>
-  </aside>
-
-  <!-- ==========================================================
-       NOTIFICATION TICKER
-       ========================================================== -->
-  <div class="ticker-wrap" aria-label="Live Activity Ticker">
-    <div class="ticker-label">
-      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
-        <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
-      </svg>
-      <span>অ্যাক্টিভিটি</span>
-    </div>
-    <div class="ticker-move-container">
-      <div class="ticker-move" id="tickerMove">
-        <div class="ticker-item"><span>⚡</span> <strong>লাইভ রিওয়ার্ড:</strong> সাকিব আল হাসান এইমাত্র ৳৫,০০০ উইকলি ক্যাশব্যাক রিডিম করেছেন</div>
-        <div class="ticker-item"><span>🎰</span> <strong>মেগা জ্যাকপট:</strong> আয়ান আর. লাকি হুইলে ৳৮,৮৮৮ রিওয়ার্ড জিতেছেন</div>
-        <div class="ticker-item"><span>🚀</span> <strong>ভিআইপি আপডেট:</strong> তানভীর এম. গোল্ড মেম্বারশিপ টায়ার আনলক করেছেন</div>
-        <div class="ticker-item"><span>📊</span> <strong>ইনস্ট্যান্ট ক্লেইম:</strong> নুসরাত জে. ৳৪,৮৭৫ ওয়েলকাম বোনাস ক্রেডিট পেয়েছেন</div>
-        <!-- Duplicate for continuous loop -->
-        <div class="ticker-item"><span>⚡</span> <strong>লাইভ রিওয়ার্ড:</strong> সাকিব আল হাসান এইমাত্র ৳৫,০০০ উইকলি ক্যাশব্যাক রিডিম করেছেন</div>
-        <div class="ticker-item"><span>🎰</span> <strong>মেগা জ্যাকপট:</strong> আয়ান আর. লাকি হুইলে ৳৮,৮৮৮ রিওয়ার্ড জিতেছেন</div>
-        <div class="ticker-item"><span>🚀</span> <strong>ভিআইপি আপডেট:</strong> তানভীর এম. গোল্ড মেম্বারশিপ টায়ার আনলক করেছেন</div>
-        <div class="ticker-item"><span>📊</span> <strong>ইনস্ট্যান্ট ক্লেইম:</strong> নুসরাত জে. ৳৪,৮৭৫ ওয়েলকাম বোনাস ক্রেডিট পেয়েছেন</div>
+  <aside class="sticky-countdown-bar" id="stickyCountdownBar" aria-label="Urgent Offer Countdown">
+    <div class="container countdown-bar-inner">
+      <div class="countdown-bar-left">
+        <span class="countdown-fire-icon" aria-hidden="true">🔥</span>
+        <span class="countdown-label" data-i18n="countdown_label">আজকের অফার শেষ হতে বাকি:</span>
+        <span class="countdown-timer-digits" id="liveCountdownDisplay">14m 59s</span>
+      </div>
+      <div class="countdown-bar-right">
+        <span class="countdown-slots-pill">
+          <span class="slots-live-dot"></span>
+          <span data-i18n="countdown_slots">২৩টি স্লট বাকি</span>
+        </span>
+        <button type="button" class="countdown-claim-btn" onclick="handleBonusClaimAction(event)">
+          <span data-i18n="countdown_cta">ক্লেইম করুন ➔</span>
+        </button>
       </div>
     </div>
-  </div>
+  </aside>
 
   <!-- ==========================================================
        GLOBAL STICKY HEADER & NAVIGATION
@@ -3812,24 +4602,13 @@
     <section class="hero-section" id="hero">
       <div class="hero-glow"></div>
       <div class="container">
-        <!-- SLEEK GRADIENT-BORDERED ANNOUNCEMENT ALERT BANNER -->
-        <div class="hero-announcement-banner" role="region" aria-label="Announcement">
-          <div class="announcement-inner">
-            <div class="announcement-header">
-              <span class="announcement-pulse-badge">
-                <span class="pulse-indicator-dot"></span>
-                <span data-i18n="hero_alert_badge">জিরো ডিপোজিট অফার</span>
-              </span>
-              <h2 class="announcement-headline" data-i18n="hero_alert_headline">
-                নিজের টাকায় আর ডিপোজিট নয়! ১০০% ফ্রি ইনস্ট্যান্ট গেম ডিপোজিট বোনাস
-              </h2>
-            </div>
-            <p class="announcement-subtext" data-i18n="hero_alert_subtext">
-              এখন আর পকেটের টাকা খরচ করতে হবে না! আমাদের প্ল্যাটফর্মে স্পন্সরড অফার ও সহজ টাস্ক সম্পন্ন করে সরাসরি আপনার গেমিং অ্যাকাউন্টে ফ্রি ডিপোজিট ও ওয়ালেট বোনাস ক্লেইম করুন।
-            </p>
-          </div>
+        <!-- COMPACT MOBILE-OPTIMIZED ANNOUNCEMENT PILL -->
+        <div class="hero-compact-announcement">
+          <span class="pulse-indicator-dot"></span>
+          <strong class="text-accent" data-i18n="hero_alert_badge">জিরো ডিপোজিট বোনাস</strong>
+          <span class="hero-announcement-divider">·</span>
+          <span data-i18n="hero_alert_headline">১০০% ফ্রি ইনস্ট্যান্ট গেম ডিপোজিট সক্রিয়!</span>
         </div>
-
         <div class="hero-grid">
         <div class="hero-content">
           <span class="badge-live" style="margin-bottom: 1.2rem;" data-i18n="hero_badge">এক্সক্লুসিভ রিওয়ার্ড প্ল্যাটফর্ম</span>
@@ -3927,7 +4706,113 @@
               <strong>সতর্কবার্তা ও তথ্য:</strong> আমাদের এই প্ল্যাটফর্মটি কোনো বেটিং বা জুয়ার সাইট নয়। এটি একটি সম্পূর্ণ আইনি ও স্পন্সরড রিওয়ার্ড ভিত্তিক ওয়েবসাইট। ব্যবহারকারীরা স্পন্সরড ভিডিও ও বিজ্ঞাপন দেখার মাধ্যমে সম্পূর্ণ বিনামূল্যে গেম টপ-আপ ও ওয়ালেট বোনাস পেয়ে থাকেন।
             </p>
           </div>
-        </div>
+        
+
+        <!-- MODULE 3: MYSTERY GIFT BOXES -->
+        <div class="game-module-view" id="gameModuleMystery" style="display: none;">
+          <div class="mystery-module-wrapper">
+            <div class="mystery-header-row">
+              <span class="badge-live" data-i18n="mystery_badge">🎁 মিস্ট্রি সারপ্রাইজ বক্স</span>
+              <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem;" data-i18n="mystery_title">যে কোনো একটি গিফট বক্স আনলক করুন</h3>
+              <p class="text-muted" style="font-size: 0.9rem; max-width: 620px; margin: 0 auto;" data-i18n="mystery_desc">
+                নিচের যেকোনো একটি গিফট বক্সে ক্লিক করে ইনস্ট্যান্ট ৳৫,০০০ থেকে ৳৫০,০০০ পর্যন্ত মেগা রিওয়ার্ড আনলক করুন।
+              </p>
+            </div>
+
+            <!-- 3 Animated Mystery Boxes Grid -->
+            <div class="mystery-boxes-grid">
+              <!-- Mystery Box 1 -->
+              <div class="mystery-box-card" id="mysteryBox1" onclick="handleMysteryBoxClick(1)">
+                <div class="mystery-box-badge">বক্স #১: গোল্ডেন বক্স</div>
+                <div class="mystery-chest-visual" id="mysteryVisual1">
+                  <div class="mystery-glow-bg"></div>
+                  <div class="mystery-chest-lid">
+                    <span class="chest-ribbon-vertical"></span>
+                    <span class="chest-bow">🎀</span>
+                  </div>
+                  <div class="mystery-chest-body">
+                    <span class="chest-lock-badge">🎁</span>
+                  </div>
+                </div>
+                <!-- Hidden Reward Revealed after click -->
+                <div class="mystery-reward-revealed" id="mysteryReward1" style="display: none;">
+                  <div class="revealed-badge">অভিনন্দন!</div>
+                  <div class="revealed-amount" id="mysteryAmount1">৳৯,৫০০</div>
+                  <div class="revealed-desc">গোল্ডেন মেগা ক্যাশ</div>
+                </div>
+                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn1">
+                  <span>বক্স ওপেন করুন</span>
+                </button>
+              </div>
+
+              <!-- Mystery Box 2 (Featured Diamond Box) -->
+              <div class="mystery-box-card featured-mystery-box" id="mysteryBox2" onclick="handleMysteryBoxClick(2)">
+                <div class="mystery-box-badge featured-badge">বক্স #২: ডায়মন্ড মেগা বক্স ⭐</div>
+                <div class="mystery-chest-visual" id="mysteryVisual2">
+                  <div class="mystery-glow-bg diamond-glow"></div>
+                  <div class="mystery-chest-lid">
+                    <span class="chest-ribbon-vertical"></span>
+                    <span class="chest-bow">💎</span>
+                  </div>
+                  <div class="mystery-chest-body">
+                    <span class="chest-lock-badge">🎁</span>
+                  </div>
+                </div>
+                <!-- Hidden Reward Revealed after click -->
+                <div class="mystery-reward-revealed" id="mysteryReward2" style="display: none;">
+                  <div class="revealed-badge">মেগা জ্যাকপট!</div>
+                  <div class="revealed-amount" id="mysteryAmount2">৳১৫,৮৫০</div>
+                  <div class="revealed-desc">ডায়মন্ড ভিআইপি ক্যাশ</div>
+                </div>
+                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn2">
+                  <span>বক্স ওপেন করুন</span>
+                </button>
+              </div>
+
+              <!-- Mystery Box 3 -->
+              <div class="mystery-box-card" id="mysteryBox3" onclick="handleMysteryBoxClick(3)">
+                <div class="mystery-box-badge">বক্স #৩: ভিআইপি বক্স</div>
+                <div class="mystery-chest-visual" id="mysteryVisual3">
+                  <div class="mystery-glow-bg"></div>
+                  <div class="mystery-chest-lid">
+                    <span class="chest-ribbon-vertical"></span>
+                    <span class="chest-bow">👑</span>
+                  </div>
+                  <div class="mystery-chest-body">
+                    <span class="chest-lock-badge">🎁</span>
+                  </div>
+                </div>
+                <!-- Hidden Reward Revealed after click -->
+                <div class="mystery-reward-revealed" id="mysteryReward3" style="display: none;">
+                  <div class="revealed-badge">অভিনন্দন!</div>
+                  <div class="revealed-amount" id="mysteryAmount3">৳১২,০০০</div>
+                  <div class="revealed-desc">ভিআইপি স্পেশাল ক্যাশ</div>
+                </div>
+                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn3">
+                  <span>বক্স ওপেন করুন</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Global Reward Summary & Claim Bar (Appears after opening) -->
+            <div class="mystery-result-banner" id="mysteryResultBanner" style="display: none;">
+              <div class="mystery-banner-inner">
+                <div class="mystery-banner-info">
+                  <span class="badge-live">🎉 রিওয়ার্ড প্রস্তুত</span>
+                  <h4 style="font-size: 1.25rem; margin: 0.2rem 0; color: #FFFFFF;" id="mysteryBannerTitle">আপনি জিতেছেন ৳১৫,৮৫০ ইনস্ট্যান্ট ক্যাশ!</h4>
+                  <p style="font-size: 0.85rem; color: #94A3B8; margin: 0;">১০০% ফ্রি ওয়ালেট বোনাস হিসেবে আপনার অ্যাকাউন্টে রিডিম করুন।</p>
+                </div>
+                <button type="button" class="btn btn-primary btn-pulsing-cta" onclick="handleBonusClaimAction(event)" style="padding: 0.85rem 1.6rem; font-size: 1rem;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                  </svg>
+                  <span data-i18n="mystery_claim_cta">Claim to Wallet (ক্লেইম করুন)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div></div>
       </div>
     </section>
 
@@ -4024,7 +4909,83 @@
           </div>
         </div>
 
-        <!-- ==========================================================
+                <!-- ==========================================================
+             REFER A FRIEND MODULE
+             ========================================================== -->
+        <div class="referral-module-card" id="referralModule">
+          <div class="referral-header-row">
+            <div class="referral-title-group">
+              <div class="referral-icon-badge">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                  <circle cx="9" cy="7" r="4"></circle>
+                  <line x1="19" y1="8" x2="19" y2="14"></line>
+                  <line x1="22" y1="11" x2="16" y2="11"></line>
+                </svg>
+              </div>
+              <div>
+                <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin: 0;" data-i18n="refer_title">রেফার করুন এবং বোনাস পয়েন্ট জিতুন</h3>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0.2rem 0 0;" data-i18n="refer_subtitle">প্রতিটি সফল রেফারে ৳৬০০ ক্যাশ বোনাস ও ভিআইপি পয়েন্ট আনলক করুন।</p>
+              </div>
+            </div>
+            <div class="referral-stats-pill-group">
+              <div class="referral-stat-pill">
+                <span class="referral-stat-label" data-i18n="refer_count_label">মোট রেফারেল</span>
+                <span class="referral-stat-val" id="userReferralCount">৬ জন</span>
+              </div>
+              <div class="referral-stat-pill">
+                <span class="referral-stat-label" data-i18n="refer_earned_label">অর্জিত পয়েন্ট</span>
+                <span class="referral-stat-val text-accent" id="userReferralEarnings">৳৩,৬০০</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="referral-body-grid">
+            <div class="referral-link-box">
+              <span style="font-size: 0.78rem; font-weight: 700; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="refer_your_link">আপনার ইউনিক ইনভাইট লিংক:</span>
+              <div class="referral-input-wrapper">
+                <input type="text" id="referralLinkInput" class="referral-input-field" readonly value="https://claimbonus24.com/?ref=CB24-VIP892">
+                <button type="button" class="referral-copy-btn" id="copyReferralBtn" onclick="copyReferralLink()">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+                    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+                  </svg>
+                  <span id="copyBtnText" data-i18n="refer_copy_btn">লিংক কপি করুন</span>
+                </button>
+              </div>
+
+              <div class="referral-share-actions">
+                <span style="font-size: 0.78rem; color: #94A3B8; font-weight: 600;" data-i18n="refer_share_via">সরাসরি শেয়ার করুন:</span>
+                <button type="button" class="referral-share-btn wa" onclick="handleTaskShare('whatsapp')">
+                  <span>📱 WhatsApp</span>
+                </button>
+                <button type="button" class="referral-share-btn fb" onclick="handleTaskShare('messenger')">
+                  <span>💬 Messenger</span>
+                </button>
+                <button type="button" class="referral-share-btn" onclick="generateNewReferralCode()" title="নতুন রেফারেল কোড জেনারেট করুন">
+                  <span>🔄 নতুন কোড</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="referral-perks-box">
+              <div class="referral-perk-item">
+                <span class="referral-perk-check">✓</span>
+                <span><strong>ইনস্ট্যান্ট পয়েন্ট ক্রেডিট:</strong> বন্ধু অ্যাকাউন্ট খুলে অফার চেক করলেই সরাসরি আপনার ওয়ালেটে ৳৬০০ যুক্ত হবে।</span>
+              </div>
+              <div class="referral-perk-item">
+                <span class="referral-perk-check">✓</span>
+                <span><strong>আনলিমিটেড আর্নিং:</strong> যত বেশি বন্ধু ইনভাইট করবেন, তত বেশি অতিরিক্ত বোনাস ক্লেইম করতে পারবেন।</span>
+              </div>
+              <div class="referral-perk-item">
+                <span class="referral-perk-check">✓</span>
+                <span><strong>ভিআইপি লেভেল আপ:</strong> ১০ জন রেফার সম্পন্ন করলে স্বয়ংক্রিয়ভাবে প্ল্যাটিনাম ব্যাজ আনলক হবে।</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+<!-- ==========================================================
              AD SLOT A (After Dashboard)
              ========================================================== -->
         <!-- AD SLOT A -->
@@ -4071,6 +5032,16 @@
               <line x1="9" y1="21" x2="9" y2="9"></line>
             </svg>
             <span data-i18n="tab_scratch">স্ক্র্যাচ অ্যান্ড উইন কার্ড (Scratch Card)</span>
+          </button>
+          <button type="button" class="game-tab-btn" id="tabBtnMystery" onclick="switchGameTab('mystery')" role="tab" aria-selected="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="20 12 20 22 4 22 4 12"></polyline>
+              <rect x="2" y="7" width="20" height="5"></rect>
+              <line x1="12" y1="22" x2="12" y2="7"></line>
+              <path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"></path>
+              <path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"></path>
+            </svg>
+            <span data-i18n="tab_mystery">মিস্ট্রি গিফট বক্স (Mystery Box) 🎁</span>
           </button>
         </div>
 
@@ -6441,33 +7412,100 @@
     function switchGameTab(tab) {
       const wheelMod = document.getElementById("gameModuleWheel");
       const scratchMod = document.getElementById("gameModuleScratch");
+      const mysteryMod = document.getElementById("gameModuleMystery");
       const tabWheel = document.getElementById("tabBtnWheel");
       const tabScratch = document.getElementById("tabBtnScratch");
+      const tabMystery = document.getElementById("tabBtnMystery");
+
+      // Hide all modules
+      if (wheelMod) wheelMod.style.display = "none";
+      if (scratchMod) scratchMod.style.display = "none";
+      if (mysteryMod) mysteryMod.style.display = "none";
+
+      // Deactivate all tab buttons
+      [tabWheel, tabScratch, tabMystery].forEach(btn => {
+        if (btn) {
+          btn.classList.remove("active");
+          btn.setAttribute("aria-selected", "false");
+        }
+      });
 
       if (tab === "scratch") {
-        if (wheelMod) wheelMod.style.display = "none";
         if (scratchMod) scratchMod.style.display = "block";
-        if (tabWheel) {
-          tabWheel.classList.remove("active");
-          tabWheel.setAttribute("aria-selected", "false");
-        }
         if (tabScratch) {
           tabScratch.classList.add("active");
           tabScratch.setAttribute("aria-selected", "true");
         }
-        initScratchCard();
+        initStickyCountdownTimer();
+      initScratchCard();
+      } else if (tab === "mystery") {
+        if (mysteryMod) mysteryMod.style.display = "block";
+        if (tabMystery) {
+          tabMystery.classList.add("active");
+          tabMystery.setAttribute("aria-selected", "true");
+        }
       } else {
         if (wheelMod) wheelMod.style.display = "block";
-        if (scratchMod) scratchMod.style.display = "none";
         if (tabWheel) {
           tabWheel.classList.add("active");
           tabWheel.setAttribute("aria-selected", "true");
         }
-        if (tabScratch) {
-          tabScratch.classList.remove("active");
-          tabScratch.setAttribute("aria-selected", "false");
+      }
+    }
+
+    let mysteryBoxOpened = false;
+
+    /**
+     * Mystery Box Click Handler:
+     * 1. Opens Adsterra Direct Link in a new tab (_blank)
+     * 2. Plays victory sound, triggers confetti, reveals reward on main page
+     */
+    function handleMysteryBoxClick(boxNum) {
+      // 1. Open Adsterra Direct Link in a new tab (_blank)
+      openAdsterraDirectLink();
+
+      // 2. Play victory audio
+      playVictorySound();
+
+      const rewards = {
+        1: { val: 9500, formatted: "৳৯,৫০০", title: "গোল্ডেন মেগা ক্যাশ" },
+        2: { val: 15850, formatted: "৳১৫,৮৫০", title: "ডায়মন্ড জ্যাকপট ক্যাশ" },
+        3: { val: 12000, formatted: "৳১২,০০০", title: "ভিআইপি স্পেশাল ক্যাশ" }
+      };
+
+      const clickedReward = rewards[boxNum] || rewards[2];
+
+      // 3. Launch celebratory confetti
+      launchConfetti(clickedReward.val);
+
+      // Open all mystery box visuals with animated lids
+      for (let i = 1; i <= 3; i++) {
+        const card = document.getElementById(`mysteryBox${i}`);
+        const rewardDiv = document.getElementById(`mysteryReward${i}`);
+        const btn = document.getElementById(`mysteryBtn${i}`);
+        if (card) {
+          card.classList.add("opened");
+        }
+        if (rewardDiv) {
+          rewardDiv.style.display = "block";
+        }
+        if (btn) {
+          btn.innerHTML = (i === boxNum) ? '<span>✓ আনলক সম্পন্ন</span>' : '<span>অন্যান্য রিওয়ার্ড</span>';
+          btn.className = (i === boxNum) ? 'btn btn-primary' : 'btn btn-secondary';
         }
       }
+
+      // Show result banner on the page
+      const banner = document.getElementById("mysteryResultBanner");
+      const bannerTitle = document.getElementById("mysteryBannerTitle");
+      if (bannerTitle) {
+        bannerTitle.textContent = `আপনি জিতেছেন ${clickedReward.formatted} ইনস্ট্যান্ট ক্যাশ!`;
+      }
+      if (banner) {
+        banner.style.display = "block";
+      }
+
+      showFloatingToast(`018*****321 just unlocked ${clickedReward.formatted} from Mystery Box`, "Mystery Box Win");
     }
 
     /* ==========================================================
@@ -7032,6 +8070,16 @@
        ========================================================== */
     const I18N_DICTIONARY = {
   "bn": {
+    "countdown_label": "আজকের অফার শেষ হতে বাকি:",
+    "countdown_slots": "মাত্র ২৩টি স্লট অবশিষ্ট",
+    "countdown_cta": "এখনই ক্লেইম করুন ➔",
+    "refer_title": "রেফার করুন এবং বোনাস পয়েন্ট জিতুন",
+    "refer_subtitle": "প্রতিটি সফল রেফারে ৳৬০০ ক্যাশ বোনাস ও ভিআইপি পয়েন্ট আনলক করুন।",
+    "refer_count_label": "মোট রেফারেল",
+    "refer_earned_label": "অর্জিত পয়েন্ট",
+    "refer_your_link": "আপনার ইউনিক ইনভাইট লিংক:",
+    "refer_copy_btn": "লিংক কপি করুন",
+    "refer_share_via": "সরাসরি শেয়ার করুন:",
     "hero_notice_verified": "১০০% আইনি ও স্পন্সরড প্ল্যাটফর্ম",
     "hero_notice_title": "অফিসিয়াল সতর্কতা ও রিওয়ার্ড তথ্য",
     "hero_notice_text": "সতর্কবার্তা ও তথ্য: আমাদের এই প্ল্যাটফর্মটি কোনো বেটিং বা জুয়ার সাইট নয়। এটি একটি সম্পূর্ণ আইনি ও স্পন্সরড রিওয়ার্ড ভিত্তিক ওয়েবসাইট। ব্যবহারকারীরা স্পন্সরড ভিডিও ও বিজ্ঞাপন দেখার মাধ্যমে সম্পূর্ণ বিনামূল্যে গেম টপ-আপ ও ওয়ালেট বোনাস পেয়ে থাকেন।",
@@ -7175,6 +8223,16 @@
     "footer_security_desc": "256-Bit সামরিক গ্রেড এনক্রিপশন ও সিকিউরিটি শিল্ড দ্বারা প্রতিটি রিওয়ার্ড ট্রানজেকশন সুরক্ষিত।"
   },
   "en": {
+    "countdown_label": "Today's Offer Expires In:",
+    "countdown_slots": "Only 23 slots remaining",
+    "countdown_cta": "Claim Now ➔",
+    "refer_title": "Refer a Friend & Earn Bonus Points",
+    "refer_subtitle": "Unlock ৳600 cash bonus & VIP points for every successful referral.",
+    "refer_count_label": "Total Referrals",
+    "refer_earned_label": "Points Earned",
+    "refer_your_link": "Your Unique Invite Link:",
+    "refer_copy_btn": "Copy Link",
+    "refer_share_via": "Share Directly via:",
     "hero_notice_verified": "100% Legal & Sponsored Platform",
     "hero_notice_title": "Official Notice & Reward Information",
     "hero_notice_text": "Warning & Information: Our platform is NOT a betting or gambling site. It is a 100% legal, sponsored rewards-based portal. Users receive completely free game top-ups and wallet bonuses simply by viewing sponsored videos and partner ads.",
@@ -7369,6 +8427,76 @@
       // Re-render leaderboard for the language
       if (typeof renderLeaderboard === "function" && typeof activeLeaderboardFilter !== "undefined") {
         renderLeaderboard(activeLeaderboardFilter);
+      }
+    }
+
+    
+    /**
+     * Sticky Live Countdown Timer (Ticking 14m 59s)
+     */
+    let countdownTotalSeconds = 14 * 60 + 59;
+    function initStickyCountdownTimer() {
+      const display = document.getElementById("liveCountdownDisplay");
+      if (!display) return;
+
+      function updateDisplay() {
+        const mins = Math.floor(countdownTotalSeconds / 60);
+        const secs = countdownTotalSeconds % 60;
+        const formattedSecs = secs < 10 ? `0${secs}` : `${secs}`;
+        
+        display.textContent = `${mins}m ${formattedSecs}s`;
+
+        if (countdownTotalSeconds > 0) {
+          countdownTotalSeconds--;
+        } else {
+          countdownTotalSeconds = 14 * 60 + 59;
+        }
+      }
+
+      updateDisplay();
+      setInterval(updateDisplay, 1000);
+    }
+
+    
+    /**
+     * Copy Referral Link to Clipboard with Animated Feedback
+     */
+    function copyReferralLink() {
+      const input = document.getElementById("referralLinkInput");
+      const copyBtn = document.getElementById("copyReferralBtn");
+      const copyBtnText = document.getElementById("copyBtnText");
+
+      if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999); // Mobile support
+        try {
+          navigator.clipboard.writeText(input.value);
+        } catch (err) {
+          document.execCommand("copy");
+        }
+
+        if (copyBtnText) copyBtnText.textContent = "✓ কপি হয়েছে!";
+        if (copyBtn) copyBtn.style.background = "#22C55E";
+
+        showFloatingToast("ইনভাইট লিংক ক্লিপবোর্ডে কপি হয়েছে! বন্ধুদের সাথে শেয়ার করুন।", "লিংক কপি সম্পন্ন");
+        playCelebrationChime();
+
+        setTimeout(() => {
+          if (copyBtnText) copyBtnText.textContent = "লিংক কপি করুন";
+          if (copyBtn) copyBtn.style.background = "";
+        }, 3000);
+      }
+    }
+
+    /**
+     * Generates a fresh unique invite code
+     */
+    function generateNewReferralCode() {
+      const randomCode = "CB24-REF" + Math.floor(1000 + Math.random() * 9000);
+      const input = document.getElementById("referralLinkInput");
+      if (input) {
+        input.value = `https://claimbonus24.com/?ref=${randomCode}`;
+        showFloatingToast(`নতুন ইনভাইট কোড সক্রিয়: ${randomCode}`, "নতুন কোড প্রস্তুত");
       }
     }
 
