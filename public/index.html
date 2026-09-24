@@ -617,10 +617,10 @@
     .mobile-nav-backdrop {
       position: fixed;
       inset: 0;
-      background: rgba(4, 7, 5, 0.75);
+      background: rgba(3, 6, 4, 0.78);
       backdrop-filter: blur(8px);
       -webkit-backdrop-filter: blur(8px);
-      z-index: 98;
+      z-index: 999;
       opacity: 0;
       visibility: hidden;
       pointer-events: none;
@@ -689,13 +689,13 @@
       left: 0;
       right: 0;
       width: 100%;
-      background: rgba(10, 15, 12, 0.98);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      border-bottom: 1px solid var(--border-subtle);
-      padding: 1.5rem 1.5rem 2rem;
-      z-index: 1;
-      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.88), 0 0 1px rgba(185, 243, 75, 0.2);
+      background: rgba(8, 14, 10, 0.98);
+      backdrop-filter: blur(24px);
+      -webkit-backdrop-filter: blur(24px);
+      border-bottom: 1px solid rgba(185, 243, 75, 0.22);
+      padding: 1.25rem 1.25rem 1.75rem;
+      z-index: 1001;
+      box-shadow: 0 28px 56px rgba(0, 0, 0, 0.92), 0 0 1px rgba(185, 243, 75, 0.3);
       max-height: calc(100vh - 72px);
       overflow-y: auto;
       overscroll-behavior: contain;
@@ -721,29 +721,61 @@
       display: flex;
       flex-direction: column;
       gap: 0.5rem;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
 
     .mobile-nav-link {
-      font-size: 1.05rem;
+      font-size: 1rem;
       font-weight: 600;
       color: var(--text-main);
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 0.75rem 0.75rem;
+      padding: 0.75rem 0.9rem;
       border-radius: var(--radius-sm);
-      border: 1px solid transparent;
-      transition: color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: rgba(255, 255, 255, 0.02);
+      transition: color var(--transition-fast), background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .mobile-nav-link-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .mobile-nav-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      border-radius: 6px;
+      background: rgba(185, 243, 75, 0.08);
+      color: var(--accent-primary);
+      flex-shrink: 0;
+    }
+
+    .mobile-nav-arrow {
+      color: var(--text-muted);
+      transition: transform var(--transition-fast), color var(--transition-fast);
+      flex-shrink: 0;
     }
 
     .mobile-nav-link:hover,
     .mobile-nav-link:focus-visible,
     .mobile-nav-link:active {
       color: var(--accent-primary);
-      background: rgba(185, 243, 75, 0.08);
-      border-color: rgba(185, 243, 75, 0.15);
+      background: rgba(185, 243, 75, 0.09);
+      border-color: rgba(185, 243, 75, 0.28);
       transform: translateX(4px);
+    }
+
+    .mobile-nav-link:hover .mobile-nav-arrow,
+    .mobile-nav-link:focus-visible .mobile-nav-arrow,
+    .mobile-nav-link:active .mobile-nav-arrow {
+      color: var(--accent-primary);
+      transform: translateX(2px);
     }
 
     @media (min-width: 769px) {
@@ -1035,6 +1067,56 @@
       flex-wrap: wrap;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border-subtle);
+    }
+
+    /* Small trust badge row below hero CTA */
+    .hero-trust-badges {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-top: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-trust-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(185, 243, 75, 0.18);
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: #D1DED5;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+    }
+
+    .hero-trust-badge:hover {
+      background: rgba(185, 243, 75, 0.07);
+      border-color: rgba(185, 243, 75, 0.45);
+      color: #FFFFFF;
+      transform: translateY(-1px);
+    }
+
+    .hero-trust-icon-box {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: rgba(185, 243, 75, 0.12);
+      color: var(--accent-primary);
+      flex-shrink: 0;
+    }
+
+    .hero-trust-icon-box svg {
+      width: 12px;
+      height: 12px;
     }
 
     .trust-item {
@@ -2147,7 +2229,15 @@
       font-size: 0.95rem;
       font-weight: 600;
       color: var(--text-main);
-      transition: opacity var(--transition-fast);
+      transition: opacity 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 1;
+      transform: translateY(0);
+      will-change: opacity, transform;
+    }
+
+    .live-event-text.fade-out {
+      opacity: 0;
+      transform: translateY(-4px);
     }
 
     /* ==========================================================
@@ -3379,16 +3469,17 @@
       pointer-events: none;
     }
 
-    /* Live Activity Ticker Bar */
+    /* Live Activity Ticker Bar (Live Verified Claim Banner) */
     .live-claim-ticker-bar {
-      background: rgba(10, 15, 12, 0.92);
-      border-bottom: 1px solid rgba(185, 243, 75, 0.15);
-      backdrop-filter: blur(12px);
+      background: linear-gradient(90deg, rgba(10, 15, 12, 0.96) 0%, rgba(14, 21, 17, 0.98) 50%, rgba(10, 15, 12, 0.96) 100%);
+      border-bottom: 1px solid rgba(185, 243, 75, 0.18);
+      backdrop-filter: blur(14px);
       padding: 0.45rem 0;
       font-size: 0.78rem;
       color: #E2E8F0;
       position: relative;
       z-index: 40;
+      box-shadow: inset 0 -1px 0 rgba(185, 243, 75, 0.08);
     }
 
     .ticker-container {
@@ -3399,28 +3490,58 @@
     }
 
     .ticker-badge {
-      display: flex;
+      display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 7px;
       font-weight: 700;
       font-size: 0.72rem;
       background: rgba(185, 243, 75, 0.12);
       color: var(--accent-primary);
-      padding: 0.2rem 0.6rem;
+      padding: 0.22rem 0.65rem;
       border-radius: var(--radius-pill);
-      border: 1px solid rgba(185, 243, 75, 0.25);
+      border: 1px solid rgba(185, 243, 75, 0.3);
       flex-shrink: 0;
       text-transform: uppercase;
-      letter-spacing: 0.03em;
+      letter-spacing: 0.04em;
+      box-shadow: 0 0 10px rgba(185, 243, 75, 0.1);
     }
 
     .ticker-live-dot {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
-      background: #EF4444;
-      box-shadow: 0 0 6px #EF4444;
-      animation: pulseDot 1.2s infinite;
+      background: #22C55E;
+      position: relative;
+      display: inline-block;
+      box-shadow: 0 0 8px #22C55E;
+      flex-shrink: 0;
+    }
+
+    .ticker-live-dot::before {
+      content: "";
+      position: absolute;
+      top: -3px;
+      left: -3px;
+      right: -3px;
+      bottom: -3px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.45);
+      animation: greenPulse 1.6s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    }
+
+    @keyframes greenPulse {
+      0% {
+        transform: scale(0.8);
+        opacity: 0.9;
+      }
+      50% {
+        transform: scale(1.9);
+        opacity: 0.3;
+      }
+      100% {
+        transform: scale(2.6);
+        opacity: 0;
+      }
     }
 
     .ticker-content {
@@ -3428,16 +3549,37 @@
       overflow: hidden;
       white-space: nowrap;
       text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
     }
 
     .ticker-item-animated {
-      animation: tickerFade 0.45s ease-out;
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: opacity 0.35s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+      opacity: 1;
+      transform: translateY(0);
     }
 
-    @keyframes tickerFade {
-      from { opacity: 0; transform: translateY(6px); }
-      to { opacity: 1; transform: translateY(0); }
+    .ticker-item-animated.fade-out {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+
+    .ticker-item-animated.fade-in {
+      animation: tickerSlideIn 0.38s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes tickerSlideIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .ticker-stat-summary {
@@ -3568,16 +3710,32 @@
     .mystery-module-wrapper {
       padding: 0.5rem 0 1rem;
       text-align: center;
+      width: 100%;
+      max-width: 1020px;
+      margin: 0 auto;
     }
     .mystery-header-row {
       margin-bottom: 2rem;
+      text-align: center;
+    }
+    .mystery-header-row h3 {
+      font-size: 1.6rem;
+      margin: 0.5rem 0 0.3rem;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+    .mystery-header-row p {
+      line-height: 1.6;
+      word-break: break-word;
     }
     .mystery-boxes-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 1.5rem;
+      width: 100%;
       max-width: 960px;
       margin: 0 auto;
+      align-items: stretch;
     }
     .mystery-box-card {
       background: linear-gradient(145deg, rgba(18, 30, 23, 0.9) 0%, rgba(9, 16, 12, 0.95) 100%);
@@ -3588,9 +3746,13 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
+      text-align: center;
       cursor: pointer;
       position: relative;
       overflow: hidden;
+      box-sizing: border-box;
+      width: 100%;
+      min-width: 0;
       box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
       transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.25s ease, box-shadow 0.28s ease;
     }
@@ -3616,6 +3778,10 @@
       border-radius: var(--radius-pill);
       padding: 0.25rem 0.75rem;
       margin-bottom: 1.2rem;
+      display: inline-block;
+      text-align: center;
+      line-height: 1.35;
+      white-space: nowrap;
     }
     .mystery-box-badge.featured-badge {
       background: rgba(245, 208, 97, 0.15);
@@ -3724,6 +3890,7 @@
     }
     .mystery-reward-revealed {
       margin: 0.5rem 0 1rem;
+      text-align: center;
       animation: rewardPop 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     @keyframes rewardPop {
@@ -3737,28 +3904,36 @@
       text-transform: uppercase;
       letter-spacing: 0.05em;
       margin-bottom: 0.2rem;
+      line-height: 1.35;
     }
     .revealed-amount {
       font-size: 1.85rem;
       font-weight: 800;
       color: var(--accent-primary);
       text-shadow: 0 0 16px rgba(185, 243, 75, 0.4);
-      line-height: 1.1;
+      line-height: 1.2;
     }
     .mystery-box-card.featured-mystery-box .revealed-amount {
       color: #F5D061;
       text-shadow: 0 0 16px rgba(245, 208, 97, 0.4);
     }
     .revealed-desc {
-      font-size: 0.8rem;
+      font-size: 0.82rem;
       color: #94A3B8;
       margin-top: 0.2rem;
+      line-height: 1.4;
+      word-break: break-word;
     }
     .mystery-action-btn {
       width: 100%;
+      box-sizing: border-box;
       justify-content: center;
       font-size: 0.9rem;
-      padding: 0.7rem;
+      padding: 0.75rem 1rem;
+      line-height: 1.3;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
     }
     .mystery-result-banner {
       margin-top: 2rem;
@@ -3784,12 +3959,23 @@
     @media (max-width: 768px) {
       .mystery-boxes-grid {
         grid-template-columns: 1fr;
-        max-width: 360px;
-        gap: 1.2rem;
+        max-width: 380px;
+        gap: 1.25rem;
+        margin: 0 auto;
+      }
+      .mystery-box-card {
+        padding: 1.6rem 1.2rem;
+        width: 100%;
+        max-width: 380px;
+        margin: 0 auto;
       }
       .mystery-banner-inner {
         flex-direction: column;
         text-align: center;
+      }
+      .mystery-banner-inner .btn {
+        width: 100%;
+        justify-content: center;
       }
     }
 
@@ -4355,13 +4541,23 @@
     .hero-content h1 {
       font-size: clamp(1.85rem, 4.5vw, 3.6rem);
       margin-bottom: 0.85rem;
-      line-height: 1.15;
+      line-height: 1.35;
+      letter-spacing: -0.015em;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+    .hero-content h1 .text-accent,
+    .hero-content h1 strong {
+      font-weight: 800;
+      color: var(--accent-primary);
     }
     .hero-lead {
-      font-size: 0.95rem;
-      line-height: 1.6;
+      font-size: 0.98rem;
+      line-height: 1.7;
       margin-bottom: 1.4rem;
       color: #A3B3A8;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
     .hero-cta-group {
       margin-bottom: 1.5rem;
@@ -4406,6 +4602,16 @@
         margin-right: auto;
         font-size: 0.9rem;
       }
+      .hero-trust-badges {
+        justify-content: center;
+        gap: 0.45rem;
+        margin-top: 0.75rem;
+        margin-bottom: 1.25rem;
+      }
+      .hero-trust-badge {
+        font-size: 0.72rem;
+        padding: 0.28rem 0.55rem;
+      }
       .trust-indicators {
         grid-template-columns: 1fr 1fr;
         gap: 0.5rem;
@@ -4439,7 +4645,12 @@
         display: none;
       }
       .hero-content h1 {
-        font-size: 1.8rem;
+        font-size: 1.65rem;
+        line-height: 1.4;
+      }
+      .hero-lead {
+        font-size: 0.92rem;
+        line-height: 1.65;
       }
       .glass-reward-card {
         padding: 1.2rem 1rem;
@@ -4547,13 +4758,94 @@
     <!-- Mobile Drawer Menu (Nested in sticky header for pixel-perfect positioning) -->
     <div class="mobile-nav-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="মোবাইল নেভিগেশন মেনু">
       <ul class="mobile-nav-links">
-        <li><a href="#dashboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_dashboard">ড্যাশবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#wheel" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_wheel">বোনাস হুইল</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#scratch-card" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_scratch">স্ক্র্যাচ কার্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#leaderboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_leaderboard">লিডারবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#vip-tiers" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_vip">ভিআইপি টায়ার</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#how-it-works" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_how">কীভাবে কাজ করে</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_faq">FAQ</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li>
+          <a href="#hero" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path><polyline points="9 22 9 12 15 12 15 22"></polyline></svg>
+              </span>
+              <span data-i18n="nav_home">হোম</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#dashboard" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="7" height="9" x="3" y="3" rx="1"></rect><rect width="7" height="5" x="14" y="3" rx="1"></rect><rect width="7" height="9" x="14" y="12" rx="1"></rect><rect width="7" height="5" x="3" y="16" rx="1"></rect></svg>
+              </span>
+              <span data-i18n="nav_dashboard">ড্যাশবোর্ড</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#wheel" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+              </span>
+              <span data-i18n="nav_offers">অফারসমূহ</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#scratch-card" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="18" height="14" x="3" y="5" rx="2"></rect><line x1="7" y1="12" x2="17" y2="12"></line></svg>
+              </span>
+              <span data-i18n="nav_scratch">স্ক্র্যাচ কার্ড</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#leaderboard" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"></path><path d="M4 22h16"></path><path d="M10 14.66V17c0 .55-.45 1-1 1H7c-.55 0-1-.45-1-1v-2.34"></path><path d="M18 14.66V17c0 .55-.45 1-1 1h-2c-.55 0-1-.45-1-1v-2.34"></path><path d="M12 2v20"></path></svg>
+              </span>
+              <span data-i18n="nav_leaderboard">লিডারবোর্ড</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#vip-tiers" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </span>
+              <span data-i18n="nav_vip_perks">ভিআইপি সুবিধা</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#how-it-works" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 12 12 8 12"></polyline></svg>
+              </span>
+              <span data-i18n="nav_how">কীভাবে কাজ করে</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
+        <li>
+          <a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()">
+            <span class="mobile-nav-link-left">
+              <span class="mobile-nav-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+              </span>
+              <span data-i18n="nav_support">সহায়তা</span>
+            </span>
+            <svg class="mobile-nav-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg>
+          </a>
+        </li>
       </ul>
       <!-- Mobile Language Switcher Row -->
       <div class="mobile-lang-wrap">
@@ -4577,8 +4869,8 @@
   <div class="live-claim-ticker-bar" aria-label="লাইভ রিওয়ার্ড ক্লেইম নোটিফিকেশন">
     <div class="container ticker-container">
       <div class="ticker-badge">
-        <span class="ticker-live-dot"></span>
-        <span data-i18n="ticker_badge">লাইভ ক্লেইম ফিড</span>
+        <span class="ticker-live-dot" aria-hidden="true"></span>
+        <span data-i18n="ticker_badge">লাইভ ভেরিফায়েড ক্লেইম</span>
       </div>
       <div class="ticker-content" id="liveTickerFeed">
         <span class="ticker-item-animated" id="activeTickerItem">
@@ -4613,11 +4905,10 @@
         <div class="hero-content">
           <span class="badge-live" style="margin-bottom: 1.2rem;" data-i18n="hero_badge">এক্সক্লুসিভ রিওয়ার্ড প্ল্যাটফর্ম</span>
           <h1 data-i18n="hero_title">
-            ওয়েলকাম বোনাস ও<br>
-            <span class="text-accent">প্রিমিয়াম রিওয়ার্ড</span>
+            প্রতিদিন <strong class="text-accent">ফ্রি অ্যাডস</strong> দেখে ও সহজ টাস্ক সম্পূর্ণ করে জিতে নিন <strong class="text-accent">গেম বোনাস!</strong>
           </h1>
-          <p class="hero-lead">
-            সেরা গেমিং রিওয়ার্ড, দৈনিক ক্যাশব্যাক এবং এক্সক্লুসিভ ভিআইপি সুবিধা উপভোগ করুন সরাসরি আপনার ড্যাশবোর্ড থেকে।
+          <p class="hero-lead" data-i18n="hero_lead">
+            প্রতিদিন সহজ কিছু বিজ্ঞাপন দেখে ফ্রিতে গেম ক্রেডিট ও এক্সক্লুসিভ রিওয়ার্ড সংগ্রহ করুন সরাসরি আপনার অ্যাকাউন্টে।
           </p>
           <div class="hero-cta-group">
             <button type="button" class="btn btn-primary btn-pulsing-cta" id="heroClaimBtn" onclick="handleBonusClaimAction(event)">
@@ -4631,6 +4922,37 @@
               ফিচার দেখুন
             </a>
           </div>
+
+          <!-- 3 Small Hero Trust Badges (Secure, Fast, Verified) -->
+          <div class="hero-trust-badges" aria-label="নিরাপত্তা ও বিশ্বস্ততা প্রমাণ">
+            <div class="hero-trust-badge">
+              <span class="hero-trust-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+              </span>
+              <span data-i18n="hero_badge_secure">নিরাপদ (Secure)</span>
+            </div>
+            <div class="hero-trust-badge">
+              <span class="hero-trust-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                </svg>
+              </span>
+              <span data-i18n="hero_badge_fast">দ্রুত ক্যাশআউট (Fast)</span>
+            </div>
+            <div class="hero-trust-badge">
+              <span class="hero-trust-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                  <polyline points="9 12 11 14 15 10"></polyline>
+                </svg>
+              </span>
+              <span data-i18n="hero_badge_verified">১০০% ভেরিফাইড (Verified)</span>
+            </div>
+          </div>
+
           <div class="trust-indicators">
             <div class="trust-item"><span class="trust-check">✓</span> <span data-i18n="hero_trust_1">ইনস্ট্যান্ট রিওয়ার্ড ক্রেডিট</span></div>
             <div class="trust-item"><span class="trust-check">✓</span> <span data-i18n="hero_trust_2">নিরাপদ ও ভেরিফাইড</span></div>
@@ -4706,113 +5028,7 @@
               <strong>সতর্কবার্তা ও তথ্য:</strong> আমাদের এই প্ল্যাটফর্মটি কোনো বেটিং বা জুয়ার সাইট নয়। এটি একটি সম্পূর্ণ আইনি ও স্পন্সরড রিওয়ার্ড ভিত্তিক ওয়েবসাইট। ব্যবহারকারীরা স্পন্সরড ভিডিও ও বিজ্ঞাপন দেখার মাধ্যমে সম্পূর্ণ বিনামূল্যে গেম টপ-আপ ও ওয়ালেট বোনাস পেয়ে থাকেন।
             </p>
           </div>
-        
-
-        <!-- MODULE 3: MYSTERY GIFT BOXES -->
-        <div class="game-module-view" id="gameModuleMystery" style="display: none;">
-          <div class="mystery-module-wrapper">
-            <div class="mystery-header-row">
-              <span class="badge-live" data-i18n="mystery_badge">🎁 মিস্ট্রি সারপ্রাইজ বক্স</span>
-              <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem;" data-i18n="mystery_title">যে কোনো একটি গিফট বক্স আনলক করুন</h3>
-              <p class="text-muted" style="font-size: 0.9rem; max-width: 620px; margin: 0 auto;" data-i18n="mystery_desc">
-                নিচের যেকোনো একটি গিফট বক্সে ক্লিক করে ইনস্ট্যান্ট ৳৫,০০০ থেকে ৳৫০,০০০ পর্যন্ত মেগা রিওয়ার্ড আনলক করুন।
-              </p>
-            </div>
-
-            <!-- 3 Animated Mystery Boxes Grid -->
-            <div class="mystery-boxes-grid">
-              <!-- Mystery Box 1 -->
-              <div class="mystery-box-card" id="mysteryBox1" onclick="handleMysteryBoxClick(1)">
-                <div class="mystery-box-badge">বক্স #১: গোল্ডেন বক্স</div>
-                <div class="mystery-chest-visual" id="mysteryVisual1">
-                  <div class="mystery-glow-bg"></div>
-                  <div class="mystery-chest-lid">
-                    <span class="chest-ribbon-vertical"></span>
-                    <span class="chest-bow">🎀</span>
-                  </div>
-                  <div class="mystery-chest-body">
-                    <span class="chest-lock-badge">🎁</span>
-                  </div>
-                </div>
-                <!-- Hidden Reward Revealed after click -->
-                <div class="mystery-reward-revealed" id="mysteryReward1" style="display: none;">
-                  <div class="revealed-badge">অভিনন্দন!</div>
-                  <div class="revealed-amount" id="mysteryAmount1">৳৯,৫০০</div>
-                  <div class="revealed-desc">গোল্ডেন মেগা ক্যাশ</div>
-                </div>
-                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn1">
-                  <span>বক্স ওপেন করুন</span>
-                </button>
-              </div>
-
-              <!-- Mystery Box 2 (Featured Diamond Box) -->
-              <div class="mystery-box-card featured-mystery-box" id="mysteryBox2" onclick="handleMysteryBoxClick(2)">
-                <div class="mystery-box-badge featured-badge">বক্স #২: ডায়মন্ড মেগা বক্স ⭐</div>
-                <div class="mystery-chest-visual" id="mysteryVisual2">
-                  <div class="mystery-glow-bg diamond-glow"></div>
-                  <div class="mystery-chest-lid">
-                    <span class="chest-ribbon-vertical"></span>
-                    <span class="chest-bow">💎</span>
-                  </div>
-                  <div class="mystery-chest-body">
-                    <span class="chest-lock-badge">🎁</span>
-                  </div>
-                </div>
-                <!-- Hidden Reward Revealed after click -->
-                <div class="mystery-reward-revealed" id="mysteryReward2" style="display: none;">
-                  <div class="revealed-badge">মেগা জ্যাকপট!</div>
-                  <div class="revealed-amount" id="mysteryAmount2">৳১৫,৮৫০</div>
-                  <div class="revealed-desc">ডায়মন্ড ভিআইপি ক্যাশ</div>
-                </div>
-                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn2">
-                  <span>বক্স ওপেন করুন</span>
-                </button>
-              </div>
-
-              <!-- Mystery Box 3 -->
-              <div class="mystery-box-card" id="mysteryBox3" onclick="handleMysteryBoxClick(3)">
-                <div class="mystery-box-badge">বক্স #৩: ভিআইপি বক্স</div>
-                <div class="mystery-chest-visual" id="mysteryVisual3">
-                  <div class="mystery-glow-bg"></div>
-                  <div class="mystery-chest-lid">
-                    <span class="chest-ribbon-vertical"></span>
-                    <span class="chest-bow">👑</span>
-                  </div>
-                  <div class="mystery-chest-body">
-                    <span class="chest-lock-badge">🎁</span>
-                  </div>
-                </div>
-                <!-- Hidden Reward Revealed after click -->
-                <div class="mystery-reward-revealed" id="mysteryReward3" style="display: none;">
-                  <div class="revealed-badge">অভিনন্দন!</div>
-                  <div class="revealed-amount" id="mysteryAmount3">৳১২,০০০</div>
-                  <div class="revealed-desc">ভিআইপি স্পেশাল ক্যাশ</div>
-                </div>
-                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn3">
-                  <span>বক্স ওপেন করুন</span>
-                </button>
-              </div>
-            </div>
-
-            <!-- Global Reward Summary & Claim Bar (Appears after opening) -->
-            <div class="mystery-result-banner" id="mysteryResultBanner" style="display: none;">
-              <div class="mystery-banner-inner">
-                <div class="mystery-banner-info">
-                  <span class="badge-live">🎉 রিওয়ার্ড প্রস্তুত</span>
-                  <h4 style="font-size: 1.25rem; margin: 0.2rem 0; color: #FFFFFF;" id="mysteryBannerTitle">আপনি জিতেছেন ৳১৫,৮৫০ ইনস্ট্যান্ট ক্যাশ!</h4>
-                  <p style="font-size: 0.85rem; color: #94A3B8; margin: 0;">১০০% ফ্রি ওয়ালেট বোনাস হিসেবে আপনার অ্যাকাউন্টে রিডিম করুন।</p>
-                </div>
-                <button type="button" class="btn btn-primary btn-pulsing-cta" onclick="handleBonusClaimAction(event)" style="padding: 0.85rem 1.6rem; font-size: 1rem;">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
-                    <line x1="2" y1="10" x2="22" y2="10"></line>
-                  </svg>
-                  <span data-i18n="mystery_claim_cta">Claim to Wallet (ক্লেইম করুন)</span>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div></div>
+        </div>
       </div>
     </section>
 
@@ -5202,9 +5418,114 @@
           </div>
         </div>
 
+        <!-- MODULE 3: MYSTERY GIFT BOXES -->
+        <div class="game-module-view" id="gameModuleMystery" style="display: none;">
+          <div class="mystery-module-wrapper">
+            <div class="mystery-header-row">
+              <span class="badge-live" data-i18n="mystery_badge">🎁 মিস্ট্রি সারপ্রাইজ বক্স</span>
+              <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem;" data-i18n="mystery_title">যে কোনো একটি গিফট বক্স আনলক করুন</h3>
+              <p class="text-muted" style="font-size: 0.9rem; max-width: 620px; margin: 0 auto;" data-i18n="mystery_desc">
+                নিচের যেকোনো একটি গিফট বক্সে ক্লিক করে ইনস্ট্যান্ট ৳৫,০০০ থেকে ৳৫০,০০০ পর্যন্ত মেগা রিওয়ার্ড আনলক করুন।
+              </p>
+            </div>
+
+            <!-- 3 Animated Mystery Boxes Grid -->
+            <div class="mystery-boxes-grid">
+              <!-- Mystery Box 1: Welcome Box -->
+              <div class="mystery-box-card" id="mysteryBox1" onclick="handleMysteryBoxClick(1)">
+                <div class="mystery-box-badge">ওয়েলকাম বক্স</div>
+                <div class="mystery-chest-visual" id="mysteryVisual1">
+                  <div class="mystery-glow-bg"></div>
+                  <div class="mystery-chest-lid">
+                    <span class="chest-ribbon-vertical"></span>
+                    <span class="chest-bow">🎀</span>
+                  </div>
+                  <div class="mystery-chest-body">
+                    <span class="chest-lock-badge">🎁</span>
+                  </div>
+                </div>
+                <!-- Hidden Reward Revealed after click -->
+                <div class="mystery-reward-revealed" id="mysteryReward1" style="display: none;">
+                  <div class="revealed-badge">অভিনন্দন!</div>
+                  <div class="revealed-amount" id="mysteryAmount1">৳৯,৫০০</div>
+                  <div class="revealed-desc">ওয়েলকাম মেগা ক্যাশ</div>
+                </div>
+                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn1">
+                  <span>বক্স ওপেন করুন</span>
+                </button>
+              </div>
+
+              <!-- Mystery Box 2: Diamond Box -->
+              <div class="mystery-box-card featured-mystery-box" id="mysteryBox2" onclick="handleMysteryBoxClick(2)">
+                <div class="mystery-box-badge featured-badge">ডায়মন্ড বক্স ⭐</div>
+                <div class="mystery-chest-visual" id="mysteryVisual2">
+                  <div class="mystery-glow-bg diamond-glow"></div>
+                  <div class="mystery-chest-lid">
+                    <span class="chest-ribbon-vertical"></span>
+                    <span class="chest-bow">💎</span>
+                  </div>
+                  <div class="mystery-chest-body">
+                    <span class="chest-lock-badge">🎁</span>
+                  </div>
+                </div>
+                <!-- Hidden Reward Revealed after click -->
+                <div class="mystery-reward-revealed" id="mysteryReward2" style="display: none;">
+                  <div class="revealed-badge">মেগা জ্যাকপট!</div>
+                  <div class="revealed-amount" id="mysteryAmount2">৳১৫,৮৫০</div>
+                  <div class="revealed-desc">ডায়মন্ড জ্যাকপট ক্যাশ</div>
+                </div>
+                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn2">
+                  <span>বক্স ওপেন করুন</span>
+                </button>
+              </div>
+
+              <!-- Mystery Box 3: VIP Box -->
+              <div class="mystery-box-card" id="mysteryBox3" onclick="handleMysteryBoxClick(3)">
+                <div class="mystery-box-badge">ভিআইপি বক্স</div>
+                <div class="mystery-chest-visual" id="mysteryVisual3">
+                  <div class="mystery-glow-bg"></div>
+                  <div class="mystery-chest-lid">
+                    <span class="chest-ribbon-vertical"></span>
+                    <span class="chest-bow">👑</span>
+                  </div>
+                  <div class="mystery-chest-body">
+                    <span class="chest-lock-badge">🎁</span>
+                  </div>
+                </div>
+                <!-- Hidden Reward Revealed after click -->
+                <div class="mystery-reward-revealed" id="mysteryReward3" style="display: none;">
+                  <div class="revealed-badge">অভিনন্দন!</div>
+                  <div class="revealed-amount" id="mysteryAmount3">৳১২,০০০</div>
+                  <div class="revealed-desc">ভিআইপি স্পেশাল ক্যাশ</div>
+                </div>
+                <button type="button" class="btn btn-primary mystery-action-btn" id="mysteryBtn3">
+                  <span>বক্স ওপেন করুন</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- Global Reward Summary & Claim Bar (Appears after opening) -->
+            <div class="mystery-result-banner" id="mysteryResultBanner" style="display: none;">
+              <div class="mystery-banner-inner">
+                <div class="mystery-banner-info">
+                  <span class="badge-live">🎉 রিওয়ার্ড প্রস্তুত</span>
+                  <h4 style="font-size: 1.25rem; margin: 0.2rem 0; color: #FFFFFF;" id="mysteryBannerTitle">আপনি জিতেছেন ৳১৫,৮৫০ ইনস্ট্যান্ট ক্যাশ!</h4>
+                  <p style="font-size: 0.85rem; color: #94A3B8; margin: 0;">১০০% ফ্রি ওয়ালেট বোনাস হিসেবে আপনার অ্যাকাউন্টে রিডিম করুন।</p>
+                </div>
+                <button type="button" class="btn btn-primary btn-pulsing-cta" onclick="handleBonusClaimAction(event)" style="padding: 0.85rem 1.6rem; font-size: 1rem;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+                    <line x1="2" y1="10" x2="22" y2="10"></line>
+                  </svg>
+                  <span data-i18n="mystery_claim_cta">Claim to Wallet (ক্লেইম করুন)</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div>
     </section>
-
 
     <!-- ==========================================================
          FEATURES SECTION
@@ -7400,6 +7721,86 @@
       }
     }
 
+    /* ==========================================================
+       MOBILE NAVIGATION MENU TOGGLE & BACKDROP CONTROLLER
+       ========================================================== */
+    function toggleMobileMenu() {
+      const drawer = document.getElementById("mobileDrawer");
+      const backdrop = document.getElementById("mobileNavBackdrop");
+      const toggleBtn = document.getElementById("mobileMenuToggle");
+      if (!drawer) return;
+
+      const isOpen = drawer.classList.contains("open");
+      if (isOpen) {
+        closeMobileMenu();
+      } else {
+        openMobileMenu();
+      }
+    }
+
+    function openMobileMenu() {
+      const drawer = document.getElementById("mobileDrawer");
+      const backdrop = document.getElementById("mobileNavBackdrop");
+      const toggleBtn = document.getElementById("mobileMenuToggle");
+
+      if (drawer) drawer.classList.add("open");
+      if (backdrop) backdrop.classList.add("active");
+      if (toggleBtn) {
+        toggleBtn.classList.add("active");
+        toggleBtn.setAttribute("aria-expanded", "true");
+      }
+      document.body.classList.add("mobile-menu-open");
+    }
+
+    function closeMobileMenu() {
+      const drawer = document.getElementById("mobileDrawer");
+      const backdrop = document.getElementById("mobileNavBackdrop");
+      const toggleBtn = document.getElementById("mobileMenuToggle");
+
+      if (drawer) drawer.classList.remove("open");
+      if (backdrop) backdrop.classList.remove("active");
+      if (toggleBtn) {
+        toggleBtn.classList.remove("active");
+        toggleBtn.setAttribute("aria-expanded", "false");
+      }
+      document.body.classList.remove("mobile-menu-open");
+    }
+
+    function initMobileMenu() {
+      const toggleBtn = document.getElementById("mobileMenuToggle");
+      const backdrop = document.getElementById("mobileNavBackdrop");
+      const drawer = document.getElementById("mobileDrawer");
+
+      if (toggleBtn) {
+        toggleBtn.onclick = function(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          toggleMobileMenu();
+        };
+      }
+
+      if (backdrop) {
+        backdrop.onclick = function(e) {
+          e.preventDefault();
+          closeMobileMenu();
+        };
+      }
+
+      // Close menu when clicking outside or pressing Escape key
+      document.addEventListener("keydown", function(e) {
+        if (e.key === "Escape") {
+          closeMobileMenu();
+        }
+      });
+
+      // Auto close if window is resized beyond mobile viewport
+      window.addEventListener("resize", function() {
+        if (window.innerWidth > 768) {
+          closeMobileMenu();
+        }
+      });
+    }
+
     /**
      * Primary action button inside error modal:
      * - Takes user to Step 1 (if verification failed) or Step 2 (if share incomplete / server retry)
@@ -7745,34 +8146,84 @@
     /* ==========================================================
        REALISTIC LIVE-ACTIVITY FEEDS & FLOATING CLAIM TOAST
        ========================================================== */
-    const liveVerifiedClaims = [
-      { phone: "017*****92", amountBn: "৳৭,৫০০", amountEn: "৳7,500", method: "bKash", timeBn: "১ সেকেন্ড আগে", timeEn: "1s ago" },
-      { phone: "019*****43", amountBn: "৳১২,০০০", amountEn: "৳12,000", method: "Nagad", timeBn: "৫ সেকেন্ড আগে", timeEn: "5s ago" },
-      { phone: "018*****77", amountBn: "৳৩,৮৫০", amountEn: "৳3,850", method: "Rocket", timeBn: "৯ সেকেন্ড আগে", timeEn: "9s ago" },
-      { phone: "016*****15", amountBn: "৳২৫,০০০", amountEn: "৳25,000", method: "VIP Wallet", timeBn: "১৪ সেকেন্ড আগে", timeEn: "14s ago" },
-      { phone: "013*****62", amountBn: "৳৬,৫০০", amountEn: "৳6,500", method: "Nagad", timeBn: "১৮ সেকেন্ড আগে", timeEn: "18s ago" },
-      { phone: "018*****99", amountBn: "৳১৮,২০০", amountEn: "৳18,200", method: "bKash Instant", timeBn: "২২ সেকেন্ড আগে", timeEn: "22s ago" }
-    ];
+    const BANGLADESH_PHONE_PREFIXES = ['017', '018', '019', '013', '014', '015', '016'];
+    const REWARD_AMOUNTS_BDT = [1500, 2500, 5000, 7500, 10000];
+    const PAYMENT_METHODS = ['bKash', 'Nagad', 'Rocket'];
 
-    let currentClaimIndex = 0;
-    let tickerInterval = null;
+    /**
+     * Helper to convert English digits to Bengali numerals
+     */
+    function toBengaliNumerals(num) {
+      const bnDigits = ['০', '১', '২', '৩', '৪', '৫', '৬', '৭', '৮', '৯'];
+      return String(num).replace(/[0-9]/g, d => bnDigits[parseInt(d, 10)]);
+    }
+
+    /**
+     * Generates a realistic live claim payload matching all requirements
+     */
+    function generateDynamicLiveClaim() {
+      // 1. Phone number: Prefix + '*****' + 2 random digits
+      const prefix = BANGLADESH_PHONE_PREFIXES[Math.floor(Math.random() * BANGLADESH_PHONE_PREFIXES.length)];
+      const lastTwoDigits = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+      const phone = `${prefix}*****${lastTwoDigits}`;
+
+      // 2. Random reward amount in BDT (৳1,500, ৳2,500, ৳5,000, ৳7,500, ৳10,000)
+      const amountVal = REWARD_AMOUNTS_BDT[Math.floor(Math.random() * REWARD_AMOUNTS_BDT.length)];
+      const amountEn = `৳${amountVal.toLocaleString('en-US')}`;
+      const amountBn = `৳${toBengaliNumerals(amountVal.toLocaleString('en-US'))}`;
+
+      // 3. Random payment method ('bKash', 'Nagad', 'Rocket')
+      const method = PAYMENT_METHODS[Math.floor(Math.random() * PAYMENT_METHODS.length)];
+
+      // 4. Dynamic time counter: 'X seconds ago' (random integer between 2 and 15 seconds)
+      const secondsAgo = Math.floor(Math.random() * 14) + 2; // 2 to 15
+      const timeEn = `${secondsAgo} seconds ago`;
+      const timeBn = `${toBengaliNumerals(secondsAgo)} সেকেন্ড আগে`;
+
+      return {
+        phone,
+        amountVal,
+        amountEn,
+        amountBn,
+        method,
+        secondsAgo,
+        timeEn,
+        timeBn
+      };
+    }
+
+    let tickerTimeoutId = null;
     let toastInterval = null;
 
+    /**
+     * Rotates the Live Verified Claim Notification Banner
+     * Applies subtle fade-out / fade-in transition and schedules next update in 4 to 8 seconds
+     */
     function rotateLiveTicker() {
       const tickerItem = document.getElementById("activeTickerItem");
       if (!tickerItem) return;
 
-      currentClaimIndex = (currentClaimIndex + 1) % liveVerifiedClaims.length;
-      const claim = liveVerifiedClaims[currentClaimIndex];
+      const claim = generateDynamicLiveClaim();
       const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
       const amt = isEn ? claim.amountEn : claim.amountBn;
       const timeStr = isEn ? claim.timeEn : claim.timeBn;
       const actionStr = isEn ? "just claimed" : "ক্লেইম করেছেন";
+      const viaStr = isEn ? "via" : "মারফত";
 
-      tickerItem.classList.remove("ticker-item-animated");
-      void tickerItem.offsetWidth; // Trigger reflow
-      tickerItem.innerHTML = `<strong class="text-accent">${claim.phone}</strong> ${actionStr} <strong class="text-gold">${amt}</strong> via ${claim.method} <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${timeStr})</span>`;
-      tickerItem.classList.add("ticker-item-animated");
+      // 1. Trigger subtle fade-out animation
+      tickerItem.classList.remove("fade-in");
+      tickerItem.classList.add("fade-out");
+
+      // 2. After fade-out transition finishes (260ms), update content and trigger fade-in
+      setTimeout(() => {
+        tickerItem.innerHTML = `<strong class="text-accent" style="font-weight: 700;">${claim.phone}</strong> <span>${actionStr}</span> <strong class="text-gold" style="font-weight: 700;">${amt}</strong> <span style="color: #94A3B8;">${viaStr}</span> <span class="badge-payment-method" style="background: rgba(185, 243, 75, 0.15); color: #B9F34B; padding: 1px 7px; border-radius: 9999px; font-size: 0.72rem; font-weight: 600;">${claim.method}</span> <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${timeStr})</span>`;
+        tickerItem.classList.remove("fade-out");
+        tickerItem.classList.add("fade-in");
+      }, 260);
+
+      // 3. Schedule next rotation after a randomized 4 to 8 seconds interval (4000ms - 8000ms)
+      const nextIntervalMs = Math.floor(Math.random() * 4001) + 4000;
+      tickerTimeoutId = setTimeout(rotateLiveTicker, nextIntervalMs);
     }
 
     function showFloatingToast(customTitle, customMethod) {
@@ -7784,10 +8235,10 @@
       if (customTitle) {
         title.innerText = customTitle;
       } else {
-        const claim = liveVerifiedClaims[Math.floor(Math.random() * liveVerifiedClaims.length)];
+        const claim = generateDynamicLiveClaim();
         const amt = isEn ? claim.amountEn : claim.amountBn;
         const actionStr = isEn ? "just claimed" : "ক্লেইম করেছেন";
-        title.innerText = `${claim.phone} ${actionStr} ${amt}`;
+        title.innerText = `${claim.phone} ${actionStr} ${amt} (${claim.method})`;
       }
 
       toast.classList.add("visible");
@@ -8122,24 +8573,32 @@
     "brand_tagline": "অফিসিয়াল রিওয়ার্ড প্ল্যাটফর্ম",
     "ssl_title": "256-BIT SSL ENCRYPTED",
     "ssl_sub": "100% সুরক্ষিত গেমিং প্ল্যাটফর্ম",
+    "nav_home": "হোম",
     "nav_dashboard": "ড্যাশবোর্ড",
+    "nav_offers": "অফারসমূহ",
     "nav_wheel": "বোনাস হুইল",
     "nav_scratch": "স্ক্র্যাচ কার্ড",
     "nav_leaderboard": "লিডারবোর্ড",
     "nav_vip": "ভিআইপি টায়ার",
+    "nav_vip_perks": "ভিআইপি সুবিধা",
     "nav_how": "কীভাবে কাজ করে",
     "nav_faq": "FAQ",
+    "nav_support": "সহায়তা",
     "nav_claim_btn": "বোনাস ক্লেইম করুন",
     "mobile_lang_label": "ভাষা পরিবর্তন (Language):",
-    "ticker_badge": "লাইভ ভেরিফাইড ক্লেইম",
+    "ticker_badge": "লাইভ ভেরিফায়েড ক্লেইম",
     "hero_badge": "অফিসিয়াল রিওয়ার্ড পোর্টাল ২০২৬",
-    "hero_title": "প্রতি ক্লিকে নিশ্চিত বোনাস, তাত্ক্ষণিক রিওয়ার্ড উপভোগ করুন",
+    "hero_title": "প্রতিদিন <strong class=\"text-accent\">ফ্রি অ্যাডস</strong> দেখে ও সহজ টাস্ক সম্পূর্ণ করে জিতে নিন <strong class=\"text-accent\">গেম বোনাস!</strong>",
+    "hero_lead": "প্রতিদিন সহজ কিছু বিজ্ঞাপন দেখে ফ্রিতে গেম ক্রেডিট ও এক্সক্লুসিভ রিওয়ার্ড সংগ্রহ করুন সরাসরি আপনার অ্যাকাউন্টে।",
     "hero_claim_btn": "এখনই বোনাস ক্লেইম করুন",
     "hero_explore_btn": "লাকি হুইল স্পিন করুন",
     "hero_trust_1": "ইনস্ট্যান্ট রিওয়ার্ড ক্রেডিট",
     "hero_trust_2": "নিরাপদ ও ভেরিফাইড",
     "hero_trust_3": "দৈনিক ফ্রি স্পিন সুবিধা",
     "hero_trust_4": "২৪/৭ সার্বক্ষণিক সহায়তা",
+    "hero_badge_secure": "নিরাপদ (Secure)",
+    "hero_badge_fast": "দ্রুত ক্যাশআউট (Fast)",
+    "hero_badge_verified": "১০০% ভেরিফাইড (Verified)",
     "hero_card_title": "ওয়েলকাম বোনাস",
     "hero_card_sub": "ভিআইপি রিওয়ার্ড স্ট্যাটাস",
     "hero_card_progress": "বোনাস আনলক প্রগ্রেস",
@@ -8275,24 +8734,32 @@
     "brand_tagline": "Official Rewards Platform",
     "ssl_title": "256-BIT SSL ENCRYPTED",
     "ssl_sub": "100% Secured Gaming Platform",
+    "nav_home": "Home",
     "nav_dashboard": "Dashboard",
+    "nav_offers": "Offers",
     "nav_wheel": "Lucky Wheel",
     "nav_scratch": "Scratch Card",
     "nav_leaderboard": "Leaderboard",
     "nav_vip": "VIP Tiers",
+    "nav_vip_perks": "VIP Perks",
     "nav_how": "How It Works",
     "nav_faq": "FAQ",
+    "nav_support": "Support",
     "nav_claim_btn": "Claim Bonus",
     "mobile_lang_label": "Change Language:",
     "ticker_badge": "LIVE VERIFIED CLAIMS",
     "hero_badge": "Official Reward Portal 2026",
-    "hero_title": "Guaranteed Bonus on Every Action, Enjoy Instant Payouts",
+    "hero_title": "Watch <strong class=\"text-accent\">Free Ads</strong> & Complete Simple Tasks to Win <strong class=\"text-accent\">Game Bonuses!</strong>",
+    "hero_lead": "Watch simple advertisements every day to collect free game credits and exclusive rewards directly into your account.",
     "hero_claim_btn": "Claim Bonus Now",
     "hero_explore_btn": "Spin Lucky Wheel",
     "hero_trust_1": "Instant Reward Credits",
     "hero_trust_2": "Safe & 100% Verified",
     "hero_trust_3": "Daily Free Lucky Spins",
     "hero_trust_4": "24/7 Priority Support",
+    "hero_badge_secure": "Secure & Protected",
+    "hero_badge_fast": "Instant Cashout (Fast)",
+    "hero_badge_verified": "100% Verified Portal",
     "hero_card_title": "Welcome Bonus",
     "hero_card_sub": "VIP Reward Status",
     "hero_card_progress": "Bonus Unlock Progress",
@@ -8690,7 +9157,124 @@
       }
     }
 
+    /* ==========================================================
+       DYNAMIC LIVE WINNER FEED ROTATOR
+       ========================================================== */
+    const LIVE_FEED_USERS_BN = [
+      'আয়ান আর.',
+      'তানভীর এইচ.',
+      'মেহেদী হাসান',
+      'আরিফ হোসেন',
+      'রাকিবুল ইসলাম',
+      'সাকিব চৌধুরী',
+      'তাহমিদ করিম',
+      'নুসরাত জাহান',
+      'ফারহান আহমেদ',
+      'মাহমুদুল হাসান',
+      'ইমরান নাজির',
+      'শাহরিয়ার শুভ'
+    ];
+
+    const LIVE_FEED_USERS_EN = [
+      'Ayan R.',
+      'Tanvir H.',
+      'Mehedi Hasan',
+      'Arif Hossain',
+      'Rakibul Islam',
+      'Sakib Chowdhury',
+      'Tahmid Karim',
+      'Nusrat Jahan',
+      'Farhan Ahmed',
+      'Mahmudul Hasan',
+      'Imran Nazir',
+      'Shahriar Shuvo'
+    ];
+
+    const LIVE_FEED_AMOUNTS_BN = [
+      '৳১,২০০',
+      '৳১,৮৫০',
+      '৳২,৪০০',
+      '৳৩,২৪০',
+      '৳৩,৯৫০',
+      '৳৪,৫০০',
+      '৳৫,৫০০',
+      '৳৬,৭০০',
+      '৳৮,৪০০',
+      '৳১০,২০০'
+    ];
+
+    const LIVE_FEED_AMOUNTS_EN = [
+      '৳1,200',
+      '৳1,850',
+      '৳2,400',
+      '৳3,240',
+      '৳3,950',
+      '৳4,500',
+      '৳5,500',
+      '৳6,700',
+      '৳8,400',
+      '৳10,200'
+    ];
+
+    let liveActivityTimer = null;
+    let lastUserIndex = -1;
+    let lastAmountIndex = -1;
+
+    function getNextRandomIndex(arrayLength, lastIdx) {
+      if (arrayLength <= 1) return 0;
+      let nextIdx;
+      do {
+        nextIdx = Math.floor(Math.random() * arrayLength);
+      } while (nextIdx === lastIdx);
+      return nextIdx;
+    }
+
+    function updateLiveActivityText() {
+      const feedEl = document.getElementById('liveActivityText');
+      if (!feedEl) return;
+
+      const isEn = (typeof currentAppLanguage !== 'undefined' && currentAppLanguage === 'en');
+      const users = isEn ? LIVE_FEED_USERS_EN : LIVE_FEED_USERS_BN;
+      const amounts = isEn ? LIVE_FEED_AMOUNTS_EN : LIVE_FEED_AMOUNTS_BN;
+
+      lastUserIndex = getNextRandomIndex(users.length, lastUserIndex);
+      lastAmountIndex = getNextRandomIndex(amounts.length, lastAmountIndex);
+
+      const user = users[lastUserIndex];
+      const amount = amounts[lastAmountIndex];
+
+      // Smooth opacity fade out
+      feedEl.classList.add('fade-out');
+
+      setTimeout(() => {
+        if (isEn) {
+          feedEl.innerHTML = `<strong>${user}</strong> just completed claiming a <strong>${amount}</strong> reward`;
+        } else {
+          feedEl.innerHTML = `<strong>${user}</strong> এইমাত্র <strong>${amount}</strong> রিওয়ার্ড ক্লেইম সম্পন্ন করেছেন`;
+        }
+        // Smooth opacity fade in
+        feedEl.classList.remove('fade-out');
+      }, 350);
+    }
+
+    function scheduleNextLiveActivity() {
+      if (liveActivityTimer) clearTimeout(liveActivityTimer);
+      // Random interval between 3000ms and 6000ms (3 to 6 seconds)
+      const nextDelay = Math.floor(Math.random() * 3000) + 3000;
+      liveActivityTimer = setTimeout(() => {
+        updateLiveActivityText();
+        scheduleNextLiveActivity();
+      }, nextDelay);
+    }
+
+    function initLiveActivityRotator() {
+      const feedEl = document.getElementById('liveActivityText');
+      if (!feedEl) return;
+      scheduleNextLiveActivity();
+    }
+
     function initApp() {
+      initMobileMenu();
       initReferralSystem();
       initAdSlots();
       setAppLanguage(currentAppLanguage);
@@ -8704,9 +9288,9 @@
       initVipScroll();
       initScratchCard();
 
-      // Start live ticker feed rotation every 3.5s
-      if (!tickerInterval) {
-        tickerInterval = setInterval(rotateLiveTicker, 3500);
+      // Start live verified claim ticker feed rotation with randomized 4-8s timer
+      if (!tickerTimeoutId) {
+        rotateLiveTicker();
       }
 
       // Start floating verified claim toast every 7s
