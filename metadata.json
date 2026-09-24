@@ -1,0 +1,8 @@
+{
+  "name": "Remix BetBonus — Premium Rewards Demo",
+  "description": "Explore a premium rewards interface through an educational simulation. No real money, deposits or withdrawals.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
