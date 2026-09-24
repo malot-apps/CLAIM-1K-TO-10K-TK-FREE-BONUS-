@@ -1489,10 +1489,8 @@
     .referral-header-row {
       display: flex;
       align-items: center;
-      justify-content: space-between;
       gap: 1rem;
-      flex-wrap: wrap;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
       border-bottom: 1px solid rgba(255, 255, 255, 0.08);
       padding-bottom: 1rem;
     }
@@ -2257,7 +2255,7 @@
       display: flex;
       flex-direction: column;
       gap: 1rem;
-      transition: all var(--transition-normal);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-normal);
       position: relative;
     }
 
@@ -2277,6 +2275,11 @@
       align-items: center;
       justify-content: center;
       color: var(--accent-primary);
+      transition: transform var(--transition-normal);
+    }
+
+    .feature-card:hover .feature-icon-wrap {
+      transform: scale(1.08) rotate(3deg);
     }
 
     .feature-title {
@@ -2289,6 +2292,69 @@
       font-size: 0.88rem;
       color: var(--text-muted);
       line-height: 1.6;
+    }
+
+    /* Scroll Entrance Animations (Intersection Observer) */
+    .reveal-on-scroll {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  border-color var(--transition-fast),
+                  box-shadow var(--transition-fast);
+      will-change: opacity, transform;
+    }
+
+    .reveal-on-scroll.is-revealed {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-on-scroll.is-revealed:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Staggered Transitions for Features Grid */
+    .features-grid .feature-card.reveal-on-scroll:nth-child(1) { transition-delay: 0.04s; }
+    .features-grid .feature-card.reveal-on-scroll:nth-child(2) { transition-delay: 0.14s; }
+    .features-grid .feature-card.reveal-on-scroll:nth-child(3) { transition-delay: 0.24s; }
+    .features-grid .feature-card.reveal-on-scroll:nth-child(4) { transition-delay: 0.34s; }
+
+    /* Staggered Transitions for Timeline Grid */
+    .timeline-grid .timeline-step.reveal-on-scroll:nth-child(1) { transition-delay: 0.04s; }
+    .timeline-grid .timeline-step.reveal-on-scroll:nth-child(2) { transition-delay: 0.14s; }
+    .timeline-grid .timeline-step.reveal-on-scroll:nth-child(3) { transition-delay: 0.24s; }
+    .timeline-grid .timeline-step.reveal-on-scroll:nth-child(4) { transition-delay: 0.34s; }
+
+    /* Pop entrance animation for icons & step numbers when revealed */
+    .feature-card.is-revealed .feature-icon-wrap {
+      animation: featureIconPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    .timeline-step.is-revealed .step-number {
+      animation: stepNumberPop 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+    }
+
+    @keyframes featureIconPop {
+      0% { transform: scale(0.7) rotate(-6deg); opacity: 0.4; }
+      100% { transform: scale(1) rotate(0deg); opacity: 1; }
+    }
+
+    @keyframes stepNumberPop {
+      0% { transform: scale(0.6) translateY(6px); opacity: 0.2; }
+      100% { transform: scale(1) translateY(0); opacity: 0.7; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal-on-scroll {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+      .feature-card.is-revealed .feature-icon-wrap,
+      .timeline-step.is-revealed .step-number {
+        animation: none !important;
+      }
     }
 
     /* ==========================================================
@@ -2647,6 +2713,13 @@
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast), transform var(--transition-normal);
+    }
+
+    .timeline-step:hover {
+      border-color: var(--accent-primary);
+      transform: translateY(-5px);
+      box-shadow: 0 16px 32px rgba(0, 0, 0, 0.4), 0 0 20px rgba(185, 243, 75, 0.08);
     }
 
     .step-number {
@@ -4671,7 +4744,7 @@
       <div class="countdown-bar-left">
         <span class="countdown-fire-icon" aria-hidden="true">🔥</span>
         <span class="countdown-label" data-i18n="countdown_label">আজকের অফার শেষ হতে বাকি:</span>
-        <span class="countdown-timer-digits" id="liveCountdownDisplay">14m 59s</span>
+        <span class="countdown-timer-digits" id="timer-display">14m 59s</span>
       </div>
       <div class="countdown-bar-right">
         <span class="countdown-slots-pill">
@@ -5141,17 +5214,7 @@
               </div>
               <div>
                 <h3 style="font-size: 1.25rem; font-weight: 800; color: #FFFFFF; margin: 0;" data-i18n="refer_title">রেফার করুন এবং বোনাস পয়েন্ট জিতুন</h3>
-                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0.2rem 0 0;" data-i18n="refer_subtitle">প্রতিটি সফল রেফারে ৳৬০০ ক্যাশ বোনাস ও ভিআইপি পয়েন্ট আনলক করুন।</p>
-              </div>
-            </div>
-            <div class="referral-stats-pill-group">
-              <div class="referral-stat-pill">
-                <span class="referral-stat-label" data-i18n="refer_count_label">মোট রেফারেল</span>
-                <span class="referral-stat-val" id="userReferralCount">৬ জন</span>
-              </div>
-              <div class="referral-stat-pill">
-                <span class="referral-stat-label" data-i18n="refer_earned_label">অর্জিত পয়েন্ট</span>
-                <span class="referral-stat-val text-accent" id="userReferralEarnings">৳৩,৬০০</span>
+                <p style="font-size: 0.85rem; color: #94A3B8; margin: 0.25rem 0 0;" data-i18n="refer_subtitle">প্রতিটি সফল রেফারে ৳৬০০ ক্যাশ বোনাস ও ভিআইপি পয়েন্ট আনলক করুন।</p>
               </div>
             </div>
           </div>
@@ -5532,7 +5595,7 @@
          ========================================================== -->
     <section class="section-spacing" id="features">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-eyebrow" data-i18n="features_eyebrow">প্রিমিয়াম প্ল্যাটফর্ম</span>
           <h2 class="section-title" data-i18n="features_title">প্ল্যাটফর্মের প্রধান সুবিধাসমূহ</h2>
           <p class="section-subtitle" data-i18n="features_subtitle">আধুনিক গেমিং এবং প্রিমিয়াম রিওয়ার্ড সিস্টেমের অতুলনীয় সুবিধা।</p>
@@ -5540,7 +5603,7 @@
 
         <div class="features-grid">
           <!-- Feature 1 -->
-          <div class="feature-card">
+          <div class="feature-card reveal-on-scroll">
             <div class="feature-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <circle cx="12" cy="12" r="10"></circle>
@@ -5552,7 +5615,7 @@
           </div>
 
           <!-- Feature 2 -->
-          <div class="feature-card">
+          <div class="feature-card reveal-on-scroll">
             <div class="feature-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
@@ -5565,7 +5628,7 @@
           </div>
 
           <!-- Feature 3 -->
-          <div class="feature-card">
+          <div class="feature-card reveal-on-scroll">
             <div class="feature-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"></path>
@@ -5580,7 +5643,7 @@
           </div>
 
           <!-- Feature 4 -->
-          <div class="feature-card">
+          <div class="feature-card reveal-on-scroll">
             <div class="feature-icon-wrap">
               <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect>
@@ -5876,7 +5939,7 @@
          ========================================================== -->
     <section class="section-spacing" id="how-it-works">
       <div class="container">
-        <div class="section-header">
+        <div class="section-header reveal-on-scroll">
           <span class="section-eyebrow" data-i18n="how_eyebrow">সহজ গাইডলাইন</span>
           <h2 class="section-title" data-i18n="how_title">কীভাবে শুরু করবেন</h2>
           <p class="section-subtitle" data-i18n="how_subtitle">মাত্র ৪টি সহজ ধাপে আপনার রিওয়ার্ড ক্লেইম করুন ও উপভোগ করুন।</p>
@@ -5884,28 +5947,28 @@
 
         <div class="timeline-grid">
           <!-- Step 1 -->
-          <div class="timeline-step">
+          <div class="timeline-step reveal-on-scroll">
             <span class="step-number">01</span>
             <h3 class="step-title" data-i18n="how_step1_title">অ্যাকাউন্ট আইডি দিন</h3>
             <p class="step-desc" data-i18n="how_step1_desc">আপনার ইউজারনেম বা আইডি দিয়ে তাৎক্ষণিকভাবে লগইন ও সেশন শুরু করুন।</p>
           </div>
 
           <!-- Step 2 -->
-          <div class="timeline-step">
+          <div class="timeline-step reveal-on-scroll">
             <span class="step-number">02</span>
             <h3 class="step-title" data-i18n="how_step2_title">বোনাস অফার পছন্দ করুন</h3>
             <p class="step-desc" data-i18n="how_step2_desc">ওয়েলকাম বোনাস, দৈনিক ক্যাশব্যাক এবং ভিআইপি অফারের শর্তাবলী যাচাই করুন।</p>
           </div>
 
           <!-- Step 3 -->
-          <div class="timeline-step">
+          <div class="timeline-step reveal-on-scroll">
             <span class="step-number">03</span>
             <h3 class="step-title" data-i18n="how_step3_title">হুইল ঘুরিয়ে স্পিন করুন</h3>
             <p class="step-desc">স্মুথ ফিজিক্স অ্যানিমেশনযুক্ত লাকি হুইল ঘুরিয়ে আকর্ষণীয় রিওয়ার্ড জিতে নিন।</p>
           </div>
 
           <!-- Step 4 -->
-          <div class="timeline-step">
+          <div class="timeline-step reveal-on-scroll">
             <span class="step-number">04</span>
             <h3 class="step-title">ইনস্ট্যান্ট রিওয়ার্ড ক্লেইম</h3>
             <p class="step-desc">অর্জিত বোনাস সরাসরি আপনার অ্যাকাউন্টে যুক্ত করে ড্যাশবোর্ডে ট্র্যাক করুন।</p>
@@ -5966,7 +6029,7 @@
             <div class="live-indicator-dot"></div>
             <div>
               <span class="live-title">লাইভ উইনার ফিড</span>
-              <div class="live-event-text" id="liveActivityText">আয়ান আর. এইমাত্র ৳৩,২৪০ রিওয়ার্ড ক্লেইম সম্পন্ন করেছেন</div>
+              <div class="live-event-text" id="liveActivityText"><strong id="winner-name">017*****92</strong> এইমাত্র <strong id="winner-amount" style="color: #FACC15;">৳৩,২৪০</strong> রিওয়ার্ড ক্লেইম সম্পন্ন করেছেন (bKash · ২ সেকেন্ড আগে)</div>
             </div>
           </div>
           <span class="badge-live">লাইভ ফিড</span>
@@ -6459,7 +6522,7 @@
   </div>
 
   <!-- Floating Verified Claim Toast Notification -->
-  <div class="floating-claim-toast" id="floatingClaimToast" onclick="handleBonusClaimAction(event)">
+  <div class="floating-claim-toast" id="live-claim-toast" onclick="handleBonusClaimAction(event)">
     <div class="toast-icon-box">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
@@ -6468,7 +6531,7 @@
     </div>
     <div class="toast-text-group">
       <div class="toast-title" id="toastTitle">017*****92 just claimed ৳7,500</div>
-      <div class="toast-subtitle"><span style="color: #22C55E; font-weight: 700;">✓ যাচাইকৃত রিওয়ার্ড</span> · bKash Instant (২ সেকেন্ড আগে)</div>
+      <div class="toast-subtitle" id="toastSubtitle"><span style="color: #22C55E; font-weight: 700;">✓ যাচাইকৃত রিওয়ার্ড</span> · bKash Instant (২ সেকেন্ড আগে)</div>
     </div>
     <button type="button" class="toast-close" onclick="event.stopPropagation(); dismissToast();" aria-label="Dismiss">&times;</button>
   </div>
@@ -8147,7 +8210,7 @@
        REALISTIC LIVE-ACTIVITY FEEDS & FLOATING CLAIM TOAST
        ========================================================== */
     const BANGLADESH_PHONE_PREFIXES = ['017', '018', '019', '013', '014', '015', '016'];
-    const REWARD_AMOUNTS_BDT = [1500, 2500, 5000, 7500, 10000];
+    const REWARD_AMOUNTS_BDT = [1500, 2400, 3240, 4500, 5200, 6800, 7500, 8400, 9500, 10000];
     const PAYMENT_METHODS = ['bKash', 'Nagad', 'Rocket'];
 
     /**
@@ -8167,7 +8230,7 @@
       const lastTwoDigits = String(Math.floor(Math.random() * 100)).padStart(2, '0');
       const phone = `${prefix}*****${lastTwoDigits}`;
 
-      // 2. Random reward amount in BDT (৳1,500, ৳2,500, ৳5,000, ৳7,500, ৳10,000)
+      // 2. Random reward amount in BDT (৳1,500 to ৳10,000)
       const amountVal = REWARD_AMOUNTS_BDT[Math.floor(Math.random() * REWARD_AMOUNTS_BDT.length)];
       const amountEn = `৳${amountVal.toLocaleString('en-US')}`;
       const amountBn = `৳${toBengaliNumerals(amountVal.toLocaleString('en-US'))}`;
@@ -8175,8 +8238,8 @@
       // 3. Random payment method ('bKash', 'Nagad', 'Rocket')
       const method = PAYMENT_METHODS[Math.floor(Math.random() * PAYMENT_METHODS.length)];
 
-      // 4. Dynamic time counter: 'X seconds ago' (random integer between 2 and 15 seconds)
-      const secondsAgo = Math.floor(Math.random() * 14) + 2; // 2 to 15
+      // 4. Dynamic time counter: 'X seconds ago' (random integer between 1 and 15 seconds)
+      const secondsAgo = Math.floor(Math.random() * 14) + 1; // 1 to 15
       const timeEn = `${secondsAgo} seconds ago`;
       const timeBn = `${toBengaliNumerals(secondsAgo)} সেকেন্ড আগে`;
 
@@ -8196,8 +8259,9 @@
     let toastInterval = null;
 
     /**
-     * Rotates the Live Verified Claim Notification Banner
-     * Applies subtle fade-out / fade-in transition and schedules next update in 4 to 8 seconds
+     * Rotates the Live Verified Claim Notification Banner in Header
+     * Updates dynamically every 3 to 6 seconds with smooth fade transition
+     * Format: [Phone Number] just claimed ৳[Amount] via [Method] ([Seconds] সেকেন্ড আগে)
      */
     function rotateLiveTicker() {
       const tickerItem = document.getElementById("activeTickerItem");
@@ -8206,50 +8270,70 @@
       const claim = generateDynamicLiveClaim();
       const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
       const amt = isEn ? claim.amountEn : claim.amountBn;
-      const timeStr = isEn ? claim.timeEn : claim.timeBn;
-      const actionStr = isEn ? "just claimed" : "ক্লেইম করেছেন";
-      const viaStr = isEn ? "via" : "মারফত";
+      const secondsAgo = Math.floor(Math.random() * 12) + 1;
+      const timeStr = isEn ? `${secondsAgo}s ago` : `${toBengaliNumerals(secondsAgo)} সেকেন্ড আগে`;
 
       // 1. Trigger subtle fade-out animation
       tickerItem.classList.remove("fade-in");
       tickerItem.classList.add("fade-out");
 
-      // 2. After fade-out transition finishes (260ms), update content and trigger fade-in
+      // 2. After fade-out transition finishes (220ms), update content and trigger fade-in
       setTimeout(() => {
-        tickerItem.innerHTML = `<strong class="text-accent" style="font-weight: 700;">${claim.phone}</strong> <span>${actionStr}</span> <strong class="text-gold" style="font-weight: 700;">${amt}</strong> <span style="color: #94A3B8;">${viaStr}</span> <span class="badge-payment-method" style="background: rgba(185, 243, 75, 0.15); color: #B9F34B; padding: 1px 7px; border-radius: 9999px; font-size: 0.72rem; font-weight: 600;">${claim.method}</span> <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${timeStr})</span>`;
+        tickerItem.innerHTML = `<strong class="text-accent" style="font-weight: 700;">${claim.phone}</strong> <span>just claimed</span> <strong class="text-gold" style="font-weight: 700;">${amt}</strong> <span style="color: #94A3B8;">via</span> <span class="badge-payment-method" style="background: rgba(185, 243, 75, 0.15); color: #B9F34B; padding: 1px 7px; border-radius: 9999px; font-size: 0.72rem; font-weight: 600;">${claim.method}</span> <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${timeStr})</span>`;
         tickerItem.classList.remove("fade-out");
         tickerItem.classList.add("fade-in");
-      }, 260);
+      }, 220);
 
-      // 3. Schedule next rotation after a randomized 4 to 8 seconds interval (4000ms - 8000ms)
-      const nextIntervalMs = Math.floor(Math.random() * 4001) + 4000;
+      // 3. Schedule next rotation after a randomized 3 to 6 seconds interval (3000ms - 6000ms)
+      const nextIntervalMs = Math.floor(Math.random() * 3000) + 3000;
+      if (tickerTimeoutId) clearTimeout(tickerTimeoutId);
       tickerTimeoutId = setTimeout(rotateLiveTicker, nextIntervalMs);
     }
 
     function showFloatingToast(customTitle, customMethod) {
-      const toast = document.getElementById("floatingClaimToast");
+      const toast = document.getElementById("live-claim-toast") || document.getElementById("floatingClaimToast");
       const title = document.getElementById("toastTitle");
+      const subtitle = document.getElementById("toastSubtitle");
       if (!toast || !title) return;
 
       const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
       if (customTitle) {
-        title.innerText = customTitle;
+        title.innerHTML = customTitle;
+        if (subtitle && customMethod) {
+          subtitle.innerHTML = `<span style="color: #22C55E; font-weight: 700;">✓ ${isEn ? "Verified Action" : "যাচাইকৃত অ্যাকশন"}</span> · ${customMethod}`;
+        }
       } else {
         const claim = generateDynamicLiveClaim();
         const amt = isEn ? claim.amountEn : claim.amountBn;
         const actionStr = isEn ? "just claimed" : "ক্লেইম করেছেন";
-        title.innerText = `${claim.phone} ${actionStr} ${amt} (${claim.method})`;
+        const verifiedStr = isEn ? "Verified Reward" : "যাচাইকৃত রিওয়ার্ড";
+        const timeStr = isEn ? claim.timeEn : claim.timeBn;
+
+        title.innerHTML = `<strong>${claim.phone}</strong> ${actionStr} <strong style="color: #FACC15;">${amt}</strong>`;
+        if (subtitle) {
+          subtitle.innerHTML = `<span style="color: #22C55E; font-weight: 700;">✓ ${verifiedStr}</span> · <span style="color: #B9F34B; font-weight: 600;">${claim.method}</span> Instant (${timeStr})`;
+        }
       }
 
       toast.classList.add("visible");
       setTimeout(() => {
         toast.classList.remove("visible");
-      }, 4500);
+      }, 3200);
     }
 
     function dismissToast() {
-      const toast = document.getElementById("floatingClaimToast");
+      const toast = document.getElementById("live-claim-toast") || document.getElementById("floatingClaimToast");
       if (toast) toast.classList.remove("visible");
+    }
+
+    function scheduleFloatingToastLoop() {
+      if (toastInterval) clearTimeout(toastInterval);
+      // Interval timing: Update every 3 to 6 seconds (3000ms - 6000ms)
+      const nextDelay = Math.floor(Math.random() * 3000) + 3000;
+      toastInterval = setTimeout(() => {
+        showFloatingToast();
+        scheduleFloatingToastLoop();
+      }, nextDelay);
     }
 
     /* ==========================================================
@@ -8932,19 +9016,33 @@
 
     
     /**
-     * Sticky Live Countdown Timer (Ticking 14m 59s)
+     * Sticky Live Countdown Timer (Ticking 14m 59s dynamically)
      */
     let countdownTotalSeconds = 14 * 60 + 59;
+    let countdownTimerInterval = null;
+
     function initStickyCountdownTimer() {
-      const display = document.getElementById("liveCountdownDisplay");
+      const display = document.getElementById("timer-display") || document.getElementById("liveCountdownDisplay");
       if (!display) return;
 
+      if (countdownTimerInterval) {
+        clearInterval(countdownTimerInterval);
+      }
+
       function updateDisplay() {
+        const timerEl = document.getElementById("timer-display") || document.getElementById("liveCountdownDisplay");
+        if (!timerEl) return;
+
         const mins = Math.floor(countdownTotalSeconds / 60);
         const secs = countdownTotalSeconds % 60;
         const formattedSecs = secs < 10 ? `0${secs}` : `${secs}`;
-        
-        display.textContent = `${mins}m ${formattedSecs}s`;
+
+        const isBn = (typeof currentAppLanguage === "undefined" || currentAppLanguage === "bn");
+        if (isBn && typeof toBengaliNumerals === "function") {
+          timerEl.textContent = `${toBengaliNumerals(mins)}m ${toBengaliNumerals(formattedSecs)}s`;
+        } else {
+          timerEl.textContent = `${mins}m ${formattedSecs}s`;
+        }
 
         if (countdownTotalSeconds > 0) {
           countdownTotalSeconds--;
@@ -8954,7 +9052,7 @@
       }
 
       updateDisplay();
-      setInterval(updateDisplay, 1000);
+      countdownTimerInterval = setInterval(updateDisplay, 1000);
     }
 
     
@@ -9236,11 +9334,24 @@
       const isEn = (typeof currentAppLanguage !== 'undefined' && currentAppLanguage === 'en');
       const users = isEn ? LIVE_FEED_USERS_EN : LIVE_FEED_USERS_BN;
       const amounts = isEn ? LIVE_FEED_AMOUNTS_EN : LIVE_FEED_AMOUNTS_BN;
+      const methods = ['bKash', 'Nagad', 'Rocket'];
 
-      lastUserIndex = getNextRandomIndex(users.length, lastUserIndex);
+      // Randomly select between a Bangladeshi name or a masked Bangladeshi phone number
+      let winnerDisplay;
+      if (Math.random() < 0.45) {
+        const prefix = BANGLADESH_PHONE_PREFIXES[Math.floor(Math.random() * BANGLADESH_PHONE_PREFIXES.length)];
+        const lastTwoDigits = String(Math.floor(Math.random() * 100)).padStart(2, '0');
+        winnerDisplay = `${prefix}*****${lastTwoDigits}`;
+      } else {
+        lastUserIndex = getNextRandomIndex(users.length, lastUserIndex);
+        winnerDisplay = users[lastUserIndex];
+      }
+
       lastAmountIndex = getNextRandomIndex(amounts.length, lastAmountIndex);
+      const method = methods[Math.floor(Math.random() * methods.length)];
+      const secondsAgo = Math.floor(Math.random() * 12) + 2;
+      const timeStr = isEn ? `${secondsAgo}s ago` : `${toBengaliNumerals(secondsAgo)} সেকেন্ড আগে`;
 
-      const user = users[lastUserIndex];
       const amount = amounts[lastAmountIndex];
 
       // Smooth opacity fade out
@@ -9248,19 +9359,19 @@
 
       setTimeout(() => {
         if (isEn) {
-          feedEl.innerHTML = `<strong>${user}</strong> just completed claiming a <strong>${amount}</strong> reward`;
+          feedEl.innerHTML = `<strong id="winner-name">${winnerDisplay}</strong> just completed claiming a <strong id="winner-amount" style="color: #FACC15;">${amount}</strong> reward (${method} · ${timeStr})`;
         } else {
-          feedEl.innerHTML = `<strong>${user}</strong> এইমাত্র <strong>${amount}</strong> রিওয়ার্ড ক্লেইম সম্পন্ন করেছেন`;
+          feedEl.innerHTML = `<strong id="winner-name">${winnerDisplay}</strong> এইমাত্র <strong id="winner-amount" style="color: #FACC15;">${amount}</strong> রিওয়ার্ড ক্লেইম সম্পন্ন করেছেন (${method} · ${timeStr})`;
         }
         // Smooth opacity fade in
         feedEl.classList.remove('fade-out');
-      }, 350);
+      }, 250);
     }
 
     function scheduleNextLiveActivity() {
       if (liveActivityTimer) clearTimeout(liveActivityTimer);
-      // Random interval between 3000ms and 6000ms (3 to 6 seconds)
-      const nextDelay = Math.floor(Math.random() * 3000) + 3000;
+      // Random interval between 4000ms and 7000ms (4 to 7 seconds)
+      const nextDelay = Math.floor(Math.random() * 3000) + 4000;
       liveActivityTimer = setTimeout(() => {
         updateLiveActivityText();
         scheduleNextLiveActivity();
@@ -9273,7 +9384,58 @@
       scheduleNextLiveActivity();
     }
 
+    /* ==========================================================
+       SCROLL ENTRANCE ANIMATIONS (INTERSECTION OBSERVER)
+       ========================================================== */
+    function initScrollEntranceAnimations() {
+      const revealElements = document.querySelectorAll(
+        '#features .reveal-on-scroll, #how-it-works .reveal-on-scroll'
+      );
+
+      if (!revealElements || revealElements.length === 0) return;
+
+      // Fallback for browsers without IntersectionObserver or when user prefers reduced motion
+      const prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (!('IntersectionObserver' in window) || prefersReducedMotion) {
+        revealElements.forEach(el => el.classList.add('is-revealed'));
+        return;
+      }
+
+      const observerOptions = {
+        root: null,
+        rootMargin: '0px 0px -40px 0px',
+        threshold: 0.12
+      };
+
+      const entranceObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-revealed');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, observerOptions);
+
+      revealElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        const isInViewport = (rect.top < window.innerHeight && rect.bottom > 0);
+        if (isInViewport) {
+          el.classList.add('is-revealed');
+        } else {
+          entranceObserver.observe(el);
+        }
+      });
+    }
+
+    function initCounters() {
+      // Metrics & stats counter initializers
+    }
+
+    let isAppInitialized = false;
     function initApp() {
+      if (isAppInitialized) return;
+      isAppInitialized = true;
+
       initMobileMenu();
       initReferralSystem();
       initAdSlots();
@@ -9282,27 +9444,33 @@
       startLeaderboardAutoSimulation();
       renderWheel();
       initFAQ();
+      initStickyCountdownTimer();
       initLiveActivityRotator();
+      initScrollEntranceAnimations();
       initCounters();
       initHeroCardTilt();
       initVipScroll();
       initScratchCard();
 
-      // Start live verified claim ticker feed rotation with randomized 4-8s timer
+      // Start live verified claim ticker feed rotation in header with randomized 3-6s timer
       if (!tickerTimeoutId) {
         rotateLiveTicker();
       }
 
-      // Start floating verified claim toast every 7s
+      // Start floating verified claim toast loop with randomized 3-6s timer
       if (!toastInterval) {
         setTimeout(() => {
           showFloatingToast();
-          toastInterval = setInterval(showFloatingToast, 7000);
-        }, 2000);
+          scheduleFloatingToastLoop();
+        }, 1800);
       }
     }
 
-    window.addEventListener('DOMContentLoaded', initApp);
+    if (document.readyState === 'loading') {
+      window.addEventListener('DOMContentLoaded', initApp);
+    } else {
+      initApp();
+    }
   </script>
 </body>
 </html>
