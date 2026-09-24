@@ -4944,7 +4944,40 @@
             <div class="referral-link-box">
               <span style="font-size: 0.78rem; font-weight: 700; color: #E2E8F0; text-transform: uppercase; letter-spacing: 0.05em;" data-i18n="refer_your_link">আপনার ইউনিক ইনভাইট লিংক:</span>
               <div class="referral-input-wrapper">
-                <input type="text" id="referralLinkInput" class="referral-input-field" readonly value="https://claimbonus24.com/?ref=CB24-VIP892">
+                <input type="text" id="referralLinkInput" class="referral-input-field" readonly value="">
+                <script>
+                  (function() {
+                    try {
+                      var origin = "";
+                      try {
+                        if (window.top && window.top.location && window.top.location.origin) {
+                          origin = window.top.location.origin;
+                        }
+                      } catch (err) {}
+                      if (!origin && window.location) {
+                        origin = window.location.origin || (window.location.protocol + "//" + window.location.host);
+                      }
+                      if (!origin || origin === "null") {
+                        origin = window.location.href ? window.location.href.split(/[?#]/)[0] : "https://claimbonus24.com";
+                      }
+                      var refId = null;
+                      try {
+                        refId = sessionStorage.getItem("cb24_ref_id") || localStorage.getItem("cb24_ref_id");
+                      } catch (e) {}
+                      if (!refId) {
+                        refId = Math.floor(100000 + Math.random() * 900000).toString();
+                        try {
+                          sessionStorage.setItem("cb24_ref_id", refId);
+                          localStorage.setItem("cb24_ref_id", refId);
+                        } catch (e) {}
+                      }
+                      var inputElem = document.getElementById("referralLinkInput");
+                      if (inputElem) {
+                        inputElem.value = origin.replace(/\/+$/, "") + "/?ref=" + refId;
+                      }
+                    } catch (e) {}
+                  })();
+                </script>
                 <button type="button" class="referral-copy-btn" id="copyReferralBtn" onclick="copyReferralLink()">
                   <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
@@ -7812,7 +7845,7 @@
      * Constructs the official dynamic sharing message and clean destination URL
      */
     function getShareMessageAndUrl() {
-      const shareUrl = window.location.href.split('#')[0] || "https://claimbonus24.com";
+      const shareUrl = getDynamicReferralUrl();
       const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
 
       const shareText = isEn
@@ -8459,48 +8492,206 @@
 
     
     /**
-     * Copy Referral Link to Clipboard with Animated Feedback
+     * Auto-detect live website base URL using window.location.origin (or window.location.href)
      */
-    function copyReferralLink() {
-      const input = document.getElementById("referralLinkInput");
-      const copyBtn = document.getElementById("copyReferralBtn");
-      const copyBtnText = document.getElementById("copyBtnText");
-
-      if (input) {
-        input.select();
-        input.setSelectionRange(0, 99999); // Mobile support
-        try {
-          navigator.clipboard.writeText(input.value);
-        } catch (err) {
-          document.execCommand("copy");
+    function getLiveBaseUrl() {
+      var origin = "";
+      try {
+        if (window.top && window.top.location && window.top.location.origin) {
+          origin = window.top.location.origin;
         }
+      } catch (err) {
+        // Cross-origin iframe fallback
+      }
 
-        if (copyBtnText) copyBtnText.textContent = "✓ কপি হয়েছে!";
-        if (copyBtn) copyBtn.style.background = "#22C55E";
+      if (!origin && window.location) {
+        origin = window.location.origin || (window.location.protocol + "//" + window.location.host);
+      }
 
-        showFloatingToast("ইনভাইট লিংক ক্লিপবোর্ডে কপি হয়েছে! বন্ধুদের সাথে শেয়ার করুন।", "লিংক কপি সম্পন্ন");
-        playCelebrationChime();
+      if (!origin || origin === "null") {
+        try {
+          var parsed = new URL(window.location.href);
+          origin = parsed.origin;
+        } catch (e) {
+          origin = window.location.href ? window.location.href.split(/[?#]/)[0] : "https://claimbonus24.com";
+        }
+      }
 
-        setTimeout(() => {
-          if (copyBtnText) copyBtnText.textContent = "লিংক কপি করুন";
-          if (copyBtn) copyBtn.style.background = "";
-        }, 3000);
+      return (origin || "").replace(/\/+$/, "");
+    }
+
+    /**
+     * Generates a random 6-digit referral ID suffix (e.g. 102938)
+     */
+    function generateRandomReferralId() {
+      return Math.floor(100000 + Math.random() * 900000).toString();
+    }
+
+    /**
+     * Retrieves existing or creates a unique session referral ID
+     */
+    function getCurrentReferralCode() {
+      var refId = null;
+      try {
+        refId = sessionStorage.getItem("cb24_ref_id") || localStorage.getItem("cb24_ref_id");
+      } catch (e) {}
+
+      if (!refId) {
+        refId = generateRandomReferralId();
+        try {
+          sessionStorage.setItem("cb24_ref_id", refId);
+          localStorage.setItem("cb24_ref_id", refId);
+        } catch (e) {}
+      }
+      return refId;
+    }
+
+    /**
+     * Constructs the full live dynamic referral link with the detected domain and referral ID
+     */
+    function getDynamicReferralUrl() {
+      var input = document.getElementById("referralLinkInput");
+      if (input && input.value && input.value.trim().startsWith("http")) {
+        return input.value.trim();
+      }
+      var baseUrl = getLiveBaseUrl();
+      var refCode = getCurrentReferralCode();
+      return baseUrl + "/?ref=" + refCode;
+    }
+
+    /**
+     * Initializes referral input field on page load with auto-detected live domain URL
+     */
+    function initReferralSystem() {
+      var baseUrl = getLiveBaseUrl();
+      var refCode = getCurrentReferralCode();
+      var fullUrl = baseUrl + "/?ref=" + refCode;
+      var input = document.getElementById("referralLinkInput");
+      if (input) {
+        input.value = fullUrl;
       }
     }
 
     /**
-     * Generates a fresh unique invite code
+     * Copy Referral Link to Clipboard with Animated Feedback
+     * Copies the exact dynamic URL with the random referral ID suffix
+     */
+    function copyReferralLink() {
+      var input = document.getElementById("referralLinkInput");
+      var copyBtn = document.getElementById("copyReferralBtn");
+      var copyBtnText = document.getElementById("copyBtnText");
+
+      var urlToCopy = "";
+      if (input && input.value && input.value.trim()) {
+        urlToCopy = input.value.trim();
+      } else {
+        urlToCopy = getDynamicReferralUrl();
+        if (input) input.value = urlToCopy;
+      }
+
+      if (input) {
+        input.select();
+        input.setSelectionRange(0, 99999); // Mobile support
+      }
+
+      var isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
+
+      var handleSuccess = function() {
+        if (copyBtnText) copyBtnText.textContent = isEn ? "✓ Copied!" : "✓ কপি হয়েছে!";
+        if (copyBtn) copyBtn.style.background = "#22C55E";
+
+        var toastMsg = isEn 
+          ? "Invite link copied to clipboard! Share with friends."
+          : "ইনভাইট লিংক ক্লিপবোর্ডে কপি হয়েছে! বন্ধুদের সাথে শেয়ার করুন।";
+        var toastTitle = isEn ? "Link Copied" : "লিংক কপি সম্পন্ন";
+
+        showFloatingToast(toastMsg, toastTitle);
+        playCelebrationChime();
+
+        setTimeout(function() {
+          if (copyBtnText) copyBtnText.textContent = isEn ? "Copy Link" : "লিংক কপি করুন";
+          if (copyBtn) copyBtn.style.background = "";
+        }, 3000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(urlToCopy).then(handleSuccess).catch(function() {
+          try {
+            document.execCommand("copy");
+            handleSuccess();
+          } catch (err) {
+            handleSuccess();
+          }
+        });
+      } else {
+        try {
+          document.execCommand("copy");
+          handleSuccess();
+        } catch (err) {
+          handleSuccess();
+        }
+      }
+    }
+
+    /**
+     * Generates a fresh unique invite code with a random referral ID suffix (e.g., ?ref=102938)
+     * and automatically copies this exact dynamic URL
      */
     function generateNewReferralCode() {
-      const randomCode = "CB24-REF" + Math.floor(1000 + Math.random() * 9000);
-      const input = document.getElementById("referralLinkInput");
+      var randomCode = generateRandomReferralId();
+      try {
+        sessionStorage.setItem("cb24_ref_id", randomCode);
+        localStorage.setItem("cb24_ref_id", randomCode);
+      } catch (e) {}
+
+      var dynamicUrl = getLiveBaseUrl() + "/?ref=" + randomCode;
+      var input = document.getElementById("referralLinkInput");
+      var copyBtn = document.getElementById("copyReferralBtn");
+      var copyBtnText = document.getElementById("copyBtnText");
+
       if (input) {
-        input.value = `https://claimbonus24.com/?ref=${randomCode}`;
-        showFloatingToast(`নতুন ইনভাইট কোড সক্রিয়: ${randomCode}`, "নতুন কোড প্রস্তুত");
+        input.value = dynamicUrl;
+        input.select();
+        input.setSelectionRange(0, 99999);
+      }
+
+      var isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
+
+      var handleSuccess = function() {
+        if (copyBtnText) copyBtnText.textContent = isEn ? "✓ Copied!" : "✓ কপি হয়েছে!";
+        if (copyBtn) copyBtn.style.background = "#22C55E";
+
+        var toastMsg = isEn 
+          ? "New invite link generated and copied: ?ref=" + randomCode
+          : "নতুন ইনভাইট লিংক তৈরি এবং কপি হয়েছে: ?ref=" + randomCode;
+        var toastTitle = isEn ? "New Code Active" : "নতুন কোড প্রস্তুত";
+
+        showFloatingToast(toastMsg, toastTitle);
+        playCelebrationChime();
+
+        setTimeout(function() {
+          if (copyBtnText) copyBtnText.textContent = isEn ? "Copy Link" : "লিংক কপি করুন";
+          if (copyBtn) copyBtn.style.background = "";
+        }, 3000);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(dynamicUrl).then(handleSuccess).catch(function() {
+          try {
+            document.execCommand("copy");
+          } catch (e) {}
+          handleSuccess();
+        });
+      } else {
+        try {
+          document.execCommand("copy");
+        } catch (e) {}
+        handleSuccess();
       }
     }
 
     function initApp() {
+      initReferralSystem();
       initAdSlots();
       setAppLanguage(currentAppLanguage);
       renderLeaderboard(activeLeaderboardFilter);
