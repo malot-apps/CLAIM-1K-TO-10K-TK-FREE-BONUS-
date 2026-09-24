@@ -1,6 +1,6 @@
 {
-  "name": "Remix BetBonus — Premium Rewards Demo",
-  "description": "Explore a premium rewards interface through an educational simulation. No real money, deposits or withdrawals.",
+  "name": "ClaimBonus24 — প্রিমিয়াম বোনাস ও রিওয়ার্ড প্ল্যাটফর্ম",
+  "description": "ClaimBonus24 প্ল্যাটফর্মে প্রতিদিনের ফ্রি স্পিন, স্ক্র্যাচ কার্ড এবং এক্সক্লুসিভ ক্যাশ রিওয়ার্ড নিরাপদে ক্লেইম করুন।",
   "requestFramePermissions": [],
   "majorCapabilities": [
     "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"

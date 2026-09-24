@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BetBonus — প্রিমিয়াম রিওয়ার্ড ও এক্সক্লুসিভ বোনাস প্ল্যাটফর্ম</title>
-  <meta name="description" content="সেরা গেমিং রিওয়ার্ড, দৈনিক ক্যাশব্যাক এবং এক্সক্লুসিভ ভিআইপি অফার সরাসরি আপনার ড্যাশবোর্ড থেকে উপভোগ করুন।">
+  <title>ClaimBonus24 — প্রিমিয়াম বোনাস ও রিওয়ার্ড প্ল্যাটফর্ম</title>
+  <meta name="description" content="ClaimBonus24 প্ল্যাটফর্মে প্রতিদিনের ফ্রি স্পিন, স্ক্র্যাচ কার্ড এবং এক্সক্লুসিভ ক্যাশ রিওয়ার্ড নিরাপদে ক্লেইম করুন।">
   <meta name="theme-color" content="#050806">
   
   <!-- Open Graph Metadata -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="BetBonus — প্রিমিয়াম রিওয়ার্ড ও এক্সক্লুসিভ বোনাস প্ল্যাটফর্ম">
-  <meta property="og:description" content="সেরা গেমিং রিওয়ার্ড, দৈনিক ক্যাশব্যাক এবং এক্সক্লুসিভ ভিআইপি অফার সরাসরি আপনার ড্যাশবোর্ড থেকে উপভোগ করুন।">
+  <meta property="og:title" content="ClaimBonus24 — প্রিমিয়াম বোনাস ও রিওয়ার্ড প্ল্যাটফর্ম">
+  <meta property="og:description" content="ClaimBonus24 প্ল্যাটফর্মে প্রতিদিনের ফ্রি স্পিন, স্ক্র্যাচ কার্ড এবং এক্সক্লুসিভ ক্যাশ রিওয়ার্ড নিরাপদে ক্লেইম করুন।">
   <meta property="og:image" content="favicon.svg">
   <link rel="canonical" href="https://example.com/betbonus">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -1660,6 +1660,343 @@
     }
 
     /* ==========================================================
+       12B. VIP MEMBERSHIP TIERS (HORIZONTAL SCROLL)
+       ========================================================== */
+    .vip-header-wrapper {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .vip-nav-controls {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-shrink: 0;
+    }
+
+    .vip-scroll-btn {
+      width: 44px;
+      height: 44px;
+      border-radius: var(--radius-full);
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .vip-scroll-btn:hover {
+      background: rgba(185, 243, 75, 0.15);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      transform: translateY(-2px);
+    }
+
+    .vip-scroll-btn:active {
+      transform: translateY(0);
+    }
+
+    .vip-scroll-indicator {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 0 0.5rem;
+    }
+
+    .vip-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all var(--transition-fast);
+    }
+
+    .vip-dot.active {
+      width: 18px;
+      background: var(--accent-primary);
+      box-shadow: 0 0 8px rgba(185, 243, 75, 0.5);
+    }
+
+    .vip-scroll-container-wrapper {
+      position: relative;
+      margin: 0 -0.5rem;
+      padding: 0 0.5rem;
+    }
+
+    .vip-scroll-track {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      padding: 1rem 0.5rem 2rem;
+      -webkit-overflow-scrolling: touch;
+      scrollbar-width: thin;
+      scrollbar-color: rgba(185, 243, 75, 0.35) rgba(255, 255, 255, 0.05);
+    }
+
+    .vip-scroll-track::-webkit-scrollbar {
+      height: 6px;
+    }
+
+    .vip-scroll-track::-webkit-scrollbar-track {
+      background: rgba(255, 255, 255, 0.04);
+      border-radius: 999px;
+    }
+
+    .vip-scroll-track::-webkit-scrollbar-thumb {
+      background: rgba(185, 243, 75, 0.35);
+      border-radius: 999px;
+    }
+
+    .vip-scroll-track::-webkit-scrollbar-thumb:hover {
+      background: var(--accent-primary);
+    }
+
+    .vip-tier-card {
+      flex: 0 0 340px;
+      max-width: 360px;
+      scroll-snap-align: start;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.2rem 1.6rem 1.8rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.4rem;
+      position: relative;
+      transition: all var(--transition-normal);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .vip-tier-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(185, 243, 75, 0.5);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), 0 0 25px rgba(185, 243, 75, 0.1);
+    }
+
+    .vip-tier-card.featured {
+      border-color: rgba(245, 158, 11, 0.6);
+      background: linear-gradient(180deg, rgba(245, 158, 11, 0.08) 0%, rgba(18, 26, 20, 0.95) 40%, rgba(13, 20, 15, 0.95) 100%);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 30px rgba(245, 158, 11, 0.12);
+    }
+
+    .vip-popular-ribbon {
+      position: absolute;
+      top: 0;
+      right: 1.5rem;
+      background: linear-gradient(135deg, #F59E0B, #B9F34B);
+      color: #040705;
+      font-size: 0.68rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      padding: 0.25rem 0.75rem;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+      text-transform: uppercase;
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+    }
+
+    .vip-tier-badge-strip {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .vip-level-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.2rem 0.65rem;
+      border-radius: var(--radius-full);
+      letter-spacing: 0.03em;
+    }
+
+    .vip-tier-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 0.2rem 0.6rem;
+      border-radius: 6px;
+    }
+
+    .vip-tier-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .vip-icon-medal {
+      width: 50px;
+      height: 50px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .vip-icon-medal.bronze {
+      background: rgba(205, 127, 50, 0.15);
+      color: #CD7F32;
+      border: 1px solid rgba(205, 127, 50, 0.3);
+    }
+
+    .vip-icon-medal.silver {
+      background: rgba(226, 232, 240, 0.15);
+      color: #E2E8F0;
+      border: 1px solid rgba(226, 232, 240, 0.3);
+    }
+
+    .vip-icon-medal.gold {
+      background: rgba(245, 158, 11, 0.15);
+      color: #F59E0B;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 0 15px rgba(245, 158, 11, 0.2);
+    }
+
+    .vip-icon-medal.platinum {
+      background: rgba(56, 189, 248, 0.15);
+      color: #38BDF8;
+      border: 1px solid rgba(56, 189, 248, 0.3);
+    }
+
+    .vip-icon-medal.diamond {
+      background: rgba(192, 132, 252, 0.15);
+      color: #C084FC;
+      border: 1px solid rgba(192, 132, 252, 0.35);
+      box-shadow: 0 0 15px rgba(192, 132, 252, 0.2);
+    }
+
+    .vip-tier-title {
+      font-size: 1.25rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin: 0;
+    }
+
+    .vip-tier-req {
+      font-size: 0.78rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .vip-metrics-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin: 0.3rem 0;
+    }
+
+    .vip-metric-box {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.07);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 0.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .vip-metric-box.featured {
+      background: rgba(245, 158, 11, 0.08);
+      border-color: rgba(245, 158, 11, 0.25);
+    }
+
+    .vip-metric-label {
+      font-size: 0.68rem;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      color: var(--text-muted);
+      font-weight: 600;
+      margin-bottom: 0.25rem;
+    }
+
+    .vip-metric-val {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 800;
+      line-height: 1.1;
+      color: var(--text-main);
+    }
+
+    .vip-metric-val-sm {
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--text-main);
+      min-height: 1.9rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .vip-metric-sub {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+      margin-top: 0.2rem;
+    }
+
+    .vip-perks-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.65rem;
+    }
+
+    .vip-perks-list li {
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      line-height: 1.4;
+    }
+
+    .perk-check {
+      color: var(--accent-primary);
+      font-weight: 800;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .vip-tier-footer {
+      margin-top: auto;
+      padding-top: 0.5rem;
+    }
+
+    @media (max-width: 640px) {
+      .vip-tier-card {
+        flex: 0 0 290px;
+        padding: 1.8rem 1.3rem 1.5rem;
+      }
+      .vip-header-wrapper {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+      .vip-nav-controls {
+        align-self: flex-end;
+      }
+    }
+
+
+    /* ==========================================================
        13. HOW IT WORKS TIMELINE
        ========================================================== */
     .timeline-grid {
@@ -2201,6 +2538,691 @@
         transform: none !important;
       }
     }
+  
+    /* ==========================================================
+       CLAIMBONUS24 BRANDING, SSL BADGE & PULSING CTAS
+       ========================================================== */
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .brand-icon-wrapper {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0E1A13 0%, #15291D 100%);
+      border: 1px solid var(--border-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 14px rgba(185, 243, 75, 0.15);
+      flex-shrink: 0;
+    }
+
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.4rem;
+      font-weight: 800;
+      letter-spacing: -0.01em;
+      line-height: 1.1;
+      color: #FFFFFF;
+    }
+
+    .brand-title .text-gold {
+      color: #F5D061;
+      text-shadow: 0 0 10px rgba(245, 208, 97, 0.4);
+    }
+
+    .brand-tagline-sub {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      font-weight: 600;
+      display: block;
+    }
+
+    /* HTTPS SSL Security Badge */
+    .ssl-security-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.55rem;
+      padding: 0.35rem 0.75rem;
+      background: rgba(34, 197, 94, 0.08);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      border-radius: var(--radius-pill);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2), inset 0 0 10px rgba(34, 197, 94, 0.05);
+      font-size: 0.72rem;
+      color: #E2E8F0;
+      white-space: nowrap;
+      transition: all var(--transition-fast);
+    }
+
+    .ssl-security-badge:hover {
+      border-color: rgba(34, 197, 94, 0.5);
+      background: rgba(34, 197, 94, 0.12);
+      box-shadow: 0 0 15px rgba(34, 197, 94, 0.2);
+    }
+
+    .ssl-icon-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #22C55E;
+    }
+
+    .ssl-label-group {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+    }
+
+    .ssl-headline {
+      font-weight: 700;
+      color: #4ADE80;
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      letter-spacing: 0.03em;
+    }
+
+    .ssl-pulse-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #22C55E;
+      box-shadow: 0 0 6px #22C55E;
+      display: inline-block;
+      animation: pulseDot 1.8s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.4; transform: scale(0.85); }
+    }
+
+    .ssl-sub {
+      font-size: 0.62rem;
+      color: #94A3B8;
+    }
+
+    /* Bright Pulsing Call-To-Action (CTA) Micro-Animations */
+    @keyframes ctaPulse {
+      0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(185, 243, 75, 0.7), 0 4px 14px rgba(0, 0, 0, 0.5);
+      }
+      50% {
+        transform: scale(1.025);
+        box-shadow: 0 0 0 12px rgba(185, 243, 75, 0), 0 8px 24px rgba(185, 243, 75, 0.35);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(185, 243, 75, 0), 0 4px 14px rgba(0, 0, 0, 0.5);
+      }
+    }
+
+    @keyframes ctaShimmer {
+      0% { transform: translateX(-150%); }
+      100% { transform: translateX(150%); }
+    }
+
+    .btn-pulsing-cta {
+      position: relative;
+      animation: ctaPulse 2.4s infinite cubic-bezier(0.4, 0, 0.6, 1);
+      overflow: hidden;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      box-shadow: 0 0 20px rgba(185, 243, 75, 0.35);
+    }
+
+    .btn-pulsing-cta::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        60deg,
+        rgba(255, 255, 255, 0) 30%,
+        rgba(255, 255, 255, 0.35) 50%,
+        rgba(255, 255, 255, 0) 70%
+      );
+      animation: ctaShimmer 3.2s infinite ease-in-out;
+      pointer-events: none;
+    }
+
+    /* Live Activity Ticker Bar */
+    .live-claim-ticker-bar {
+      background: rgba(10, 15, 12, 0.92);
+      border-bottom: 1px solid rgba(185, 243, 75, 0.15);
+      backdrop-filter: blur(12px);
+      padding: 0.45rem 0;
+      font-size: 0.78rem;
+      color: #E2E8F0;
+      position: relative;
+      z-index: 40;
+    }
+
+    .ticker-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .ticker-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 700;
+      font-size: 0.72rem;
+      background: rgba(185, 243, 75, 0.12);
+      color: var(--accent-primary);
+      padding: 0.2rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(185, 243, 75, 0.25);
+      flex-shrink: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+
+    .ticker-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #EF4444;
+      box-shadow: 0 0 6px #EF4444;
+      animation: pulseDot 1.2s infinite;
+    }
+
+    .ticker-content {
+      flex: 1;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .ticker-item-animated {
+      animation: tickerFade 0.45s ease-out;
+      display: inline-block;
+    }
+
+    @keyframes tickerFade {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .ticker-stat-summary {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      flex-shrink: 0;
+    }
+
+    /* Floating Verified Claim Toast Notification */
+    .floating-claim-toast {
+      position: fixed;
+      bottom: 1.5rem;
+      left: 1.5rem;
+      background: rgba(14, 21, 17, 0.95);
+      border: 1px solid rgba(185, 243, 75, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(185, 243, 75, 0.12);
+      backdrop-filter: blur(14px);
+      padding: 0.85rem 1.1rem;
+      border-radius: var(--radius-md);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      max-width: 380px;
+      transform: translateY(150%);
+      opacity: 0;
+      transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      cursor: pointer;
+    }
+
+    .floating-claim-toast.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
+    .toast-icon-box {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.3);
+      color: #22C55E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .toast-text-group {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.78rem;
+      line-height: 1.35;
+    }
+
+    .toast-title {
+      font-weight: 700;
+      color: #F4F7F4;
+    }
+
+    .toast-subtitle {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .toast-close {
+      color: var(--text-muted);
+      background: none;
+      border: none;
+      font-size: 1.1rem;
+      cursor: pointer;
+      padding: 0.2rem;
+      line-height: 1;
+      margin-left: 0.25rem;
+    }
+
+    .toast-close:hover {
+      color: #FFFFFF;
+    }
+
+    /* ==========================================================
+       GAMIFICATION ZONE: TABBED SWITCHER & SCRATCH CARD
+       ========================================================== */
+    .gamification-hub {
+      position: relative;
+    }
+
+    .game-switcher-tabs {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .game-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.75rem 1.6rem;
+      border-radius: var(--radius-pill);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+
+    .game-tab-btn:hover {
+      color: var(--text-main);
+      border-color: var(--accent-primary);
+      background: rgba(185, 243, 75, 0.08);
+    }
+
+    .game-tab-btn.active {
+      background: linear-gradient(135deg, rgba(185, 243, 75, 0.2) 0%, rgba(215, 255, 120, 0.1) 100%);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+      box-shadow: 0 0 20px rgba(185, 243, 75, 0.25);
+    }
+
+    /* Scratch & Win Card Module */
+    .scratch-card-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4), 0 0 30px rgba(245, 208, 97, 0.08);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .scratch-stage {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      margin: 0 auto;
+      aspect-ratio: 4 / 3;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 2px solid rgba(245, 208, 97, 0.4);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 0, 0, 0.5);
+      user-select: none;
+      -webkit-user-select: none;
+    }
+
+    .scratch-reward-box {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle at 50% 50%, #17271D 0%, #0B130E 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.5rem;
+      z-index: 1;
+    }
+
+    .scratch-reward-badge {
+      font-size: 0.7rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      background: rgba(245, 208, 97, 0.2);
+      color: #F5D061;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(245, 208, 97, 0.4);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+
+    .scratch-reward-amount {
+      font-family: var(--font-display);
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #B9F34B;
+      text-shadow: 0 0 20px rgba(185, 243, 75, 0.5);
+      line-height: 1.1;
+      margin: 0.2rem 0;
+    }
+
+    .scratch-reward-code-box {
+      margin-top: 0.6rem;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px dashed rgba(255, 255, 255, 0.2);
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      font-weight: 700;
+      color: #F4F7F4;
+    }
+
+    .scratch-canvas {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      cursor: crosshair;
+      touch-action: none;
+      transition: opacity 0.4s ease;
+    }
+
+    .scratch-meter-bar-box {
+      margin-top: 1rem;
+      width: 100%;
+    }
+
+    .scratch-meter-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    .scratch-meter-track {
+      width: 100%;
+      height: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .scratch-meter-fill {
+      height: 100%;
+      width: 0%;
+      background: linear-gradient(90deg, #F5D061 0%, #B9F34B 100%);
+      border-radius: var(--radius-pill);
+      transition: width 0.15s ease-out;
+      box-shadow: 0 0 10px rgba(185, 243, 75, 0.5);
+    }
+
+    .scratch-controls {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    /* ==========================================================
+       STANDARD FOOTER LEGAL MODAL & TRUST BADGES
+       ========================================================== */
+    .footer-legal-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      margin: 1.5rem 0 1rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .footer-link-btn {
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color var(--transition-fast);
+      padding: 0.2rem 0.4rem;
+    }
+
+    .footer-link-btn:hover {
+      color: var(--accent-primary);
+      text-decoration: underline;
+    }
+
+    .footer-divider {
+      color: rgba(255, 255, 255, 0.2);
+      font-size: 0.75rem;
+    }
+
+    .footer-trust-strip {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1.2rem;
+      padding: 0.8rem 1rem;
+      background: rgba(255, 255, 255, 0.02);
+      border-radius: var(--radius-md);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .trust-badge-item {
+      display: flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-size: 0.74rem;
+      color: #94A3B8;
+      font-weight: 600;
+    }
+
+    .trust-badge-item svg {
+      color: #22C55E;
+    }
+
+    /* Step-by-step Modal Enhancements */
+    .step-method-selector {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .method-pill {
+      flex: 1;
+      padding: 0.55rem 0.5rem;
+      font-size: 0.75rem;
+      font-weight: 700;
+      border-radius: var(--radius-sm);
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      cursor: pointer;
+      text-align: center;
+      transition: all var(--transition-fast);
+    }
+
+    .method-pill.active {
+      background: rgba(185, 243, 75, 0.15);
+      border-color: var(--accent-primary);
+      color: var(--accent-primary);
+    }
+
+    .step-progress-wrapper {
+      margin-bottom: 1.5rem;
+    }
+
+    .step-progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+      font-weight: 600;
+    }
+
+    .step-progress-bar {
+      width: 100%;
+      height: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .step-progress-fill {
+      height: 100%;
+      background: var(--accent-primary);
+      border-radius: var(--radius-pill);
+      transition: width 0.4s ease;
+      box-shadow: 0 0 10px rgba(185, 243, 75, 0.5);
+    }
+
+    .task-cards-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-top: 1rem;
+    }
+
+    .task-card-action {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 1rem;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-md);
+      transition: all var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .task-card-action:hover {
+      background: rgba(185, 243, 75, 0.08);
+      border-color: rgba(185, 243, 75, 0.3);
+    }
+
+    .task-card-info {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .task-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    /* Legal Modal Styles */
+    .legal-modal-content {
+      max-height: 480px;
+      overflow-y: auto;
+      padding-right: 0.5rem;
+      font-size: 0.86rem;
+      color: #CBD5E1;
+      line-height: 1.7;
+    }
+
+    .legal-tabs {
+      display: flex;
+      gap: 0.5rem;
+      border-bottom: 1px solid var(--border-subtle);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.5rem;
+      overflow-x: auto;
+    }
+
+    .legal-tab-btn {
+      padding: 0.4rem 0.8rem;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border: none;
+      background: none;
+      cursor: pointer;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    .legal-tab-btn.active {
+      color: var(--accent-primary);
+      background: rgba(185, 243, 75, 0.12);
+    }
+
+    @media (max-width: 768px) {
+      .ssl-security-badge .ssl-sub {
+        display: none;
+      }
+      .scratch-card-wrapper {
+        grid-template-columns: 1fr;
+        padding: 1.6rem 1.2rem;
+        gap: 1.8rem;
+      }
+      .live-claim-ticker-bar .ticker-stat-summary {
+        display: none;
+      }
+      .floating-claim-toast {
+        left: 1rem;
+        right: 1rem;
+        max-width: none;
+        bottom: 1rem;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2246,30 +3268,48 @@
        ========================================================== -->
   <header class="site-header" id="mainHeader">
     <div class="container nav-inner">
-      <a href="#" class="brand-logo" aria-label="BetBonus Home">
-        <svg width="34" height="34" viewBox="0 0 36 36" fill="none" aria-hidden="true">
-          <path d="M18 4L30 11V25L18 32L6 25V11L18 4Z" stroke="#B9F34B" stroke-width="2" fill="#0E1511"/>
-          <path d="M14 13H20C21.7 13 23 14.1 23 15.5C23 16.7 22.1 17.6 21 17.9C22.4 18.2 23.5 19.3 23.5 20.8C23.5 22.6 22 23.8 20 23.8H14V13Z" stroke="#D7FF78" stroke-width="2"/>
-          <circle cx="18" cy="4" r="2" fill="#B9F34B"/>
-        </svg>
+      <a href="#" class="brand-logo" aria-label="ClaimBonus24 Home">
+        <div class="brand-icon-wrapper">
+          <svg width="28" height="28" viewBox="0 0 36 36" fill="none" aria-hidden="true">
+            <path d="M18 3L31 9.5V21C31 27.5 25.5 32.5 18 34C10.5 32.5 5 27.5 5 21V9.5L18 3Z" fill="#0C1912" stroke="#B9F34B" stroke-width="2.2" stroke-linejoin="round"/>
+            <path d="M13 18L16.5 21.5L23.5 14" stroke="#F5D061" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="18" cy="3" r="2.5" fill="#B9F34B"/>
+          </svg>
+        </div>
         <div>
-          <span class="brand-title">BETBONUS</span>
-          <span class="brand-tagline-sub">প্রিমিয়াম রিওয়ার্ড প্ল্যাটফর্ম</span>
+          <div class="brand-title">CLAIM<span class="text-accent">BONUS</span><span class="text-gold">24</span></div>
+          <span class="brand-tagline-sub">অফিসিয়াল রিওয়ার্ড প্ল্যাটফর্ম</span>
         </div>
       </a>
+
+      <!-- HTTPS SSL Security Badge in Header -->
+      <div class="ssl-security-badge" title="256-Bit SSL End-to-End Encrypted & Verified Safe">
+        <div class="ssl-icon-wrap">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#22C55E" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <div class="ssl-label-group">
+          <span class="ssl-headline"><span class="ssl-pulse-dot"></span>HTTPS 256-Bit SSL</span>
+          <span class="ssl-sub">Verified Encrypted</span>
+        </div>
+      </div>
 
       <nav aria-label="Primary Navigation">
         <ul class="nav-links">
           <li><a href="#dashboard" class="nav-link">ড্যাশবোর্ড</a></li>
           <li><a href="#wheel" class="nav-link">বোনাস হুইল</a></li>
+          <li><a href="#scratch-card" class="nav-link">স্ক্র্যাচ কার্ড</a></li>
           <li><a href="#leaderboard" class="nav-link">লিডারবোর্ড</a></li>
+          <li><a href="#vip-tiers" class="nav-link">ভিআইপি টায়ার</a></li>
           <li><a href="#how-it-works" class="nav-link">কীভাবে কাজ করে</a></li>
           <li><a href="#faq" class="nav-link">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="btn btn-primary btn-sm" id="navTryDemoBtn" onclick="openClaimModal()">বোনাস ক্লেইম করুন</button>
+        <button type="button" class="btn btn-primary btn-sm btn-pulsing-cta" id="navTryDemoBtn" onclick="handleBonusClaimAction(event)">বোনাস ক্লেইম করুন</button>
         <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -2289,13 +3329,36 @@
       <ul class="mobile-nav-links">
         <li><a href="#dashboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span>ড্যাশবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
         <li><a href="#wheel" class="mobile-nav-link" onclick="closeMobileMenu()"><span>বোনাস হুইল</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#scratch-card" class="mobile-nav-link" onclick="closeMobileMenu()"><span>স্ক্র্যাচ কার্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
         <li><a href="#leaderboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span>লিডারবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#vip-tiers" class="mobile-nav-link" onclick="closeMobileMenu()"><span>ভিআইপি টায়ার</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
         <li><a href="#how-it-works" class="mobile-nav-link" onclick="closeMobileMenu()"><span>কীভাবে কাজ করে</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
         <li><a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()"><span>FAQ</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
       </ul>
-      <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); openClaimModal();">বোনাস ক্লেইম করুন</button>
+      <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); handleBonusClaimAction(event);">বোনাস ক্লেইম করুন</button>
     </div>
   </header>
+
+  <!-- ==========================================================
+       LIVE-ACTIVITY CLAIM TICKER BAR (VERIFIED RECENT CLAIMS)
+       ========================================================== -->
+  <div class="live-claim-ticker-bar" aria-label="লাইভ রিওয়ার্ড ক্লেইম নোটিফিকেশন">
+    <div class="container ticker-container">
+      <div class="ticker-badge">
+        <span class="ticker-live-dot"></span>
+        <span>লাইভ ক্লেইম ফিড</span>
+      </div>
+      <div class="ticker-content" id="liveTickerFeed">
+        <span class="ticker-item-animated" id="activeTickerItem">
+          <strong class="text-accent">017*****92</strong> just claimed <strong class="text-gold">৳7,500</strong> via bKash <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(১ সেকেন্ড আগে)</span>
+        </span>
+      </div>
+      <div class="ticker-stat-summary">
+        <span>আজকের ক্লেইম: <strong class="text-accent" id="todayClaimCount">৳৫,৮৪,২৫০</strong></span>
+      </div>
+    </div>
+  </div>
+
 
   <!-- Mobile Backdrop Overlay -->
   <div class="mobile-nav-backdrop" id="mobileNavBackdrop" aria-hidden="true"></div>
@@ -2317,7 +3380,7 @@
             সেরা গেমিং রিওয়ার্ড, দৈনিক ক্যাশব্যাক এবং এক্সক্লুসিভ ভিআইপি সুবিধা উপভোগ করুন সরাসরি আপনার ড্যাশবোর্ড থেকে।
           </p>
           <div class="hero-cta-group">
-            <button type="button" class="btn btn-primary" id="heroClaimBtn" onclick="openClaimModal()">
+            <button type="button" class="btn btn-primary btn-pulsing-cta" id="heroClaimBtn" onclick="handleBonusClaimAction(event)">
               <span>বোনাস ক্লেইম করুন</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -2485,66 +3548,165 @@
     <!-- ==========================================================
          BONUS WHEEL SECTION
          ========================================================== -->
-    <section class="section-spacing wheel-section" id="wheel">
+        <!-- ==========================================================
+         GAMIFIED REWARDS ZONE (SPIN THE WHEEL & SCRATCH CARD)
+         ========================================================== -->
+    <section class="section-spacing wheel-section gamification-hub" id="wheel">
       <div class="container">
-        <div class="section-header" style="text-align: center; max-width: 700px; margin: 0 auto 3rem;">
-          <span class="section-eyebrow">লাকি ড্র ও রিওয়ার্ড</span>
-          <h2 class="section-title">লাকি বোনাস হুইল</h2>
-          <p class="section-subtitle">প্রতিদিনের ফ্রি স্পিন ঘুরিয়ে আকর্ষণীয় ক্যাশ রিওয়ার্ড ও মেগা জ্যাকপট সরাসরি ক্লেইম করুন।</p>
+        <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 2rem;">
+          <span class="section-eyebrow">ইন্টারেক্টিভ গেমিফিকেশন রিওয়ার্ডস</span>
+          <h2 class="section-title">স্পিন হুইল ও স্ক্র্যাচ অ্যান্ড উইন</h2>
+          <p class="section-subtitle">
+            লাকি হুইল ঘুরিয়ে বা গোল্ডেন স্ক্র্যাচ কার্ড ঘষে সরাসরি ৳১,০০০ থেকে ৳৫০,০০০ পর্যন্ত ইনস্ট্যান্ট ক্যাশ রিওয়ার্ড আনলক করুন।
+          </p>
         </div>
 
-        <div class="wheel-layout">
-          <!-- Wheel Stage with Canvas -->
-          <div class="wheel-stage">
-            <div class="wheel-outer-ring">
-              <!-- Wheel Pointer Top -->
-              <div class="wheel-pointer" id="wheelPointer">
-                <svg viewBox="0 0 32 38" fill="none">
-                  <path d="M16 38L3 6C1.5 3 3.5 0 7 0H25C28.5 0 30.5 3 29 6L16 38Z" fill="#B9F34B" stroke="#050806" stroke-width="2"/>
-                </svg>
+        <!-- Game Switcher Tabs -->
+        <div class="game-switcher-tabs" role="tablist">
+          <button type="button" class="game-tab-btn active" id="tabBtnWheel" onclick="switchGameTab('wheel')" role="tab" aria-selected="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <polyline points="12 6 12 12 16 14"></polyline>
+            </svg>
+            <span>লাকি স্পিন হুইল (Spin Wheel)</span>
+          </button>
+          <button type="button" class="game-tab-btn" id="tabBtnScratch" onclick="switchGameTab('scratch')" role="tab" aria-selected="false">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+              <line x1="3" y1="9" x2="21" y2="9"></line>
+              <line x1="9" y1="21" x2="9" y2="9"></line>
+            </svg>
+            <span>স্ক্র্যাচ অ্যান্ড উইন কার্ড (Scratch Card)</span>
+          </button>
+        </div>
+
+        <!-- MODULE 1: SPIN THE WHEEL -->
+        <div class="game-module-view" id="gameModuleWheel">
+          <div class="wheel-layout">
+            <!-- Wheel Stage with Canvas -->
+            <div class="wheel-stage">
+              <div class="wheel-outer-ring">
+                <!-- Wheel Pointer Top -->
+                <div class="wheel-pointer" id="wheelPointer">
+                  <svg viewBox="0 0 32 38" fill="none">
+                    <path d="M16 38L3 6C1.5 3 3.5 0 7 0H25C28.5 0 30.5 3 29 6L16 38Z" fill="#B9F34B" stroke="#050806" stroke-width="2"/>
+                  </svg>
+                </div>
+
+                <!-- Center Hub -->
+                <div class="wheel-hub">
+                  <span class="wheel-hub-text">SPIN</span>
+                </div>
+
+                <!-- Rotating Disc -->
+                <div class="wheel-disc-container" id="wheelDisc">
+                  <canvas id="wheelCanvas" class="wheel-canvas" width="400" height="400"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls & Result Card -->
+            <div class="wheel-controls-card">
+              <div>
+                <span class="badge-live">দৈনিক ফ্রি স্পিন সক্রিয়</span>
+                <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.2rem;">হুইল ঘুরিয়ে রিওয়ার্ড জিতুন</h3>
+                <p class="text-muted" style="font-size: 0.9rem;">প্রতিটি সেগমেন্টে ৳১,০০০ থেকে ৳৫০,০০০ মেগা জ্যাকপট পর্যন্ত আকর্ষণীয় পুরস্কার সাজানো রয়েছে।</p>
               </div>
 
-              <!-- Center Hub -->
-              <div class="wheel-hub">
-                <span class="wheel-hub-text">SPIN</span>
+              <div class="wheel-result-box" id="wheelResultBox">
+                <span class="card-title-sm">সর্বশেষ স্পিন ফলাফল</span>
+                <div class="wheel-result-amount" id="wheelResultAmount">৳7,500</div>
+                <p class="wheel-disclaimer" style="color: var(--accent-primary); font-size: 0.8rem; margin-top: 0.4rem;">যাচাইকৃত ক্যাশ রিওয়ার্ড প্রস্তুত</p>
               </div>
 
-              <!-- Rotating Disc -->
-              <div class="wheel-disc-container" id="wheelDisc">
-                <canvas id="wheelCanvas" class="wheel-canvas" width="400" height="400"></canvas>
+              <div class="wheel-btn-group">
+                <!-- Bright Animated CTA Button with Pulsing Micro-Animations -->
+                <button type="button" class="btn btn-primary btn-pulsing-cta" id="spinWheelBtn" onclick="handleWheelSpinAction(event)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                  <span>Spin Now to Unlock (স্পিন করুন)</span>
+                </button>
+                <button type="button" class="btn btn-secondary" id="resetWheelBtn" onclick="resetWheel()">
+                  আবার চেষ্টা করুন
+                </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <!-- Controls & Result Card -->
-          <div class="wheel-controls-card">
+        <!-- MODULE 2: SCRATCH & WIN CARD (INTERACTIVE CANVAS) -->
+        <div class="game-module-view" id="gameModuleScratch" style="display: none;" id="scratch-card">
+          <div class="scratch-card-wrapper">
+            <!-- Interactive Canvas Stage -->
             <div>
-              <span class="badge-live">দৈনিক ফ্রি স্পিন</span>
-              <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.2rem;">হুইল ঘুরিয়ে রিওয়ার্ড জিতুন</h3>
-              <p class="text-muted" style="font-size: 0.9rem;">প্রতিটি সেগমেন্টে ৳৫০০ থেকে ৳৮,৮৮৮ পর্যন্ত আকর্ষণীয় পুরস্কার সাজানো রয়েছে।</p>
+              <div class="scratch-stage" id="scratchStage">
+                <!-- Secret Reward Underneath -->
+                <div class="scratch-reward-box">
+                  <div class="scratch-reward-badge">🎉 লাকি স্ক্র্যাচ উইন!</div>
+                  <div class="scratch-reward-amount" id="scratchRevealedAmount">৳৮,৫০০</div>
+                  <div style="font-size: 0.8rem; color: #E2E8F0; font-weight: 600;">ভিআইপি স্পেশাল ক্যাশ ভাউচার</div>
+                  <div class="scratch-reward-code-box">
+                    <span>ভাউচার কোড: <strong class="text-accent" id="scratchVoucherCode">CB24-VIP8500</strong></span>
+                  </div>
+                </div>
+
+                <!-- Golden Holographic Scratchable Canvas Foil -->
+                <canvas id="scratchCanvas" class="scratch-canvas" width="380" height="285"></canvas>
+              </div>
+
+              <!-- Live Scratch Completion Meter -->
+              <div class="scratch-meter-bar-box">
+                <div class="scratch-meter-header">
+                  <span id="scratchStatusText">কার্ডের ওপর মাউস বা আঙুল ঘষুন...</span>
+                  <span id="scratchPercentText">০%</span>
+                </div>
+                <div class="scratch-meter-track">
+                  <div class="scratch-meter-fill" id="scratchMeterFill"></div>
+                </div>
+              </div>
             </div>
 
-            <div class="wheel-result-box" id="wheelResultBox">
-              <span class="card-title-sm">সর্বশেষ স্পিন ফলাফল</span>
-              <div class="wheel-result-amount" id="wheelResultAmount">৳850</div>
-              <p class="wheel-disclaimer" style="color: var(--accent-primary); font-size: 0.8rem; margin-top: 0.4rem;">সরাসরি ড্যাশবোর্ড ব্যালেন্সে যুক্ত হয়েছে</p>
-            </div>
+            <!-- Scratch Controls & Rules -->
+            <div class="scratch-controls">
+              <div>
+                <span class="badge-live">গোল্ডেন স্ক্র্যাচ কার্ড</span>
+                <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem;">ঘষুন এবং তাত্ক্ষণিক জিতুন</h3>
+                <p class="text-muted" style="font-size: 0.88rem; line-height: 1.6;">
+                  কার্ডের গোল্ডেন ফয়েলটি স্ক্র্যাচ করে ৫০% সম্পূর্ণ করলেই সম্পূর্ণ রিওয়ার্ড স্বয়ংক্রিয়ভাবে আনলক হয়ে যাবে।
+                </p>
+              </div>
 
-            <div class="wheel-btn-group">
-              <button type="button" class="btn btn-primary" id="spinWheelBtn" onclick="spinWheel()">
-                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
-                </svg>
-                <span>স্পিন করুন ও জিতুন</span>
-              </button>
-              <button type="button" class="btn btn-secondary" id="resetWheelBtn" onclick="resetWheel()">
-                আবার চেষ্টা করুন
-              </button>
+              <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.1rem;">
+                <div style="font-size: 0.75rem; color: #94A3B8; margin-bottom: 0.3rem; text-transform: uppercase; font-weight: 700;">সর্বোচ্চ সম্ভাব্য পুরস্কার</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: #F5D061;">৳২৫,০০০ পর্যন্ত ইনস্ট্যান্ট বোনাস</div>
+                <div style="font-size: 0.72rem; color: var(--accent-primary); margin-top: 0.2rem;">✓ ১০০% নিশ্চিত পেআউট কোড</div>
+              </div>
+
+              <div style="display: flex; flex-direction: column; gap: 0.75rem;">
+                <!-- Pulsing CTA Button -->
+                <button type="button" class="btn btn-primary btn-pulsing-cta" id="scratchClaimBtn" onclick="handleScratchCardAction(event)">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+                  </svg>
+                  <span>Claim Reward (রিওয়ার্ড ক্লেইম)</span>
+                </button>
+                <div style="display: flex; gap: 0.75rem;">
+                  <button type="button" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;" onclick="autoRevealScratchCard()">
+                    স্বয়ংক্রিয় স্ক্র্যাচ
+                  </button>
+                  <button type="button" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;" onclick="resetScratchCard()">
+                    নতুন কার্ড নিন
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         </div>
+
       </div>
     </section>
+
 
     <!-- ==========================================================
          FEATURES SECTION
@@ -2608,6 +3770,283 @@
             </div>
             <h3 class="feature-title">মোবাইল এক্সপেরিয়েন্স</h3>
             <p class="feature-desc">যেকোনো ডিভাইসের স্ক্রিনের সাথে মানানসই রেসপন্সিভ লেআউট ও স্মুথ ড্রয়ার মেন্যু।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         VIP MEMBERSHIP TIERS (HORIZONTAL SCROLLABLE LIST)
+         ========================================================== -->
+    <section class="section-spacing" id="vip-tiers">
+      <div class="container">
+        <!-- Section Header with Left Content & Right Scroll Controls -->
+        <div class="vip-header-wrapper">
+          <div class="section-header" style="margin-bottom: 0;">
+            <span class="section-eyebrow">এক্সক্লুসিভ রিওয়ার্ড স্ট্যাটাস</span>
+            <h2 class="section-title">ভিআইপি মেম্বারশিপ টায়ার (VIP Membership Tiers)</h2>
+            <p class="section-subtitle">
+              উচ্চতর টায়ারে উন্নীত হয়ে আনলক করুন সর্বোচ্চ ক্যাশব্যাক (Cashback %), অগ্রাধিকার সেবা ও এক্সক্লুসিভ অ্যাক্সেস (Exclusive Access)।
+            </p>
+          </div>
+          <!-- Desktop & Mobile Scroll Controls -->
+          <div class="vip-nav-controls" aria-label="VIP Tiers Navigation">
+            <button type="button" class="vip-scroll-btn" id="vipScrollPrev" onclick="scrollVipList(-1)" aria-label="পূর্ববর্তী টায়ার দেখুন">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="15 18 9 12 15 6"></polyline>
+              </svg>
+            </button>
+            <div class="vip-scroll-indicator" id="vipScrollIndicator">
+              <span class="vip-dot active"></span>
+              <span class="vip-dot"></span>
+              <span class="vip-dot"></span>
+              <span class="vip-dot"></span>
+              <span class="vip-dot"></span>
+            </div>
+            <button type="button" class="vip-scroll-btn" id="vipScrollNext" onclick="scrollVipList(1)" aria-label="পরবর্তী টায়ার দেখুন">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="9 18 15 12 9 6"></polyline>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Horizontal Scrollable Container with Edge Fade Masking -->
+        <div class="vip-scroll-container-wrapper">
+          <div class="vip-scroll-track" id="vipScrollTrack" role="region" aria-label="VIP Tiers List" tabindex="0">
+
+            <!-- TIER 1: BRONZE -->
+            <div class="vip-tier-card tier-bronze">
+              <div class="vip-tier-badge-strip">
+                <span class="vip-level-pill">লেভেল ১ - ৫</span>
+                <span class="vip-tier-tag">স্ট্যান্ডার্ড</span>
+              </div>
+              <div class="vip-tier-header">
+                <div class="vip-icon-medal bronze">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="vip-tier-title">ব্রোঞ্জ টায়ার (Bronze)</h3>
+                  <div class="vip-tier-req">নতুন সদস্যদের জন্য স্বাগতম স্তর</div>
+                </div>
+              </div>
+
+              <!-- Key Benefits Highlights -->
+              <div class="vip-metrics-grid">
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Cashback % (ক্যাশব্যাক)</div>
+                  <div class="vip-metric-val">৫%</div>
+                  <div class="vip-metric-sub">সাপ্তাহিক রিবেট ক্যাশব্যাক</div>
+                </div>
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Exclusive Access</div>
+                  <div class="vip-metric-val-sm">স্ট্যান্ডার্ড টুর্নামেন্ট</div>
+                  <div class="vip-metric-sub">উইকলি ওপেন ব্যাটল ও বেসিক পুল</div>
+                </div>
+              </div>
+
+              <!-- Full Benefits Checklist -->
+              <ul class="vip-perks-list">
+                <li><span class="perk-check">✓</span> ৫% আনলিমিটেড সাপ্তাহিক ক্যাশব্যাক</li>
+                <li><span class="perk-check">✓</span> দৈনিক ১টি ফ্রি হুইল স্পিন</li>
+                <li><span class="perk-check">✓</span> ২৪/৭ লাইভ চ্যাট সাপোর্ট অ্যাক্সেস</li>
+                <li><span class="perk-check">✓</span> জন্মদিনের স্পেশাল শুভেচ্ছা বোনাস</li>
+              </ul>
+
+              <div class="vip-tier-footer">
+                <button type="button" class="btn btn-secondary" style="width: 100%;" onclick="handleBonusClaimAction(event)">
+                  <span>ব্রোঞ্জ স্ট্যাটাস আনলক</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TIER 2: SILVER -->
+            <div class="vip-tier-card tier-silver">
+              <div class="vip-tier-badge-strip">
+                <span class="vip-level-pill">লেভেল ৬ - ১৫</span>
+                <span class="vip-tier-tag">অগ্রাধিকার</span>
+              </div>
+              <div class="vip-tier-header">
+                <div class="vip-icon-medal silver">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="vip-tier-title">সিলভার টায়ার (Silver)</h3>
+                  <div class="vip-tier-req">নিয়মিত সক্রিয় খেলোয়াড়</div>
+                </div>
+              </div>
+
+              <div class="vip-metrics-grid">
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Cashback % (ক্যাশব্যাক)</div>
+                  <div class="vip-metric-val">৮%</div>
+                  <div class="vip-metric-sub">রিয়েল-টাইম দৈনিক রিবেট</div>
+                </div>
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Exclusive Access</div>
+                  <div class="vip-metric-val-sm">সিলভার লাকি ড্র</div>
+                  <div class="vip-metric-sub">অগ্রাধিকার ফাস্ট ক্লেইম উইন্ডো</div>
+                </div>
+              </div>
+
+              <ul class="vip-perks-list">
+                <li><span class="perk-check">✓</span> ৮% রিয়েল-টাইম দৈনিক ক্যাশব্যাক</li>
+                <li><span class="perk-check">✓</span> দৈনিক ২টি হাই-রিওয়ার্ড ফ্রি স্পিন</li>
+                <li><span class="perk-check">✓</span> অগ্রাধিকারভিত্তিতে ফাস্ট ক্লেইম</li>
+                <li><span class="perk-check">✓</span> প্রতি শুক্রবারে স্পেশাল রিলোড বোনাস</li>
+              </ul>
+
+              <div class="vip-tier-footer">
+                <button type="button" class="btn btn-secondary" style="width: 100%;" onclick="handleBonusClaimAction(event)">
+                  <span>সিলভার টায়ার ক্লেইম</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TIER 3: GOLD (POPULAR FEATURED) -->
+            <div class="vip-tier-card tier-gold featured">
+              <div class="vip-popular-ribbon">সবচেয়ে জনপ্রিয় (MOST POPULAR)</div>
+              <div class="vip-tier-badge-strip">
+                <span class="vip-level-pill" style="border-color: #FBBF24; color: #FBBF24;">লেভেল ১৬ - ৩০</span>
+                <span class="badge-live">ভিআইপি গোল্ড</span>
+              </div>
+              <div class="vip-tier-header">
+                <div class="vip-icon-medal gold">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="vip-tier-title">গোল্ড ভিআইপি (Gold VIP)</h3>
+                  <div class="vip-tier-req">টপ পারফর্মার ও সক্রিয় ডিপোজিটর</div>
+                </div>
+              </div>
+
+              <div class="vip-metrics-grid">
+                <div class="vip-metric-box featured">
+                  <div class="vip-metric-label">Cashback % (ক্যাশব্যাক)</div>
+                  <div class="vip-metric-val text-accent">১২%</div>
+                  <div class="vip-metric-sub">ইনস্ট্যান্ট আনলিমিটেড ক্যাশব্যাক</div>
+                </div>
+                <div class="vip-metric-box featured">
+                  <div class="vip-metric-label">Exclusive Access</div>
+                  <div class="vip-metric-val-sm text-accent">গোল্ড ভিআইপি লাউঞ্জ</div>
+                  <div class="vip-metric-sub">ব্যক্তিগত অ্যাকাউন্ট প্রতিনিধি</div>
+                </div>
+              </div>
+
+              <ul class="vip-perks-list">
+                <li><span class="perk-check text-accent">✓</span> ১২% ইনস্ট্যান্ট নো-ক্যাপ ক্যাশব্যাক</li>
+                <li><span class="perk-check text-accent">✓</span> দৈনিক ৩টি প্রিমিয়াম হুইল স্পিন</li>
+                <li><span class="perk-check text-accent">✓</span> ডেডিকেটেড ভিআইপি হেল্পলাইন ও সাপোর্ট</li>
+                <li><span class="perk-check text-accent">✓</span> এক্সক্লুসিভ মান্থলি জ্যাকপট টুর্নামেন্ট</li>
+              </ul>
+
+              <div class="vip-tier-footer">
+                <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="handleBonusClaimAction(event)">
+                  <span>গোল্ড ভিআইপি আনলক করুন</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TIER 4: PLATINUM -->
+            <div class="vip-tier-card tier-platinum">
+              <div class="vip-tier-badge-strip">
+                <span class="vip-level-pill" style="border-color: #38BDF8; color: #38BDF8;">লেভেল ৩১ - ৫০</span>
+                <span class="vip-tier-tag" style="background: rgba(56, 189, 248, 0.15); color: #38BDF8; border-color: rgba(56, 189, 248, 0.3);">হাই-রোলার</span>
+              </div>
+              <div class="vip-tier-header">
+                <div class="vip-icon-medal platinum">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="8" r="6"/>
+                    <path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="vip-tier-title">প্ল্যাটিনাম প্রো (Platinum)</h3>
+                  <div class="vip-tier-req">অভিজ্ঞ ও প্রফেশনাল প্লেয়ার্স</div>
+                </div>
+              </div>
+
+              <div class="vip-metrics-grid">
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Cashback % (ক্যাশব্যাক)</div>
+                  <div class="vip-metric-val" style="color: #38BDF8;">১৬%</div>
+                  <div class="vip-metric-sub">প্রতিদিনের অটো-ক্রেডিট ক্যাশব্যাক</div>
+                </div>
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Exclusive Access</div>
+                  <div class="vip-metric-val-sm" style="color: #38BDF8;">প্রাইভেট ভিআইপি ইভেন্ট</div>
+                  <div class="vip-metric-sub">৫ মিনিটে এক্সপ্রেস উইথড্রয়াল প্রসেসিং</div>
+                </div>
+              </div>
+
+              <ul class="vip-perks-list">
+                <li><span class="perk-check" style="color: #38BDF8;">✓</span> ১৬% প্রতিদিনের অটোমেটিক ক্যাশব্যাক</li>
+                <li><span class="perk-check" style="color: #38BDF8;">✓</span> দৈনিক ৫টি মেগা হুইল স্পিন</li>
+                <li><span class="perk-check" style="color: #38BDF8;">✓</span> ব্যক্তিগত ডেডিকেটেড রিলেশনশিপ ম্যানেজার</li>
+                <li><span class="perk-check" style="color: #38BDF8;">✓</span> আনলিমিটেড দৈনিক উইথড্রয়াল লিমিট</li>
+              </ul>
+
+              <div class="vip-tier-footer">
+                <button type="button" class="btn btn-secondary" style="width: 100%; border-color: rgba(56, 189, 248, 0.4);" onclick="handleBonusClaimAction(event)">
+                  <span>প্ল্যাটিনাম স্ট্যাটাস নিন</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- TIER 5: DIAMOND ELITE -->
+            <div class="vip-tier-card tier-diamond">
+              <div class="vip-tier-badge-strip">
+                <span class="vip-level-pill" style="border-color: #C084FC; color: #C084FC;">লেভেল ৫০+</span>
+                <span class="vip-tier-tag" style="background: rgba(192, 132, 252, 0.15); color: #C084FC; border-color: rgba(192, 132, 252, 0.3);">সর্বোচ্চ সুবিধা</span>
+              </div>
+              <div class="vip-tier-header">
+                <div class="vip-icon-medal diamond">
+                  <svg width="26" height="26" viewBox="0 0 24 24" fill="currentColor">
+                    <polygon points="6 3 18 3 22 9 12 22 2 9 6 3"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="vip-tier-title">ডায়মন্ড এলিট (Diamond Elite)</h3>
+                  <div class="vip-tier-req">ইনভিটেশন-অনলি সর্বোচ্চ মর্যাদা</div>
+                </div>
+              </div>
+
+              <div class="vip-metrics-grid">
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Cashback % (ক্যাশব্যাক)</div>
+                  <div class="vip-metric-val" style="color: #C084FC;">২২%</div>
+                  <div class="vip-metric-sub">আনক্যাপড রিয়েল-টাইম ক্যাশব্যাক</div>
+                </div>
+                <div class="vip-metric-box">
+                  <div class="vip-metric-label">Exclusive Access</div>
+                  <div class="vip-metric-val-sm" style="color: #C084FC;">ব্যক্তিগত ভিআইপি ডিরেক্টর</div>
+                  <div class="vip-metric-sub">লাক্সারি গিফট ও ভিআইপি ট্রাভেল ইনভাইট</div>
+                </div>
+              </div>
+
+              <ul class="vip-perks-list">
+                <li><span class="perk-check" style="color: #C084FC;">✓</span> ২২% আনক্যাপড তাৎক্ষণিক ক্যাশব্যাক</li>
+                <li><span class="perk-check" style="color: #C084FC;">✓</span> আনলিমিটেড দৈনিক গোল্ডেন হুইল স্পিন</li>
+                <li><span class="perk-check" style="color: #C084FC;">✓</span> ২৪/৭ ব্যক্তিগত কনসিয়ার্জ ও ডিরেক্টর সাপোর্ট</li>
+                <li><span class="perk-check" style="color: #C084FC;">✓</span> বার্ষিক এক্সক্লুসিভ লাক্সারি ট্যুর ও ভিআইপি গিফট</li>
+              </ul>
+
+              <div class="vip-tier-footer">
+                <button type="button" class="btn btn-secondary" style="width: 100%; border-color: rgba(192, 132, 252, 0.4);" onclick="handleBonusClaimAction(event)">
+                  <span>এলিট ভিআইপি রিকোয়েস্ট</span>
+                </button>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
@@ -2865,30 +4304,78 @@
   <!-- ==========================================================
        GLOBAL FOOTER
        ========================================================== -->
+    <!-- ==========================================================
+       GLOBAL FOOTER WITH STANDARD LINKS & TRUST BADGES
+       ========================================================== -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-top">
         <div class="footer-brand">
-          <div class="brand-title">BETBONUS</div>
-          <p>প্রিমিয়াম রিওয়ার্ড ও এক্সক্লুসিভ বোনাস প্ল্যাটফর্ম।</p>
+          <div class="brand-title">CLAIM<span class="text-accent">BONUS</span><span class="text-gold">24</span></div>
+          <p>অফিসিয়াল প্রিমিয়াম বোনাস ও ইনস্ট্যান্ট রিওয়ার্ড প্ল্যাটফর্ম।</p>
         </div>
         <nav class="footer-nav" aria-label="Footer Links">
           <a href="#dashboard">ড্যাশবোর্ড</a>
           <a href="#wheel">বোনাস হুইল</a>
+          <a href="#scratch-card" onclick="switchGameTab('scratch')">স্ক্র্যাচ কার্ড</a>
           <a href="#leaderboard">লিডারবোর্ড</a>
-          <a href="#how-it-works">কীভাবে কাজ করে</a>
+          <a href="#vip-tiers">ভিআইপি টায়ার</a>
           <a href="#faq">FAQ</a>
         </nav>
       </div>
+
+      <!-- Standard Footer Legal & Trust Links -->
+      <div class="footer-legal-bar" aria-label="Legal and Support Links">
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('privacy')">Privacy Policy (গোপনীয়তা নীতি)</button>
+        <span class="footer-divider">•</span>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('terms')">Terms of Service (ব্যবহারের শর্তাবলী)</button>
+        <span class="footer-divider">•</span>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('disclaimer')">Disclaimer (দাবিত্যাগ)</button>
+        <span class="footer-divider">•</span>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('support')">Contact Support (২৪/৭ সহায়তা কেন্দ্র)</button>
+      </div>
+
+      <!-- Security & Trust Seals Strip -->
+      <div class="footer-trust-strip">
+        <div class="trust-badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+          <span>256-Bit SSL Encrypted</span>
+        </div>
+        <div class="trust-badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+          </svg>
+          <span>Verified Instant Payouts</span>
+        </div>
+        <div class="trust-badge-item">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <path d="M12 6v6l4 2"></path>
+          </svg>
+          <span>২৪/৭ কাস্টমার সাপোর্ট</span>
+        </div>
+        <div class="trust-badge-item">
+          <span style="border: 1px solid #22C55E; color: #22C55E; border-radius: 4px; padding: 0 4px; font-size: 0.68rem; font-weight: 800;">18+</span>
+          <span>দায়িত্বশীল প্ল্যাটফর্ম</span>
+        </div>
+      </div>
+
       <div class="footer-bottom">
-        <div>© 2026 BetBonus. All rights reserved.</div>
-        <div>সুরক্ষিত এনক্রিপশন ও ২৪/৭ নির্ভরযোগ্য গ্রাহক সহায়তা দ্বারা পরিচালিত।</div>
+        <div>© 2026 ClaimBonus24. All rights reserved.</div>
+        <div>এনক্রিপ্টেড সিকিউরিটি ও ২৪/৭ নির্ভরযোগ্য কাস্টমার সাপোর্ট দ্বারা সুরক্ষিত।</div>
       </div>
     </div>
   </footer>
 
+
   <!-- ==========================================================
        BONUS CLAIM FLOW MODAL
+       ========================================================== -->
+    <!-- ==========================================================
+       STEP-BY-STEP BONUS CLAIM FLOW MODAL
        ========================================================== -->
   <div class="modal-overlay" id="claimModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
     <div class="modal-box">
@@ -2899,62 +4386,226 @@
         </svg>
       </button>
 
-      <!-- STEP 1: Identification -->
+      <!-- STEP 1: Identification (Account ID / Phone Number / Email) -->
       <div class="modal-step active" id="modalStep1">
-        <span class="stat-pill">ধাপ ১ / ৩</span>
-        <h3 class="modal-title" id="modalTitle">আপনার বোনাস ক্লেইম করুন</h3>
-        <p class="modal-desc">আপনার ইউজার আইডি বা ফোন নম্বর দিন এবং তাৎক্ষণিক রিওয়ার্ড আনলক করুন।</p>
+        <div class="step-progress-wrapper">
+          <div class="step-progress-header">
+            <span>ধাপ ১ / ৩: একাউন্ট ভেরিফিকেশন</span>
+            <span class="text-accent">৩৩% সম্পন্ন</span>
+          </div>
+          <div class="step-progress-bar">
+            <div class="step-progress-fill" style="width: 33%;"></div>
+          </div>
+        </div>
+
+        <h3 class="modal-title" id="modalTitle">আপনার অ্যাকাউন্ট ভেরিফাই করুন</h3>
+        <p class="modal-desc">
+          যে ওয়ালেট বা অ্যাকাউন্টে ক্যাশ বোনাস গ্রহণ করতে চান তার বিবরণ প্রদান করুন।
+        </p>
+
+        <!-- Method Selector Tabs -->
+        <div class="step-method-selector">
+          <div class="method-pill active" id="methodPillPhone" onclick="selectClaimMethod('phone')">📱 বিকাশ / নগদ / রকেট</div>
+          <div class="method-pill" id="methodPillId" onclick="selectClaimMethod('id')">🆔 প্লেয়ার আইডি / ইমেইল</div>
+        </div>
+
         <div>
-          <input type="text" class="modal-input" id="demoIdInput" placeholder="player@example.com / 017XXXXXXXX" value="player@betbonus.com" aria-label="User Identifier Input">
-          <span style="font-size: 0.72rem; color: #7C8981; margin-top: 0.4rem; display: block;">আপনার তথ্য সম্পূর্ণ নিরাপদে এনক্রিপ্টেড থাকবে।</span>
+          <div style="position: relative;">
+            <input type="text" class="modal-input" id="userClaimInput" placeholder="017XXXXXXXX" value="01712345678" aria-label="User Identifier Input">
+            <span style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); color: #22C55E;" title="SSL Verified">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+          </div>
+          <div style="display: flex; align-items: center; gap: 6px; font-size: 0.72rem; color: #22C55E; margin-top: 0.4rem;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            <span>256-Bit SSL এনক্রিপশনের মাধ্যমে সম্পূর্ণ নিরাপদে সংরক্ষিত</span>
+          </div>
         </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-primary" onclick="proceedToStep2()">পরবর্তী ধাপ</button>
+
+        <div class="modal-actions" style="margin-top: 1.5rem;">
+          <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="proceedToStep2()">
+            <span>পরবর্তী ধাপ: টাস্ক সম্পন্ন করুন</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
         </div>
       </div>
 
-      <!-- STEP 2: Share Demo Flow -->
+      <!-- STEP 2: Interactive Task (Spin Wheel or Share via WhatsApp/Messenger) -->
       <div class="modal-step" id="modalStep2">
-        <span class="stat-pill">ধাপ ২ / ৩</span>
-        <h3 class="modal-title">বন্ধুদের রেফার করুন</h3>
-        <p class="modal-desc">বন্ধুদের সাথে শেয়ার করে অতিরিক্ত ২০০% পর্যন্ত বোনাস পয়েন্ট আনলক করুন।</p>
-        <div class="share-btn-group">
-          <!-- 1. Messenger (ABOVE) -->
-          <button type="button" class="btn share-btn-messenger" id="btnShareMessenger" onclick="shareToPlatform('messenger')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.914 1.455 5.517 3.737 7.21V22l3.37-1.85c.91.252 1.88.388 2.893.388 5.523 0 10-4.145 10-9.28C22 6.145 17.523 2 12 2zm1.042 12.443l-2.548-2.72-4.97 2.72 5.467-5.803 2.613 2.72 4.904-2.72-5.466 5.803z"/>
-            </svg>
-            <span>Messenger এ শেয়ার করুন</span>
-          </button>
-          <!-- 2. WhatsApp (BELOW) -->
-          <button type="button" class="btn share-btn-whatsapp" id="btnShareWhatsApp" onclick="shareToPlatform('whatsapp')">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-              <path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.98-.276-.1-.476-.15-.676.15-.2.301-.776.98-.952 1.18-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.784-1.675-2.085-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.2-.301.301-.502.1-.2.05-.376-.025-.526-.075-.15-.676-1.63-.927-2.233-.245-.587-.493-.507-.677-.517-.175-.008-.376-.01-.577-.01-.2 0-.526.075-.801.376-.276.301-1.053 1.028-1.053 2.508 0 1.479 1.078 2.909 1.228 3.109.15.2 2.122 3.24 5.141 4.544.718.31 1.278.496 1.716.635.722.23 1.379.198 1.898.12.578-.087 1.782-.728 2.033-1.431.25-.703.25-1.305.175-1.43-.075-.126-.276-.201-.577-.352zM12 2C6.477 2 2 6.477 2 12c0 1.892.524 3.662 1.435 5.176L2 22l4.982-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
-            </svg>
-            <span>WhatsApp এ শেয়ার করুন</span>
-          </button>
+        <div class="step-progress-wrapper">
+          <div class="step-progress-header">
+            <span>ধাপ ২ / ৩: রিওয়ার্ড আনলক টাস্ক</span>
+            <span class="text-accent" id="step2PercentText">৬৭% সম্পন্ন</span>
+          </div>
+          <div class="step-progress-bar">
+            <div class="step-progress-fill" id="step2ProgressBar" style="width: 67%;"></div>
+          </div>
         </div>
-        <div class="modal-actions">
-          <button type="button" class="btn btn-secondary" onclick="proceedToStep3()">পরে করব</button>
+
+        <h3 class="modal-title">একটি সহজ টাস্ক সম্পন্ন করুন</h3>
+        <p class="modal-desc">
+          নিচের যেকোনো ১টি ইন্টারেক্টিভ টাস্ক সম্পন্ন করে তাত্ক্ষণিকভাবে ১০০% রিওয়ার্ড আনলক করুন:
+        </p>
+
+        <div class="task-cards-group">
+          <!-- Option 1: WhatsApp Share -->
+          <div class="task-card-action" onclick="handleTaskShare('whatsapp')">
+            <div class="task-card-info">
+              <div class="task-icon" style="background: rgba(37, 211, 102, 0.15); color: #25D366;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M17.472 14.382c-.301-.15-1.782-.879-2.058-.98-.276-.1-.476-.15-.676.15-.2.301-.776.98-.952 1.18-.175.2-.351.226-.652.075-.301-.15-1.27-.468-2.42-1.493-.895-.798-1.5-1.784-1.675-2.085-.175-.301-.019-.464.132-.614.135-.135.301-.351.451-.527.151-.176.2-.301.301-.502.1-.2.05-.376-.025-.526-.075-.15-.676-1.63-.927-2.233-.245-.587-.493-.507-.677-.517-.175-.008-.376-.01-.577-.01-.2 0-.526.075-.801.376-.276.301-1.053 1.028-1.053 2.508 0 1.479 1.078 2.909 1.228 3.109.15.2 2.122 3.24 5.141 4.544.718.31 1.278.496 1.716.635.722.23 1.379.198 1.898.12.578-.087 1.782-.728 2.033-1.431.25-.703.25-1.305.175-1.43-.075-.126-.276-.201-.577-.352zM12 2C6.477 2 2 6.477 2 12c0 1.892.524 3.662 1.435 5.176L2 22l4.982-1.39A9.957 9.957 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+                </svg>
+              </div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: #F4F7F4;">WhatsApp এ শেয়ার করুন</div>
+                <div style="font-size: 0.72rem; color: #94A3B8;">বন্ধুদের জানিয়ে রিওয়ার্ড ১০০% নিশ্চিত করুন</div>
+              </div>
+            </div>
+            <span class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">শেয়ার করুন</span>
+          </div>
+
+          <!-- Option 2: Messenger Share -->
+          <div class="task-card-action" onclick="handleTaskShare('messenger')">
+            <div class="task-card-info">
+              <div class="task-icon" style="background: rgba(0, 132, 255, 0.15); color: #0084FF;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.477 2 2 6.145 2 11.258c0 2.914 1.455 5.517 3.737 7.21V22l3.37-1.85c.91.252 1.88.388 2.893.388 5.523 0 10-4.145 10-9.28C22 6.145 17.523 2 12 2zm1.042 12.443l-2.548-2.72-4.97 2.72 5.467-5.803 2.613 2.72 4.904-2.72-5.466 5.803z"/>
+                </svg>
+              </div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: #F4F7F4;">Messenger এ শেয়ার করুন</div>
+                <div style="font-size: 0.72rem; color: #94A3B8;">ফেসবুক মেসেঞ্জারে লিঙ্ক পাঠান</div>
+              </div>
+            </div>
+            <span class="btn btn-secondary btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">শেয়ার করুন</span>
+          </div>
+
+          <!-- Option 3: Mini Instant Spin Task -->
+          <div class="task-card-action" onclick="handleTaskSpin()">
+            <div class="task-card-info">
+              <div class="task-icon" style="background: rgba(185, 243, 75, 0.15); color: #B9F34B;">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+              </div>
+              <div>
+                <div style="font-weight: 700; font-size: 0.88rem; color: #F4F7F4;">কুইক স্পিন টাস্ক (Quick Spin)</div>
+                <div style="font-size: 0.72rem; color: #94A3B8;">১-ক্লিকে তাৎক্ষণিক স্পিন করে আনলক করুন</div>
+              </div>
+            </div>
+            <span class="btn btn-primary btn-sm" style="font-size: 0.75rem; padding: 0.35rem 0.75rem;">স্পিন করুন</span>
+          </div>
+        </div>
+
+        <div class="modal-actions" style="margin-top: 1.2rem;">
+          <button type="button" class="btn btn-secondary" style="width: 100%; justify-content: center; font-size: 0.8rem;" onclick="proceedToStep3()">
+            সরাসরি রিওয়ার্ডে যান
+          </button>
         </div>
       </div>
 
-      <!-- STEP 3: Simulated Result -->
+      <!-- STEP 3: Calculated Reward with Animated Claim to Wallet Button -->
       <div class="modal-step" id="modalStep3">
-        <span class="badge-live">বোনাস সক্রিয়</span>
-        <h3 class="modal-title">অভিনন্দন! রিওয়ার্ড আনলক হয়েছে</h3>
-        <div class="simulated-result-display" id="modalResultDisplay">
-          <div class="card-title-sm">ওয়েলকাম রিওয়ার্ড বোনাস</div>
-          <div class="simulated-result-number" id="modalBonusResult">৳7,428</div>
-          <p style="font-size: 0.8rem; color: var(--accent-primary); margin-top: 0.5rem;">
-            আপনার অ্যাকাউন্টে বোনাস সফলভাবে যুক্ত হয়েছে!
-          </p>
+        <div class="step-progress-wrapper">
+          <div class="step-progress-header">
+            <span>ধাপ ৩ / ৩: রিওয়ার্ড প্রস্তুত</span>
+            <span style="color: #22C55E; font-weight: 700;">১০০% সম্পন্ন!</span>
+          </div>
+          <div class="step-progress-bar">
+            <div class="step-progress-fill" style="width: 100%; background: #22C55E;"></div>
+          </div>
         </div>
+
+        <span class="badge-live" style="margin-bottom: 0.6rem;">🎉 বোনাস সফলভাবে নির্ধারিত</span>
+        <h3 class="modal-title">অভিনন্দন! আপনার রিওয়ার্ড প্রস্তুত</h3>
+
+        <div class="simulated-result-display" id="modalResultDisplay" style="margin: 1.2rem 0;">
+          <div class="card-title-sm">হিসাবকৃত চূড়ান্ত ক্যাশ বোনাস</div>
+          <div class="simulated-result-number" id="modalBonusResult">৳৮,৭৫০</div>
+          
+          <div style="background: rgba(0, 0, 0, 0.3); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.8rem; text-align: left; font-size: 0.78rem;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+              <span style="color: #94A3B8;">প্রাপক ওয়ালেট:</span>
+              <strong id="modalSummaryRecipient" style="color: #F4F7F4;">017*****678</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
+              <span style="color: #94A3B8;">ট্রানজেকশন টাইপ:</span>
+              <span style="color: #4ADE80; font-weight: 700;">ইনস্ট্যান্ট ক্যাশ ক্রেডিট</span>
+            </div>
+            <div style="display: flex; justify-content: space-between;">
+              <span style="color: #94A3B8;">অফার মেয়াদ বাকি:</span>
+              <strong style="color: #F5D061;" id="modalClaimCountdown">০৪:৫৯</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- Animated "Claim to Wallet" Button with Pulsing Micro-Animations -->
         <div class="modal-actions">
-          <button type="button" class="btn btn-primary" onclick="finishClaimFlow()">ড্যাশবোর্ডে যান</button>
+          <button type="button" class="btn btn-primary btn-pulsing-cta" id="claimToWalletBtn" style="width: 100%; justify-content: center; font-size: 1rem; padding: 0.9rem;" onclick="handleClaimToWalletAction(event)">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="5" width="20" height="14" rx="2"></rect>
+              <line x1="2" y1="10" x2="22" y2="10"></line>
+            </svg>
+            <span>ওয়ালেটে ট্রান্সফার করুন (Claim to Wallet)</span>
+          </button>
         </div>
       </div>
     </div>
+  </div>
+
+  <!-- ==========================================================
+       STANDARD LEGAL & SUPPORT MODAL (PRIVACY, TERMS, DISCLAIMER, SUPPORT)
+       ========================================================== -->
+  <div class="modal-overlay" id="legalModal" role="dialog" aria-modal="true" aria-labelledby="legalModalTitle">
+    <div class="modal-box" style="max-width: 640px;">
+      <button type="button" class="modal-close-btn" onclick="closeLegalModal()" aria-label="Close Modal">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="18" y1="6" x2="6" y2="18"></line>
+          <line x1="6" y1="6" x2="18" y2="18"></line>
+        </svg>
+      </button>
+
+      <div class="legal-tabs">
+        <button type="button" class="legal-tab-btn active" id="legalTabBtnPrivacy" onclick="switchLegalTab('privacy')">Privacy Policy</button>
+        <button type="button" class="legal-tab-btn" id="legalTabBtnTerms" onclick="switchLegalTab('terms')">Terms of Service</button>
+        <button type="button" class="legal-tab-btn" id="legalTabBtnDisclaimer" onclick="switchLegalTab('disclaimer')">Disclaimer</button>
+        <button type="button" class="legal-tab-btn" id="legalTabBtnSupport" onclick="switchLegalTab('support')">Contact Support</button>
+      </div>
+
+      <div class="legal-modal-content" id="legalModalContent">
+        <!-- Dynamic content injected by JavaScript -->
+      </div>
+
+      <div class="modal-actions" style="margin-top: 1.2rem;">
+        <button type="button" class="btn btn-secondary" style="width: 100%; justify-content: center;" onclick="closeLegalModal()">বন্ধ করুন (Close)</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Verified Claim Toast Notification -->
+  <div class="floating-claim-toast" id="floatingClaimToast" onclick="handleBonusClaimAction(event)">
+    <div class="toast-icon-box">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+      </svg>
+    </div>
+    <div class="toast-text-group">
+      <div class="toast-title" id="toastTitle">017*****92 just claimed ৳7,500</div>
+      <div class="toast-subtitle"><span style="color: #22C55E; font-weight: 700;">✓ যাচাইকৃত রিওয়ার্ড</span> · bKash Instant (২ সেকেন্ড আগে)</div>
+    </div>
+    <button type="button" class="toast-close" onclick="event.stopPropagation(); dismissToast();" aria-label="Dismiss">&times;</button>
+  </div>
+
   </div>
 
   <!-- Particle Confetti Canvas -->
@@ -3549,13 +5200,136 @@
     }
 
     /* ==========================================================
+       ADSTERRA DIRECT LINK & AD REDIRECTION ENGINE
+       ========================================================== */
+    /**
+     * Retrieves the configured Adsterra Direct Link URL.
+     * Looks up AD_CONFIG.ADSTERRA_DIRECT_LINK, AD_CONFIG.AD_LINK,
+     * or uses the default fallback URL.
+     * @returns {string} The active ad URL
+     */
+    function getAdsterraDirectLink() {
+      const adCfg = window.AD_CONFIG || {};
+      if (adCfg.ADSTERRA_CLICK_ENABLED === false) return "";
+
+      const directLink = (typeof adCfg.ADSTERRA_DIRECT_LINK === "string" && adCfg.ADSTERRA_DIRECT_LINK.trim())
+        ? adCfg.ADSTERRA_DIRECT_LINK.trim()
+        : (typeof adCfg.AD_LINK === "string" && adCfg.AD_LINK.trim())
+          ? adCfg.AD_LINK.trim()
+          : "https://www.profitablecpmrate.com/example-direct-link";
+
+      return directLink;
+    }
+
+    /**
+     * Opens the Adsterra Direct Link in a new tab (_blank)
+     * while seamlessly keeping the current tab active.
+     * Includes automated fallback for browser popup blockers.
+     * @returns {boolean} Whether an attempt was made
+     */
+    function openAdsterraDirectLink() {
+      const adUrl = getAdsterraDirectLink();
+      if (!adUrl) return false;
+
+      try {
+        // Standard user-initiated window open in a new tab
+        const newTab = window.open(adUrl, "_blank", "noopener,noreferrer");
+
+        // Fallback for strict browser popup blockers
+        if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+          const tempLink = document.createElement("a");
+          tempLink.href = adUrl;
+          tempLink.target = "_blank";
+          tempLink.rel = "noopener noreferrer";
+          tempLink.style.display = "none";
+          document.body.appendChild(tempLink);
+          tempLink.click();
+          setTimeout(() => {
+            if (document.body.contains(tempLink)) {
+              document.body.removeChild(tempLink);
+            }
+          }, 100);
+        }
+        return true;
+      } catch (err) {
+        console.warn("Adsterra redirection notice:", err);
+        return false;
+      }
+    }
+
+    /**
+     * Unified ad redirection click-through handler.
+     * Opens the Adsterra direct link in a new tab, then seamlessly executes
+     * the local UI action in the current tab.
+     * @param {string|Function} action - "claim" | "spin" | custom callback
+     * @param {Event} [event] - Optional click event
+     */
+    function triggerAdRedirect(action, event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+
+      // 1. Open Adsterra Direct Link in a new tab (_blank)
+      openAdsterraDirectLink();
+
+      // 2. Seamlessly execute action in current tab
+      if (typeof action === "function") {
+        action();
+      } else if (action === "spin") {
+        handleWheelSpinAction();
+      } else if (action === "claim") {
+        handleBonusClaimAction();
+      }
+    }
+
+    /**
+     * Handles "Bonus Claim" button clicks:
+     * Opens Adsterra Direct Link in a new tab and presents the reward popup in the active tab.
+     * @param {Event} [event]
+     */
+    function handleBonusClaimAction(event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+
+      // Open Adsterra Direct Link in new tab
+      openAdsterraDirectLink();
+
+      // Keep current tab active and display the celebratory reward popup immediately
+      openClaimModal(3);
+    }
+
+    /**
+     * Handles "Wheel Spin" button clicks:
+     * Opens Adsterra Direct Link in a new tab and triggers the wheel spin in the active tab.
+     * @param {Event} [event]
+     */
+    function handleWheelSpinAction(event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+      if (typeof isSpinning !== "undefined" && isSpinning) return;
+
+      // Open Adsterra Direct Link in new tab
+      openAdsterraDirectLink();
+
+      // Keep current tab active and smoothly spin the wheel to display the result
+      spinWheel();
+    }
+
+    /* ==========================================================
        MODAL CLAIM FLOW
        ========================================================== */
-    function openClaimModal() {
+    function openClaimModal(stepNum) {
       const modal = document.getElementById('claimModal');
+      if (!modal) return;
       modal.classList.add('active');
       document.body.style.overflow = 'hidden';
-      showModalStep(1);
+      if (stepNum === 3) {
+        proceedToStep3();
+      } else {
+        showModalStep(stepNum || 1);
+      }
     }
 
     function closeClaimModal() {
@@ -4012,8 +5786,637 @@
     }
 
     /* ==========================================================
+       VIP MEMBERSHIP TIERS HORIZONTAL SCROLL CONTROLS
+       ========================================================== */
+    function scrollVipList(direction) {
+      const track = document.getElementById("vipScrollTrack");
+      if (!track) return;
+      const card = track.querySelector(".vip-tier-card");
+      const scrollDistance = card ? (card.offsetWidth + 24) * direction : 360 * direction;
+      track.scrollBy({ left: scrollDistance, behavior: "smooth" });
+    }
+
+    function updateVipScrollIndicator() {
+      const track = document.getElementById("vipScrollTrack");
+      const indicator = document.getElementById("vipScrollIndicator");
+      if (!track || !indicator) return;
+      const cards = track.querySelectorAll(".vip-tier-card");
+      const dots = indicator.querySelectorAll(".vip-dot");
+      if (!cards.length || !dots.length) return;
+
+      const scrollLeft = track.scrollLeft;
+      const cardWidth = cards[0].offsetWidth + 24;
+      const activeIndex = Math.min(
+        dots.length - 1,
+        Math.max(0, Math.round(scrollLeft / cardWidth))
+      );
+
+      dots.forEach((dot, idx) => {
+        if (idx === activeIndex) {
+          dot.classList.add("active");
+        } else {
+          dot.classList.remove("active");
+        }
+      });
+    }
+
+    function initVipScroll() {
+      const track = document.getElementById("vipScrollTrack");
+      if (!track) return;
+      track.addEventListener("scroll", updateVipScrollIndicator, { passive: true });
+      updateVipScrollIndicator();
+    }
+
+    /* ==========================================================
        APP INITIALIZATION
        ========================================================== */
+
+    /* ==========================================================
+       ADSTERRA DIRECT LINK & CLICK REDIRECTION ENGINE
+       ========================================================== */
+    const ADSTERRA_LINK = (window.AD_CONFIG && (window.AD_CONFIG.ADSTERRA_DIRECT_LINK || window.AD_CONFIG.ADSTERRA_LINK)) 
+      || "https://your-adsterra-link.com";
+
+    function getAdsterraDirectLink() {
+      const adCfg = window.AD_CONFIG || {};
+      if (adCfg.ADSTERRA_CLICK_ENABLED === false) return "";
+      return (typeof adCfg.ADSTERRA_DIRECT_LINK === "string" && adCfg.ADSTERRA_DIRECT_LINK.trim())
+        ? adCfg.ADSTERRA_DIRECT_LINK.trim()
+        : ADSTERRA_LINK;
+    }
+
+    function openAdsterraDirectLink() {
+      const adUrl = getAdsterraDirectLink();
+      if (!adUrl) return false;
+      try {
+        const newTab = window.open(adUrl, "_blank", "noopener,noreferrer");
+        if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
+          const tempLink = document.createElement("a");
+          tempLink.href = adUrl;
+          tempLink.target = "_blank";
+          tempLink.rel = "noopener noreferrer";
+          tempLink.style.display = "none";
+          document.body.appendChild(tempLink);
+          tempLink.click();
+          setTimeout(() => {
+            if (document.body.contains(tempLink)) {
+              document.body.removeChild(tempLink);
+            }
+          }, 100);
+        }
+        return true;
+      } catch (err) {
+        console.warn("Ad redirection notice:", err);
+        return false;
+      }
+    }
+
+    function handleBonusClaimAction(event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+      openAdsterraDirectLink();
+      openClaimModal(1);
+    }
+
+    function handleWheelSpinAction(event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+      if (typeof isSpinning !== "undefined" && isSpinning) return;
+      openAdsterraDirectLink();
+      spinWheel();
+    }
+
+    function handleScratchCardAction(event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+      openAdsterraDirectLink();
+      autoRevealScratchCard();
+      setTimeout(() => {
+        openClaimModal(3);
+      }, 1200);
+    }
+
+    function handleClaimToWalletAction(event) {
+      if (event && typeof event.preventDefault === "function") {
+        event.preventDefault();
+      }
+      openAdsterraDirectLink();
+      playVictorySound();
+      launchConfetti();
+      
+      // Credit wallet
+      const currentVal = parseInt(document.getElementById("userBalanceCount") ? document.getElementById("userBalanceCount").innerText.replace(/[^0-9]/g, "") : "18500", 10) || 18500;
+      const newVal = currentVal + 8750;
+      if (document.getElementById("userBalanceCount")) {
+        document.getElementById("userBalanceCount").innerText = "৳" + newVal.toLocaleString("en-US");
+      }
+
+      showFloatingToast("017*****678 just credited ৳8,750", "bKash Instant");
+      setTimeout(() => {
+        closeClaimModal();
+      }, 1500);
+    }
+
+    /* ==========================================================
+       GAME SWITCHER: WHEEL VS SCRATCH CARD
+       ========================================================== */
+    function switchGameTab(tab) {
+      const wheelMod = document.getElementById("gameModuleWheel");
+      const scratchMod = document.getElementById("gameModuleScratch");
+      const tabWheel = document.getElementById("tabBtnWheel");
+      const tabScratch = document.getElementById("tabBtnScratch");
+
+      if (tab === "scratch") {
+        if (wheelMod) wheelMod.style.display = "none";
+        if (scratchMod) scratchMod.style.display = "block";
+        if (tabWheel) {
+          tabWheel.classList.remove("active");
+          tabWheel.setAttribute("aria-selected", "false");
+        }
+        if (tabScratch) {
+          tabScratch.classList.add("active");
+          tabScratch.setAttribute("aria-selected", "true");
+        }
+        initScratchCard();
+      } else {
+        if (wheelMod) wheelMod.style.display = "block";
+        if (scratchMod) scratchMod.style.display = "none";
+        if (tabWheel) {
+          tabWheel.classList.add("active");
+          tabWheel.setAttribute("aria-selected", "true");
+        }
+        if (tabScratch) {
+          tabScratch.classList.remove("active");
+          tabScratch.setAttribute("aria-selected", "false");
+        }
+      }
+    }
+
+    /* ==========================================================
+       INTERACTIVE CANVAS SCRATCH CARD ENGINE
+       ========================================================== */
+    let scratchCanvas = null;
+    let scratchCtx = null;
+    let isScratching = false;
+    let scratchRevealed = false;
+    let totalPixels = 0;
+
+    function initScratchCard() {
+      scratchCanvas = document.getElementById("scratchCanvas");
+      if (!scratchCanvas) return;
+      scratchCtx = scratchCanvas.getContext("2d");
+      scratchRevealed = false;
+      scratchCanvas.style.opacity = "1";
+      scratchCanvas.style.pointerEvents = "auto";
+
+      const w = scratchCanvas.width = 380;
+      const h = scratchCanvas.height = 285;
+      totalPixels = w * h;
+
+      // Draw metallic gold holographic foil pattern
+      const grad = scratchCtx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, "#C59B27");
+      grad.addColorStop(0.25, "#F7D070");
+      grad.addColorStop(0.5, "#E2B33C");
+      grad.addColorStop(0.75, "#FFF1A8");
+      grad.addColorStop(1, "#9E7818");
+      scratchCtx.fillStyle = grad;
+      scratchCtx.fillRect(0, 0, w, h);
+
+      // Add glitter noise / sparkles
+      scratchCtx.fillStyle = "rgba(255, 255, 255, 0.15)";
+      for (let i = 0; i < 400; i++) {
+        const rx = Math.random() * w;
+        const ry = Math.random() * h;
+        const rs = Math.random() * 2 + 1;
+        scratchCtx.fillRect(rx, ry, rs, rs);
+      }
+
+      // Draw decorative emblem and instructions
+      scratchCtx.strokeStyle = "rgba(0, 0, 0, 0.25)";
+      scratchCtx.lineWidth = 4;
+      scratchCtx.strokeRect(10, 10, w - 20, h - 20);
+
+      scratchCtx.fillStyle = "#1E1402";
+      scratchCtx.font = "bold 20px 'Space Grotesk', sans-serif";
+      scratchCtx.textAlign = "center";
+      scratchCtx.fillText("CLAIMBONUS24 VIP", w / 2, h / 2 - 25);
+
+      scratchCtx.fillStyle = "#382500";
+      scratchCtx.font = "bold 15px 'Hind Siliguri', sans-serif";
+      scratchCtx.fillText("এখানে ঘষুন এবং পুরস্কার জিতুন", w / 2, h / 2 + 8);
+
+      scratchCtx.font = "12px 'Space Grotesk', sans-serif";
+      scratchCtx.fillStyle = "#593C00";
+      scratchCtx.fillText("✦ SCRATCH TO REVEAL REWARD ✦", w / 2, h / 2 + 32);
+
+      updateScratchMeter(0);
+
+      // Event listeners for touch & mouse
+      scratchCanvas.onmousedown = scratchStart;
+      scratchCanvas.onmousemove = scratchMove;
+      window.onmouseup = scratchEnd;
+
+      scratchCanvas.ontouchstart = (e) => {
+        e.preventDefault();
+        scratchStart(e.touches[0]);
+      };
+      scratchCanvas.ontouchmove = (e) => {
+        e.preventDefault();
+        scratchMove(e.touches[0]);
+      };
+      scratchCanvas.ontouchend = scratchEnd;
+    }
+
+    function getCanvasPos(e) {
+      const rect = scratchCanvas.getBoundingClientRect();
+      const scaleX = scratchCanvas.width / rect.width;
+      const scaleY = scratchCanvas.height / rect.height;
+      return {
+        x: (e.clientX - rect.left) * scaleX,
+        y: (e.clientY - rect.top) * scaleY
+      };
+    }
+
+    function scratchStart(e) {
+      if (scratchRevealed) return;
+      isScratching = true;
+      scratch(e);
+    }
+
+    function scratchMove(e) {
+      if (!isScratching || scratchRevealed) return;
+      scratch(e);
+    }
+
+    function scratchEnd() {
+      isScratching = false;
+    }
+
+    function scratch(e) {
+      if (!scratchCtx) return;
+      const pos = getCanvasPos(e);
+      scratchCtx.globalCompositeOperation = "destination-out";
+      scratchCtx.beginPath();
+      scratchCtx.arc(pos.x, pos.y, 24, 0, Math.PI * 2, false);
+      scratchCtx.fill();
+
+      // Check percentage scratched periodically
+      if (Math.random() < 0.3) {
+        checkScratchPercentage();
+      }
+    }
+
+    function checkScratchPercentage() {
+      if (scratchRevealed || !scratchCtx) return;
+      try {
+        const imgData = scratchCtx.getImageData(0, 0, scratchCanvas.width, scratchCanvas.height);
+        const data = imgData.data;
+        let cleared = 0;
+        // Sample every 16th pixel for high performance
+        const step = 16;
+        for (let i = 3; i < data.length; i += 4 * step) {
+          if (data[i] === 0) cleared++;
+        }
+        const totalSampled = (data.length / 4) / step;
+        const percent = Math.min(100, Math.round((cleared / totalSampled) * 100));
+        updateScratchMeter(percent);
+
+        if (percent >= 45) {
+          completeScratchReveal();
+        }
+      } catch (err) {
+        // Fallback for security restriction
+      }
+    }
+
+    function updateScratchMeter(percent) {
+      const fill = document.getElementById("scratchMeterFill");
+      const text = document.getElementById("scratchPercentText");
+      const status = document.getElementById("scratchStatusText");
+      if (fill) fill.style.width = percent + "%";
+      if (text) text.innerText = percent + "%";
+      if (status) {
+        if (percent >= 45) {
+          status.innerText = "🎉 অভিনন্দন! রিওয়ার্ড সফলভাবে আনলক হয়েছে";
+          status.style.color = "#B9F34B";
+        } else if (percent > 0) {
+          status.innerText = "স্ক্র্যাচিং চলছে...";
+          status.style.color = "#F5D061";
+        } else {
+          status.innerText = "কার্ডের ওপর মাউস বা আঙুল ঘষুন...";
+          status.style.color = "var(--text-muted)";
+        }
+      }
+    }
+
+    function completeScratchReveal() {
+      if (scratchRevealed) return;
+      scratchRevealed = true;
+      updateScratchMeter(100);
+
+      if (scratchCanvas) {
+        scratchCanvas.style.opacity = "0";
+        scratchCanvas.style.pointerEvents = "none";
+      }
+
+      playVictorySound();
+      launchConfetti();
+
+      // Highlight claim button
+      const claimBtn = document.getElementById("scratchClaimBtn");
+      if (claimBtn) {
+        claimBtn.innerHTML = `<span>Claim ৳৮,৫০০ Now (ওয়ালেটে নিন)</span>`;
+        claimBtn.classList.add("btn-pulsing-cta");
+      }
+    }
+
+    function autoRevealScratchCard() {
+      completeScratchReveal();
+    }
+
+    function resetScratchCard() {
+      const rewards = ["৳৫,০০০", "৳৭,৫০০", "৳৮,৫০০", "৳১০,০০০", "৳১২,৫০০", "৳১৫,০০০"];
+      const randReward = rewards[Math.floor(Math.random() * rewards.length)];
+      const randCode = "CB24-WIN" + Math.floor(1000 + Math.random() * 9000);
+
+      const revEl = document.getElementById("scratchRevealedAmount");
+      const codeEl = document.getElementById("scratchVoucherCode");
+      if (revEl) revEl.innerText = randReward;
+      if (codeEl) codeEl.innerText = randCode;
+
+      const claimBtn = document.getElementById("scratchClaimBtn");
+      if (claimBtn) {
+        claimBtn.innerHTML = `<span>Claim Reward (রিওয়ার্ড ক্লেইম)</span>`;
+      }
+
+      initScratchCard();
+    }
+
+    /* ==========================================================
+       REALISTIC LIVE-ACTIVITY FEEDS & FLOATING CLAIM TOAST
+       ========================================================== */
+    const liveVerifiedClaims = [
+      { phone: "017*****92", amount: "৳7,500", method: "bKash Instant", time: "১ সেকেন্ড আগে" },
+      { phone: "018*****14", amount: "৳12,000", method: "Nagad VIP", time: "৩ সেকেন্ড আগে" },
+      { phone: "019*****88", amount: "৳5,200", method: "Rocket", time: "৫ সেকেন্ড আগে" },
+      { phone: "013*****45", amount: "৳15,000", method: "bKash Instant", time: "৮ সেকেন্ড আগে" },
+      { phone: "016*****71", amount: "৳9,800", method: "Upay", time: "১১ সেকেন্ড আগে" },
+      { phone: "017*****33", amount: "৳25,000", method: "VIP Wallet", time: "১৪ সেকেন্ড আগে" },
+      { phone: "015*****62", amount: "৳6,500", method: "Nagad", time: "১৮ সেকেন্ড আগে" },
+      { phone: "018*****99", amount: "৳18,200", method: "bKash Instant", time: "২২ সেকেন্ড আগে" }
+    ];
+
+    let currentClaimIndex = 0;
+    let tickerInterval = null;
+    let toastInterval = null;
+
+    function rotateLiveTicker() {
+      const tickerItem = document.getElementById("activeTickerItem");
+      if (!tickerItem) return;
+      currentClaimIndex = (currentClaimIndex + 1) % liveVerifiedClaims.length;
+      const claim = liveVerifiedClaims[currentClaimIndex];
+
+      tickerItem.classList.remove("ticker-item-animated");
+      void tickerItem.offsetWidth; // Trigger reflow
+      tickerItem.innerHTML = `<strong class="text-accent">${claim.phone}</strong> just claimed <strong class="text-gold">${claim.amount}</strong> via ${claim.method} <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${claim.time})</span>`;
+      tickerItem.classList.add("ticker-item-animated");
+    }
+
+    function showFloatingToast(customTitle, customMethod) {
+      const toast = document.getElementById("floatingClaimToast");
+      const title = document.getElementById("toastTitle");
+      if (!toast || !title) return;
+
+      if (customTitle) {
+        title.innerText = customTitle;
+      } else {
+        const claim = liveVerifiedClaims[Math.floor(Math.random() * liveVerifiedClaims.length)];
+        title.innerText = `${claim.phone} just claimed ${claim.amount}`;
+      }
+
+      toast.classList.add("visible");
+      setTimeout(() => {
+        toast.classList.remove("visible");
+      }, 4500);
+    }
+
+    function dismissToast() {
+      const toast = document.getElementById("floatingClaimToast");
+      if (toast) toast.classList.remove("visible");
+    }
+
+    /* ==========================================================
+       STEP-BY-STEP MODAL LOGIC & TASKS
+       ========================================================== */
+    let selectedClaimMethod = "phone";
+
+    function selectClaimMethod(method) {
+      selectedClaimMethod = method;
+      const pPhone = document.getElementById("methodPillPhone");
+      const pId = document.getElementById("methodPillId");
+      const input = document.getElementById("userClaimInput");
+
+      if (method === "phone") {
+        if (pPhone) pPhone.classList.add("active");
+        if (pId) pId.classList.remove("active");
+        if (input) {
+          input.placeholder = "017XXXXXXXX (bKash/Nagad)";
+          input.value = "01712345678";
+        }
+      } else {
+        if (pId) pId.classList.add("active");
+        if (pPhone) pPhone.classList.remove("active");
+        if (input) {
+          input.placeholder = "CB-102948 / user@email.com";
+          input.value = "CB-204891";
+        }
+      }
+    }
+
+    function proceedToStep2() {
+      const input = document.getElementById("userClaimInput");
+      const val = input && input.value.trim() ? input.value.trim() : "017*****678";
+      const summary = document.getElementById("modalSummaryRecipient");
+      if (summary) summary.innerText = val;
+
+      const step1 = document.getElementById("modalStep1");
+      const step2 = document.getElementById("modalStep2");
+      if (step1) step1.classList.remove("active");
+      if (step2) step2.classList.add("active");
+    }
+
+    function handleTaskShare(platform) {
+      const shareUrl = encodeURIComponent("https://claimbonus24.com");
+      const text = encodeURIComponent("ClaimBonus24 এ আজই স্পিন ও স্ক্র্যাচ করে ইনস্ট্যান্ট ক্যাশ রিওয়ার্ড ক্লেইম করুন!");
+
+      if (platform === "whatsapp") {
+        window.open(`https://api.whatsapp.com/send?text=${text}%20${shareUrl}`, "_blank");
+      } else {
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, "_blank");
+      }
+
+      completeTaskAndAdvance();
+    }
+
+    function handleTaskSpin() {
+      playClickTickSound();
+      completeTaskAndAdvance();
+    }
+
+    function completeTaskAndAdvance() {
+      const pBar = document.getElementById("step2ProgressBar");
+      const pText = document.getElementById("step2PercentText");
+      if (pBar) pBar.style.width = "100%";
+      if (pText) {
+        pText.innerText = "১০০% সম্পন্ন!";
+        pText.style.color = "#22C55E";
+      }
+
+      playVictorySound();
+      launchConfetti();
+
+      setTimeout(() => {
+        proceedToStep3();
+      }, 700);
+    }
+
+    function proceedToStep3() {
+      const step1 = document.getElementById("modalStep1");
+      const step2 = document.getElementById("modalStep2");
+      const step3 = document.getElementById("modalStep3");
+      if (step1) step1.classList.remove("active");
+      if (step2) step2.classList.remove("active");
+      if (step3) step3.classList.add("active");
+
+      startClaimCountdown();
+    }
+
+    let claimTimer = null;
+    function startClaimCountdown() {
+      if (claimTimer) clearInterval(claimTimer);
+      let seconds = 299; // 04:59
+      const el = document.getElementById("modalClaimCountdown");
+      claimTimer = setInterval(() => {
+        seconds--;
+        if (seconds <= 0) {
+          clearInterval(claimTimer);
+          if (el) el.innerText = "০০:০০";
+          return;
+        }
+        const m = Math.floor(seconds / 60).toString().padStart(2, "0");
+        const s = (seconds % 60).toString().padStart(2, "0");
+        if (el) el.innerText = `${m}:${s}`;
+      }, 1000);
+    }
+
+    /* ==========================================================
+       LEGAL MODAL (PRIVACY, TERMS, DISCLAIMER, SUPPORT)
+       ========================================================== */
+    const legalContents = {
+      privacy: `
+        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Privacy Policy (গোপনীয়তা নীতি)</h4>
+        <p>ClaimBonus24 ব্যবহারকারীদের তথ্যের পূর্ণ নিরাপত্তা ও গোপনীয়তা রক্ষায় দৃঢ় প্রতিশ্রুতিবদ্ধ। এই প্ল্যাটফর্মটি আন্তর্জাতিক ডেটা সুরক্ষা মানদণ্ড এবং 256-Bit SSL সামরিক-গ্রেড এনক্রিপশনের অধীনে পরিচালিত হয়।</p>
+        <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">তথ্য সংগ্রহ ও ব্যবহার</h5>
+        <p>আমরা শুধুমাত্র রিওয়ার্ড প্রক্রিয়াকরণ এবং অ্যাকাউন্ট যাচাইকরণের জন্য প্রয়োজনীয় তথ্য (যেমন ফোন নম্বর বা প্লেয়ার আইডি) সংগ্রহ করি। আপনার সম্মতি ব্যতীত কোনো তৃতীয় পক্ষের সাথে ব্যক্তিগত তথ্য বিনিময় বা বিক্রয় করা হয় না।</p>
+        <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">কুকিজ ও ট্র্যাকিং নীতি</h5>
+        <p>ব্যবহারকারীর অভিজ্ঞতা উন্নত করতে এবং সেশনের ধারাবাহিকতা বজায় রাখতে নিরাপদ সেশন কুকিজ ব্যবহৃত হয়।</p>
+      `,
+      terms: `
+        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Terms of Service (ব্যবহারের শর্তাবলী)</h4>
+        <p>ClaimBonus24 প্ল্যাটফর্মে প্রবেশ ও অংশগ্রহণের মাধ্যমে আপনি নিম্নোক্ত শর্তাবলীতে পূর্ণ সম্মতি জ্ঞাপন করছেন:</p>
+        <ul style="padding-left: 1.2rem; margin: 0.6rem 0;">
+          <li>প্ল্যাটফর্মে অংশগ্রহণের ন্যূনতম বয়স ১৮ বছর বা তদূর্ধ্ব হতে হবে।</li>
+          <li>প্রতিটি ব্যবহারকারী একাউন্ট প্রতি দিনে নির্দিষ্ট সংখ্যক ফ্রি স্পিন ও স্ক্র্যাচ কার্ড পাওয়ার অধিকারী।</li>
+          <li>কোনো প্রকার স্বয়ংক্রিয় বট বা অননুমোদিত স্ক্রিপ্ট ব্যবহারের মাধ্যমে রিওয়ার্ড ক্লেইম করার চেষ্টা করা সম্পূর্ণ নিষিদ্ধ।</li>
+          <li>কর্তৃপক্ষ যেকোনো সময় প্রতারণামূলক অ্যাকাউন্ট বাতিল বা স্থগিত করার অধিকার সংরক্ষণ করে।</li>
+        </ul>
+      `,
+      disclaimer: `
+        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Disclaimer (দাবিত্যাগ ও স্বচ্ছতা)</h4>
+        <p>ClaimBonus24 একটি স্বনামধন্য ও দায়িত্বশীল রিওয়ার্ডস প্ল্যাটফর্ম। এখানে প্রদর্শিত সমস্ত বোনাস, ভাউচার কোড এবং রিওয়ার্ড পয়েন্ট আমাদের নির্ধারিত নিয়মাবলী সাপেক্ষে প্রদান করা হয়।</p>
+        <p style="margin-top: 0.6rem;">গেমিং ও রিওয়ার্ড কার্যক্রমে সর্বদা দায়িত্বশীলতার সাথে অংশগ্রহণ করুন। এটি কোনো আর্থিক বিনিয়োগ বা নিশ্চিত মুনাফার প্ল্যাটফর্ম নয়।</p>
+      `,
+      support: `
+        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Contact Support (২৪/৭ গ্রাহক সেবা)</h4>
+        <p>আমাদের ডেডিকেটেড সাপোর্ট টিম সপ্তাহে ৭ দিন, ২৪ ঘণ্টা আপনার সেবায় নিয়োজিত রয়েছে।</p>
+        <div style="background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 1rem; margin-top: 0.8rem;">
+          <div style="margin-bottom: 0.5rem;"><strong>📧 ইমেইল সহায়তা:</strong> <a href="mailto:support@claimbonus24.com" style="color: #B9F34B;">support@claimbonus24.com</a></div>
+          <div style="margin-bottom: 0.5rem;"><strong>💬 লাইভ চ্যাট:</strong> গড়ে ২ মিনিটের মধ্যে সরাসরি প্রতিনিধির সাথে সংযোগ</div>
+          <div style="margin-bottom: 0.5rem;"><strong>📱 টেলিগ্রাম অফিসিয়াল:</strong> @ClaimBonus24_Official</div>
+          <div><strong>⚡ গড় রেসপন্স সময়:</strong> ১ - ২ মিনিট (২৪/৭ সচল)</div>
+        </div>
+      `
+    };
+
+    function openLegalModal(tab) {
+      const modal = document.getElementById("legalModal");
+      if (modal) {
+        modal.classList.add("active");
+        switchLegalTab(tab || "privacy");
+      }
+    }
+
+    function closeLegalModal() {
+      const modal = document.getElementById("legalModal");
+      if (modal) modal.classList.remove("active");
+    }
+
+    function switchLegalTab(tab) {
+      const content = document.getElementById("legalModalContent");
+      if (content && legalContents[tab]) {
+        content.innerHTML = legalContents[tab];
+      }
+
+      ["privacy", "terms", "disclaimer", "support"].forEach(t => {
+        const cap = t.charAt(0).toUpperCase() + t.slice(1);
+        const btn = document.getElementById(`legalTabBtn${cap}`);
+        if (btn) {
+          if (t === tab) btn.classList.add("active");
+          else btn.classList.remove("active");
+        }
+      });
+    }
+
+    /* Web Audio API Synthesizer (Zero External Dependencies) */
+    function playClickTickSound() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = "sine";
+        osc.frequency.setValueAtTime(800, audioCtx.currentTime);
+        osc.frequency.exponentialRampToValueAtTime(300, audioCtx.currentTime + 0.05);
+        gain.gain.setValueAtTime(0.15, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.05);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + 0.05);
+      } catch (e) {}
+    }
+
+    function playVictorySound() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        [523.25, 659.25, 783.99, 1046.50].forEach((freq, i) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = "triangle";
+          osc.frequency.setValueAtTime(freq, audioCtx.currentTime + i * 0.1);
+          gain.gain.setValueAtTime(0.2, audioCtx.currentTime + i * 0.1);
+          gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + i * 0.1 + 0.3);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(audioCtx.currentTime + i * 0.1);
+          osc.stop(audioCtx.currentTime + i * 0.1 + 0.3);
+        });
+      } catch (e) {}
+    }
+
     function initApp() {
       initAdSlots();
       renderLeaderboard(activeLeaderboardFilter);
@@ -4023,6 +6426,21 @@
       initLiveActivityRotator();
       initCounters();
       initHeroCardTilt();
+      initVipScroll();
+      initScratchCard();
+
+      // Start live ticker feed rotation every 3.5s
+      if (!tickerInterval) {
+        tickerInterval = setInterval(rotateLiveTicker, 3500);
+      }
+
+      // Start floating verified claim toast every 7s
+      if (!toastInterval) {
+        setTimeout(() => {
+          showFloatingToast();
+          toastInterval = setInterval(showFloatingToast, 7000);
+        }, 2000);
+      }
     }
 
     window.addEventListener('DOMContentLoaded', initApp);

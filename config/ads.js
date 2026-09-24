@@ -27,6 +27,19 @@ const AD_CONFIG = {
   // If left empty or invalid, the site automatically stays in demo mode
   AD_LINK: "",
 
+  // ==========================================================
+  // ADSTERRA DIRECT LINK CONFIGURATION (CPA / CPM MONETIZATION)
+  // ==========================================================
+  // When users click "Bonus Claim" or "Wheel Spin", this direct link
+  // opens in a new tab (_blank) while keeping the current tab active
+  // to display the reward popup or wheel spin result.
+  // Replace this with your active Adsterra direct link URL.
+  ADSTERRA_DIRECT_LINK: "https://www.profitablecpmrate.com/example-direct-link",
+  ADSTERRA_LINK: "https://www.profitablecpmrate.com/example-direct-link",
+
+  // Enable or disable direct link redirection on buttons (true by default)
+  ADSTERRA_CLICK_ENABLED: true,
+
   // Universal Ad Label (Always prominently displayed above each ad slot)
   AD_LABEL: "ADVERTISEMENT",
   AD_LABEL_BN: "বিজ্ঞাপন (ADVERTISEMENT)",
