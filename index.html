@@ -7,11 +7,21 @@
   <meta name="description" content="ClaimBonus24 প্ল্যাটফর্মে প্রতিদিনের ফ্রি স্পিন, স্ক্র্যাচ কার্ড এবং এক্সক্লুসিভ ক্যাশ রিওয়ার্ড নিরাপদে ক্লেইম করুন।">
   <meta name="theme-color" content="#050806">
   
-  <!-- Open Graph Metadata -->
+  <!-- Open Graph Metadata (Messenger & WhatsApp Preview Cards) -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="ClaimBonus24 — প্রিমিয়াম বোনাস ও রিওয়ার্ড প্ল্যাটফর্ম">
-  <meta property="og:description" content="ClaimBonus24 প্ল্যাটফর্মে প্রতিদিনের ফ্রি স্পিন, স্ক্র্যাচ কার্ড এবং এক্সক্লুসিভ ক্যাশ রিওয়ার্ড নিরাপদে ক্লেইম করুন।">
-  <meta property="og:image" content="favicon.svg">
+  <meta property="og:site_name" content="ClaimBonus24">
+  <meta property="og:title" content="১০০% ফ্রি ইনস্ট্যান্ট গেম বোনাস পোর্টাল">
+  <meta property="og:description" content="কোনো পকেটের টাকা ছাড়াই স্পন্সরড অ্যাড দেখে ফ্রিতে গেম ওয়ালেট বোনাস ক্লেইম করুন। (বি:দ্র: এটি কোনো বেটিং সাইট নয়)">
+  <meta property="og:image" content="https://yourwebsite.com/assets/preview-banner.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="১০০% ফ্রি ইনস্ট্যান্ট গেম বোনাস পোর্টাল">
+
+  <!-- Twitter / Social Preview Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="১০০% ফ্রি ইনস্ট্যান্ট গেম বোনাস পোর্টাল">
+  <meta name="twitter:description" content="কোনো পকেটের টাকা ছাড়াই স্পন্সরড অ্যাড দেখে ফ্রিতে গেম ওয়ালেট বোনাস ক্লেইম করুন। (বি:দ্র: এটি কোনো বেটিং সাইট নয়)">
+  <meta name="twitter:image" content="https://yourwebsite.com/assets/preview-banner.jpg">
   <link rel="canonical" href="https://example.com/betbonus">
   <link rel="icon" type="image/svg+xml" href="favicon.svg">
 
@@ -637,6 +647,219 @@
     /* ==========================================================
        6. HERO SECTION
        ========================================================== */
+        /* ==========================================================
+       HERO ANNOUNCEMENT BANNER (Gradient-Bordered Alert)
+       ========================================================== */
+    .hero-announcement-banner {
+      position: relative;
+      margin-bottom: 2.2rem;
+      border-radius: var(--radius-lg);
+      padding: 1.35rem 1.65rem;
+      background: linear-gradient(135deg, rgba(14, 24, 18, 0.96) 0%, rgba(9, 15, 12, 0.98) 100%);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 25px rgba(185, 243, 75, 0.08);
+      overflow: hidden;
+      z-index: 2;
+    }
+    .hero-announcement-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: var(--radius-lg);
+      padding: 1.5px;
+      background: linear-gradient(90deg, rgba(185, 243, 75, 0.85), rgba(212, 175, 55, 0.8), rgba(16, 185, 129, 0.85), rgba(185, 243, 75, 0.85));
+      background-size: 300% 300%;
+      animation: bannerBorderRotate 7s linear infinite;
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      pointer-events: none;
+    }
+    @keyframes bannerBorderRotate {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    .announcement-inner {
+      position: relative;
+      z-index: 1;
+    }
+    .announcement-header {
+      display: flex;
+      align-items: center;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.55rem;
+    }
+    .announcement-pulse-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      padding: 0.32rem 0.85rem;
+      background: rgba(185, 243, 75, 0.12);
+      border: 1px solid rgba(185, 243, 75, 0.4);
+      border-radius: 999px;
+      color: var(--accent-primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      box-shadow: 0 0 12px rgba(185, 243, 75, 0.18);
+    }
+    .pulse-indicator-dot {
+      width: 7px;
+      height: 7px;
+      background-color: var(--accent-primary);
+      border-radius: 50%;
+      position: relative;
+      display: inline-block;
+    }
+    .pulse-indicator-dot::after {
+      content: '';
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      border: 1.5px solid var(--accent-primary);
+      animation: badgeDotPulse 2s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    }
+    @keyframes badgeDotPulse {
+      0% { transform: scale(0.9); opacity: 1; }
+      70% { transform: scale(2.2); opacity: 0; }
+      100% { transform: scale(2.4); opacity: 0; }
+    }
+    .announcement-headline {
+      font-family: 'Hind Siliguri', 'Space Grotesk', sans-serif;
+      font-size: clamp(1.05rem, 1.8vw, 1.35rem);
+      font-weight: 700;
+      line-height: 1.35;
+      color: #FFFFFF;
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .announcement-subtext {
+      font-family: 'Hind Siliguri', 'Space Grotesk', sans-serif;
+      font-size: clamp(0.86rem, 1.1vw, 0.96rem);
+      line-height: 1.6;
+      color: #A9B8AF;
+      margin: 0;
+      max-width: 1040px;
+    }
+    @media (max-width: 640px) {
+      .hero-announcement-banner {
+        padding: 1.1rem 1.15rem;
+        margin-bottom: 1.8rem;
+      }
+      .announcement-header {
+        gap: 0.6rem;
+      }
+      .announcement-headline {
+        font-size: 1.05rem;
+      }
+      .announcement-subtext {
+        font-size: 0.85rem;
+        line-height: 1.55;
+      }
+    }
+
+        /* ==========================================================
+       OFFICIAL AD-SUPPORTED DISCLAIMER NOTICE SECTION
+       ========================================================== */
+    .hero-disclaimer-section {
+      position: relative;
+      margin-top: -1.2rem;
+      margin-bottom: 2.8rem;
+      z-index: 5;
+    }
+    .hero-disclaimer-box {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.15rem;
+      padding: 1.25rem 1.65rem;
+      background: rgba(14, 24, 18, 0.75);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-left: 4px solid var(--accent-primary);
+      border-radius: var(--radius-md);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    }
+    .hero-disclaimer-box:hover {
+      border-color: rgba(185, 243, 75, 0.35);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.5), 0 0 20px rgba(185, 243, 75, 0.05);
+    }
+    .hero-disclaimer-icon-wrap {
+      flex-shrink: 0;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: rgba(185, 243, 75, 0.1);
+      border: 1.5px solid rgba(185, 243, 75, 0.35);
+      color: var(--accent-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 0.1rem;
+      box-shadow: 0 0 15px rgba(185, 243, 75, 0.15);
+    }
+    .hero-disclaimer-body {
+      flex: 1;
+    }
+    .hero-disclaimer-header {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.45rem;
+    }
+    .hero-disclaimer-pill {
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      padding: 0.2rem 0.65rem;
+      border-radius: 999px;
+      background: rgba(185, 243, 75, 0.14);
+      color: var(--accent-primary);
+      border: 1px solid rgba(185, 243, 75, 0.35);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .hero-disclaimer-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin: 0;
+    }
+    .hero-disclaimer-text {
+      font-size: 0.91rem;
+      line-height: 1.65;
+      color: #A3B3A8;
+      margin: 0;
+    }
+    .hero-disclaimer-text strong {
+      color: #F4F7F4;
+      font-weight: 700;
+    }
+    @media (max-width: 640px) {
+      .hero-disclaimer-section {
+        margin-top: -0.5rem;
+        margin-bottom: 2rem;
+      }
+      .hero-disclaimer-box {
+        padding: 1.1rem 1.15rem;
+        gap: 0.85rem;
+      }
+      .hero-disclaimer-icon-wrap {
+        width: 36px;
+        height: 36px;
+      }
+      .hero-disclaimer-text {
+        font-size: 0.85rem;
+        line-height: 1.55;
+      }
+    }
+
     .hero-section {
       padding: 4.5rem 0 3.5rem;
       position: relative;
@@ -2224,6 +2447,145 @@
       visibility: visible;
     }
 
+        /* ==========================================================
+       DYNAMIC CLAIM ERROR MODAL STYLES
+       ========================================================== */
+    .claim-error-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(3, 6, 4, 0.88);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10050;
+      padding: 1.5rem;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+    .claim-error-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .claim-error-box {
+      background: linear-gradient(145deg, #131F18 0%, #0A120E 100%);
+      border: 1.5px solid rgba(249, 115, 22, 0.45);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 460px;
+      padding: 2.2rem 2rem;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(249, 115, 22, 0.18);
+      animation: modalErrorShake 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .claim-error-box.server-error {
+      border-color: rgba(239, 68, 68, 0.5);
+      box-shadow: 0 25px 70px rgba(0, 0, 0, 0.95), 0 0 35px rgba(239, 68, 68, 0.22);
+    }
+    @keyframes modalErrorShake {
+      0% { transform: scale(0.92) translateY(12px); opacity: 0; }
+      40% { transform: scale(1.02) translateY(-2px); opacity: 1; }
+      65% { transform: scale(0.99) translateY(1px); }
+      100% { transform: scale(1) translateY(0); }
+    }
+    .claim-error-icon-wrap {
+      width: 68px;
+      height: 68px;
+      margin: 0 auto 1.1rem;
+      border-radius: 50%;
+      background: rgba(249, 115, 22, 0.12);
+      border: 2px solid rgba(249, 115, 22, 0.5);
+      color: #FB923C;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 25px rgba(249, 115, 22, 0.28);
+    }
+    .claim-error-box.server-error .claim-error-icon-wrap {
+      background: rgba(239, 68, 68, 0.12);
+      border-color: rgba(239, 68, 68, 0.5);
+      color: #F87171;
+      box-shadow: 0 0 25px rgba(239, 68, 68, 0.3);
+    }
+    .claim-error-badge {
+      display: inline-block;
+      font-size: 0.74rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 0.25rem 0.85rem;
+      border-radius: var(--radius-pill);
+      background: rgba(249, 115, 22, 0.16);
+      border: 1px solid rgba(249, 115, 22, 0.4);
+      color: #FDBA74;
+      margin-bottom: 0.85rem;
+    }
+    .claim-error-box.server-error .claim-error-badge {
+      background: rgba(239, 68, 68, 0.16);
+      border-color: rgba(239, 68, 68, 0.4);
+      color: #FCA5A5;
+    }
+    .claim-error-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #FFFFFF;
+      margin-bottom: 0.65rem;
+      line-height: 1.25;
+    }
+    .claim-error-desc {
+      font-size: 0.93rem;
+      line-height: 1.6;
+      color: #D1D5DB;
+      margin-bottom: 1.3rem;
+    }
+    .claim-error-meta-box {
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: var(--radius-sm);
+      padding: 0.85rem 1rem;
+      text-align: left;
+      font-size: 0.8rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.45rem;
+      margin-bottom: 1.5rem;
+    }
+    .error-meta-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .meta-label {
+      color: #9CA3AF;
+    }
+    .meta-val {
+      font-weight: 600;
+      color: #F3F4F6;
+    }
+    .meta-val.text-warning {
+      color: #FBBF24;
+    }
+    .meta-val.text-danger {
+      color: #F87171;
+    }
+    @keyframes taskHighlightPulse {
+      0% { box-shadow: 0 0 0 0 rgba(185, 243, 75, 0.7); }
+      70% { box-shadow: 0 0 0 12px rgba(185, 243, 75, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(185, 243, 75, 0); }
+    }
+    .task-highlight-pulse {
+      animation: taskHighlightPulse 1.2s ease-out 2 !important;
+      border-color: var(--accent-primary) !important;
+    }
+    .input-error-pulse {
+      border-color: #EF4444 !important;
+      box-shadow: 0 0 14px rgba(239, 68, 68, 0.5) !important;
+    }
+
     .modal-box {
       background: var(--bg-card);
       border: 1px solid var(--border-subtle);
@@ -3223,6 +3585,65 @@
       }
     }
 
+  
+    /* ==========================================================
+       LANGUAGE SWITCHER COMPONENT (BANGLA / ENGLISH)
+       ========================================================== */
+    .lang-switcher {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-pill);
+      padding: 2px;
+      position: relative;
+      user-select: none;
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .lang-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 0.3rem 0.65rem;
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .lang-btn:hover {
+      color: var(--text-main);
+    }
+
+    .lang-btn.active {
+      background: var(--accent-primary);
+      color: #050806;
+      box-shadow: 0 0 10px rgba(185, 243, 75, 0.4);
+    }
+
+    .lang-btn span.flag {
+      font-size: 0.82rem;
+      line-height: 1;
+    }
+
+    .mobile-lang-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.8rem 0;
+      margin: 0.8rem 0;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
   </style>
 </head>
 <body>
@@ -3278,7 +3699,7 @@
         </div>
         <div>
           <div class="brand-title">CLAIM<span class="text-accent">BONUS</span><span class="text-gold">24</span></div>
-          <span class="brand-tagline-sub">অফিসিয়াল রিওয়ার্ড প্ল্যাটফর্ম</span>
+          <span class="brand-tagline-sub" data-i18n="brand_tagline">অফিসিয়াল রিওয়ার্ড প্ল্যাটফর্ম</span>
         </div>
       </a>
 
@@ -3291,25 +3712,34 @@
           </svg>
         </div>
         <div class="ssl-label-group">
-          <span class="ssl-headline"><span class="ssl-pulse-dot"></span>HTTPS 256-Bit SSL</span>
-          <span class="ssl-sub">Verified Encrypted</span>
+          <span class="ssl-headline"><span class="ssl-pulse-dot"></span><span data-i18n="ssl_title">HTTPS 256-Bit SSL</span></span>
+          <span class="ssl-sub" data-i18n="ssl_sub">Verified Encrypted</span>
         </div>
       </div>
 
       <nav aria-label="Primary Navigation">
         <ul class="nav-links">
-          <li><a href="#dashboard" class="nav-link">ড্যাশবোর্ড</a></li>
-          <li><a href="#wheel" class="nav-link">বোনাস হুইল</a></li>
-          <li><a href="#scratch-card" class="nav-link">স্ক্র্যাচ কার্ড</a></li>
-          <li><a href="#leaderboard" class="nav-link">লিডারবোর্ড</a></li>
-          <li><a href="#vip-tiers" class="nav-link">ভিআইপি টায়ার</a></li>
-          <li><a href="#how-it-works" class="nav-link">কীভাবে কাজ করে</a></li>
-          <li><a href="#faq" class="nav-link">FAQ</a></li>
+          <li><a href="#dashboard" class="nav-link" data-i18n="nav_dashboard">ড্যাশবোর্ড</a></li>
+          <li><a href="#wheel" class="nav-link" data-i18n="nav_wheel">বোনাস হুইল</a></li>
+          <li><a href="#scratch-card" class="nav-link" data-i18n="nav_scratch">স্ক্র্যাচ কার্ড</a></li>
+          <li><a href="#leaderboard" class="nav-link" data-i18n="nav_leaderboard">লিডারবোর্ড</a></li>
+          <li><a href="#vip-tiers" class="nav-link" data-i18n="nav_vip">ভিআইপি টায়ার</a></li>
+          <li><a href="#how-it-works" class="nav-link" data-i18n="nav_how">কীভাবে কাজ করে</a></li>
+          <li><a href="#faq" class="nav-link" data-i18n="nav_faq">FAQ</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <button type="button" class="btn btn-primary btn-sm btn-pulsing-cta" id="navTryDemoBtn" onclick="handleBonusClaimAction(event)">বোনাস ক্লেইম করুন</button>
+        <!-- Language Switcher Component (Bangla / English) -->
+        <div class="lang-switcher" id="langSwitcherDesktop" role="group" aria-label="Language selector">
+          <button type="button" class="lang-btn active" data-lang-btn="bn" onclick="setAppLanguage('bn')" aria-pressed="true" title="বাংলা ভাষা নির্বাচন করুন">
+            <span class="flag">🇧🇩</span> বাং
+          </button>
+          <button type="button" class="lang-btn" data-lang-btn="en" onclick="setAppLanguage('en')" aria-pressed="false" title="Switch to English language">
+            <span class="flag">🇬🇧</span> EN
+          </button>
+        </div>
+        <button type="button" class="btn btn-primary btn-sm btn-pulsing-cta" id="navTryDemoBtn" onclick="handleBonusClaimAction(event)" data-i18n="nav_claim_btn">বোনাস ক্লেইম করুন</button>
         <button type="button" class="mobile-menu-btn" id="mobileMenuToggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="mobileDrawer">
           <svg class="icon-menu" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <line x1="3" y1="12" x2="21" y2="12"></line>
@@ -3327,15 +3757,27 @@
     <!-- Mobile Drawer Menu (Nested in sticky header for pixel-perfect positioning) -->
     <div class="mobile-nav-drawer" id="mobileDrawer" role="dialog" aria-modal="true" aria-label="মোবাইল নেভিগেশন মেনু">
       <ul class="mobile-nav-links">
-        <li><a href="#dashboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span>ড্যাশবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#wheel" class="mobile-nav-link" onclick="closeMobileMenu()"><span>বোনাস হুইল</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#scratch-card" class="mobile-nav-link" onclick="closeMobileMenu()"><span>স্ক্র্যাচ কার্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#leaderboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span>লিডারবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#vip-tiers" class="mobile-nav-link" onclick="closeMobileMenu()"><span>ভিআইপি টায়ার</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#how-it-works" class="mobile-nav-link" onclick="closeMobileMenu()"><span>কীভাবে কাজ করে</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
-        <li><a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()"><span>FAQ</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#dashboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_dashboard">ড্যাশবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#wheel" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_wheel">বোনাস হুইল</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#scratch-card" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_scratch">স্ক্র্যাচ কার্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#leaderboard" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_leaderboard">লিডারবোর্ড</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#vip-tiers" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_vip">ভিআইপি টায়ার</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#how-it-works" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_how">কীভাবে কাজ করে</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
+        <li><a href="#faq" class="mobile-nav-link" onclick="closeMobileMenu()"><span data-i18n="nav_faq">FAQ</span><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="9 18 15 12 9 6"></polyline></svg></a></li>
       </ul>
-      <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); handleBonusClaimAction(event);">বোনাস ক্লেইম করুন</button>
+      <!-- Mobile Language Switcher Row -->
+      <div class="mobile-lang-wrap">
+        <span style="font-size: 0.82rem; color: var(--text-muted); font-weight: 600;" data-i18n="mobile_lang_label">ভাষা / Language</span>
+        <div class="lang-switcher" id="langSwitcherMobile" role="group" aria-label="Mobile language selector">
+          <button type="button" class="lang-btn active" data-lang-btn="bn" onclick="setAppLanguage('bn')" aria-pressed="true">
+            <span class="flag">🇧🇩</span> বাং
+          </button>
+          <button type="button" class="lang-btn" data-lang-btn="en" onclick="setAppLanguage('en')" aria-pressed="false">
+            <span class="flag">🇬🇧</span> EN
+          </button>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="closeMobileMenu(); handleBonusClaimAction(event);" data-i18n="nav_claim_btn">বোনাস ক্লেইম করুন</button>
     </div>
   </header>
 
@@ -3346,7 +3788,7 @@
     <div class="container ticker-container">
       <div class="ticker-badge">
         <span class="ticker-live-dot"></span>
-        <span>লাইভ ক্লেইম ফিড</span>
+        <span data-i18n="ticker_badge">লাইভ ক্লেইম ফিড</span>
       </div>
       <div class="ticker-content" id="liveTickerFeed">
         <span class="ticker-item-animated" id="activeTickerItem">
@@ -3354,7 +3796,7 @@
         </span>
       </div>
       <div class="ticker-stat-summary">
-        <span>আজকের ক্লেইম: <strong class="text-accent" id="todayClaimCount">৳৫,৮৪,২৫০</strong></span>
+        <span><span data-i18n="today_claim_label">আজকের ক্লেইম:</span> <strong class="text-accent" id="todayClaimCount">৳৫,৮৪,২৫০</strong></span>
       </div>
     </div>
   </div>
@@ -3369,10 +3811,29 @@
          ========================================================== -->
     <section class="hero-section" id="hero">
       <div class="hero-glow"></div>
-      <div class="container hero-grid">
+      <div class="container">
+        <!-- SLEEK GRADIENT-BORDERED ANNOUNCEMENT ALERT BANNER -->
+        <div class="hero-announcement-banner" role="region" aria-label="Announcement">
+          <div class="announcement-inner">
+            <div class="announcement-header">
+              <span class="announcement-pulse-badge">
+                <span class="pulse-indicator-dot"></span>
+                <span data-i18n="hero_alert_badge">জিরো ডিপোজিট অফার</span>
+              </span>
+              <h2 class="announcement-headline" data-i18n="hero_alert_headline">
+                নিজের টাকায় আর ডিপোজিট নয়! ১০০% ফ্রি ইনস্ট্যান্ট গেম ডিপোজিট বোনাস
+              </h2>
+            </div>
+            <p class="announcement-subtext" data-i18n="hero_alert_subtext">
+              এখন আর পকেটের টাকা খরচ করতে হবে না! আমাদের প্ল্যাটফর্মে স্পন্সরড অফার ও সহজ টাস্ক সম্পন্ন করে সরাসরি আপনার গেমিং অ্যাকাউন্টে ফ্রি ডিপোজিট ও ওয়ালেট বোনাস ক্লেইম করুন।
+            </p>
+          </div>
+        </div>
+
+        <div class="hero-grid">
         <div class="hero-content">
-          <span class="badge-live" style="margin-bottom: 1.2rem;">এক্সক্লুসিভ রিওয়ার্ড প্ল্যাটফর্ম</span>
-          <h1>
+          <span class="badge-live" style="margin-bottom: 1.2rem;" data-i18n="hero_badge">এক্সক্লুসিভ রিওয়ার্ড প্ল্যাটফর্ম</span>
+          <h1 data-i18n="hero_title">
             ওয়েলকাম বোনাস ও<br>
             <span class="text-accent">প্রিমিয়াম রিওয়ার্ড</span>
           </h1>
@@ -3381,21 +3842,21 @@
           </p>
           <div class="hero-cta-group">
             <button type="button" class="btn btn-primary btn-pulsing-cta" id="heroClaimBtn" onclick="handleBonusClaimAction(event)">
-              <span>বোনাস ক্লেইম করুন</span>
+              <span data-i18n="hero_claim_btn">বোনাস ক্লেইম করুন</span>
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
             </button>
-            <a href="#features" class="btn btn-secondary" id="heroExploreBtn">
+            <a href="#features" class="btn btn-secondary" id="heroExploreBtn" data-i18n="hero_explore_btn">
               ফিচার দেখুন
             </a>
           </div>
           <div class="trust-indicators">
-            <div class="trust-item"><span class="trust-check">✓</span> ইনস্ট্যান্ট রিওয়ার্ড ক্রেডিট</div>
-            <div class="trust-item"><span class="trust-check">✓</span> নিরাপদ ও ভেরিফাইড</div>
-            <div class="trust-item"><span class="trust-check">✓</span> দৈনিক ফ্রি স্পিন সুবিধা</div>
-            <div class="trust-item"><span class="trust-check">✓</span> ২৪/৭ সার্বক্ষণিক সহায়তা</div>
+            <div class="trust-item"><span class="trust-check">✓</span> <span data-i18n="hero_trust_1">ইনস্ট্যান্ট রিওয়ার্ড ক্রেডিট</span></div>
+            <div class="trust-item"><span class="trust-check">✓</span> <span data-i18n="hero_trust_2">নিরাপদ ও ভেরিফাইড</span></div>
+            <div class="trust-item"><span class="trust-check">✓</span> <span data-i18n="hero_trust_3">দৈনিক ফ্রি স্পিন সুবিধা</span></div>
+            <div class="trust-item"><span class="trust-check">✓</span> <span data-i18n="hero_trust_4">২৪/৭ সার্বক্ষণিক সহায়তা</span></div>
           </div>
         </div>
 
@@ -3407,8 +3868,8 @@
 
             <div class="card-top-row">
               <div>
-                <span class="card-title-sm">ওয়েলকাম বোনাস</span>
-                <div style="font-size: 0.72rem; color: var(--text-muted);">ভিআইপি রিওয়ার্ড স্ট্যাটাস</div>
+                <span class="card-title-sm" data-i18n="hero_card_title">ওয়েলকাম বোনাস</span>
+                <div style="font-size: 0.72rem; color: var(--text-muted);" data-i18n="hero_card_sub">ভিআইপি রিওয়ার্ড স্ট্যাটাস</div>
               </div>
               <span class="badge-live">LIVE</span>
             </div>
@@ -3417,7 +3878,7 @@
 
             <div class="progress-module">
               <div class="progress-meta">
-                <span style="color: var(--text-muted); font-size: 0.8rem;">বোনাস আনলক প্রগ্রেস</span>
+                <span style="color: var(--text-muted); font-size: 0.8rem;" data-i18n="hero_card_progress">বোনাস আনলক প্রগ্রেস</span>
                 <span style="color: var(--accent-primary); font-weight: 700;" id="heroProgressPercent">৬৮%</span>
               </div>
               <div class="progress-bar-bg">
@@ -3427,11 +3888,44 @@
 
             <div class="sessions-card-meta">
               <div>
-                <div class="sessions-label">সক্রিয় প্লেয়ার সেশন</div>
-                <div style="font-size: 0.7rem; color: #7C8981;">রিয়েল-টাইম প্ল্যাটফর্ম ট্র্যাকিং</div>
+                <div class="sessions-label" data-i18n="hero_card_sessions_lbl">সক্রিয় প্লেয়ার সেশন</div>
+                <div style="font-size: 0.7rem; color: #7C8981;" data-i18n="hero_card_sessions_sub">রিয়েল-টাইম প্ল্যাটফর্ম ট্র্যাকিং</div>
               </div>
               <div class="sessions-counter-num" id="heroSessionCounter">2,847+</div>
             </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+    <!-- ==========================================================
+         OFFICIAL DISCLAIMER BANNER (Ad-Supported Platform Notice)
+         ========================================================== -->
+    <section class="hero-disclaimer-section" id="platformNotice">
+      <div class="container">
+        <div class="hero-disclaimer-box" role="note" aria-label="Official Platform Disclaimer">
+          <div class="hero-disclaimer-icon-wrap" aria-hidden="true">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              <circle cx="12" cy="12" r="1"></circle>
+              <line x1="12" y1="8" x2="12" y2="9"></line>
+            </svg>
+          </div>
+          <div class="hero-disclaimer-body">
+            <div class="hero-disclaimer-header">
+              <span class="hero-disclaimer-pill">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                  <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                </svg>
+                <span data-i18n="hero_notice_verified">১০০% আইনি ও স্পন্সরড প্ল্যাটফর্ম</span>
+              </span>
+              <h3 class="hero-disclaimer-title" data-i18n="hero_notice_title">অফিসিয়াল সতর্কতা ও রিওয়ার্ড তথ্য</h3>
+            </div>
+            <p class="hero-disclaimer-text" data-i18n="hero_notice_text">
+              <strong>সতর্কবার্তা ও তথ্য:</strong> আমাদের এই প্ল্যাটফর্মটি কোনো বেটিং বা জুয়ার সাইট নয়। এটি একটি সম্পূর্ণ আইনি ও স্পন্সরড রিওয়ার্ড ভিত্তিক ওয়েবসাইট। ব্যবহারকারীরা স্পন্সরড ভিডিও ও বিজ্ঞাপন দেখার মাধ্যমে সম্পূর্ণ বিনামূল্যে গেম টপ-আপ ও ওয়ালেট বোনাস পেয়ে থাকেন।
+            </p>
           </div>
         </div>
       </div>
@@ -3443,8 +3937,8 @@
     <section class="section-spacing" id="dashboard">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">লাইভ অ্যানালিটিক্স</span>
-          <h2 class="section-title">আপনার রিওয়ার্ড ড্যাশবোর্ড</h2>
+          <span class="section-eyebrow" data-i18n="dash_eyebrow">লাইভ অ্যানালিটিক্স</span>
+          <h2 class="section-title" data-i18n="dash_title">আপনার রিওয়ার্ড ড্যাশবোর্ড</h2>
           <p class="section-subtitle">আপনার বর্তমান ব্যালেন্স, অর্জিত বোনাস এবং সাম্প্রতিক লাইভ কার্যক্রম একনজরে দেখুন।</p>
         </div>
 
@@ -3554,8 +4048,8 @@
     <section class="section-spacing wheel-section gamification-hub" id="wheel">
       <div class="container">
         <div class="section-header" style="text-align: center; max-width: 720px; margin: 0 auto 2rem;">
-          <span class="section-eyebrow">ইন্টারেক্টিভ গেমিফিকেশন রিওয়ার্ডস</span>
-          <h2 class="section-title">স্পিন হুইল ও স্ক্র্যাচ অ্যান্ড উইন</h2>
+          <span class="section-eyebrow" data-i18n="game_eyebrow">ইন্টারেক্টিভ গেমিফিকেশন রিওয়ার্ডস</span>
+          <h2 class="section-title" data-i18n="game_title">স্পিন হুইল ও স্ক্র্যাচ অ্যান্ড উইন</h2>
           <p class="section-subtitle">
             লাকি হুইল ঘুরিয়ে বা গোল্ডেন স্ক্র্যাচ কার্ড ঘষে সরাসরি ৳১,০০০ থেকে ৳৫০,০০০ পর্যন্ত ইনস্ট্যান্ট ক্যাশ রিওয়ার্ড আনলক করুন।
           </p>
@@ -3568,7 +4062,7 @@
               <circle cx="12" cy="12" r="10"></circle>
               <polyline points="12 6 12 12 16 14"></polyline>
             </svg>
-            <span>লাকি স্পিন হুইল (Spin Wheel)</span>
+            <span data-i18n="tab_wheel">লাকি স্পিন হুইল (Spin Wheel)</span>
           </button>
           <button type="button" class="game-tab-btn" id="tabBtnScratch" onclick="switchGameTab('scratch')" role="tab" aria-selected="false">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -3576,7 +4070,7 @@
               <line x1="3" y1="9" x2="21" y2="9"></line>
               <line x1="9" y1="21" x2="9" y2="9"></line>
             </svg>
-            <span>স্ক্র্যাচ অ্যান্ড উইন কার্ড (Scratch Card)</span>
+            <span data-i18n="tab_scratch">স্ক্র্যাচ অ্যান্ড উইন কার্ড (Scratch Card)</span>
           </button>
         </div>
 
@@ -3608,15 +4102,15 @@
             <!-- Controls & Result Card -->
             <div class="wheel-controls-card">
               <div>
-                <span class="badge-live">দৈনিক ফ্রি স্পিন সক্রিয়</span>
-                <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.2rem;">হুইল ঘুরিয়ে রিওয়ার্ড জিতুন</h3>
-                <p class="text-muted" style="font-size: 0.9rem;">প্রতিটি সেগমেন্টে ৳১,০০০ থেকে ৳৫০,০০০ মেগা জ্যাকপট পর্যন্ত আকর্ষণীয় পুরস্কার সাজানো রয়েছে।</p>
+                <span class="badge-live" data-i18n="wheel_badge">দৈনিক ফ্রি স্পিন সক্রিয়</span>
+                <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.2rem;" data-i18n="wheel_h3">হুইল ঘুরিয়ে রিওয়ার্ড জিতুন</h3>
+                <p class="text-muted" style="font-size: 0.9rem;" data-i18n="wheel_p">প্রতিটি সেগমেন্টে ৳১,০০০ থেকে ৳৫০,০০০ মেগা জ্যাকপট পর্যন্ত আকর্ষণীয় পুরস্কার সাজানো রয়েছে।</p>
               </div>
 
               <div class="wheel-result-box" id="wheelResultBox">
-                <span class="card-title-sm">সর্বশেষ স্পিন ফলাফল</span>
+                <span class="card-title-sm" data-i18n="wheel_last_res">সর্বশেষ স্পিন ফলাফল</span>
                 <div class="wheel-result-amount" id="wheelResultAmount">৳7,500</div>
-                <p class="wheel-disclaimer" style="color: var(--accent-primary); font-size: 0.8rem; margin-top: 0.4rem;">যাচাইকৃত ক্যাশ রিওয়ার্ড প্রস্তুত</p>
+                <p class="wheel-disclaimer" style="color: var(--accent-primary); font-size: 0.8rem; margin-top: 0.4rem;" data-i18n="wheel_verified">যাচাইকৃত ক্যাশ রিওয়ার্ড প্রস্তুত</p>
               </div>
 
               <div class="wheel-btn-group">
@@ -3625,7 +4119,7 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
                   </svg>
-                  <span>Spin Now to Unlock (স্পিন করুন)</span>
+                  <span data-i18n="wheel_spin_cta">Spin Now to Unlock (স্পিন করুন)</span>
                 </button>
                 <button type="button" class="btn btn-secondary" id="resetWheelBtn" onclick="resetWheel()">
                   আবার চেষ্টা করুন
@@ -3670,17 +4164,17 @@
             <!-- Scratch Controls & Rules -->
             <div class="scratch-controls">
               <div>
-                <span class="badge-live">গোল্ডেন স্ক্র্যাচ কার্ড</span>
-                <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem;">ঘষুন এবং তাত্ক্ষণিক জিতুন</h3>
+                <span class="badge-live" data-i18n="scratch_badge">গোল্ডেন স্ক্র্যাচ কার্ড</span>
+                <h3 style="font-size: 1.6rem; margin: 0.5rem 0 0.3rem;" data-i18n="scratch_h3">ঘষুন এবং তাত্ক্ষণিক জিতুন</h3>
                 <p class="text-muted" style="font-size: 0.88rem; line-height: 1.6;">
                   কার্ডের গোল্ডেন ফয়েলটি স্ক্র্যাচ করে ৫০% সম্পূর্ণ করলেই সম্পূর্ণ রিওয়ার্ড স্বয়ংক্রিয়ভাবে আনলক হয়ে যাবে।
                 </p>
               </div>
 
               <div style="background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.08); border-radius: var(--radius-md); padding: 1.1rem;">
-                <div style="font-size: 0.75rem; color: #94A3B8; margin-bottom: 0.3rem; text-transform: uppercase; font-weight: 700;">সর্বোচ্চ সম্ভাব্য পুরস্কার</div>
-                <div style="font-size: 1.4rem; font-weight: 800; color: #F5D061;">৳২৫,০০০ পর্যন্ত ইনস্ট্যান্ট বোনাস</div>
-                <div style="font-size: 0.72rem; color: var(--accent-primary); margin-top: 0.2rem;">✓ ১০০% নিশ্চিত পেআউট কোড</div>
+                <div style="font-size: 0.75rem; color: #94A3B8; margin-bottom: 0.3rem; text-transform: uppercase; font-weight: 700;" data-i18n="scratch_max_label">সর্বোচ্চ সম্ভাব্য পুরস্কার</div>
+                <div style="font-size: 1.4rem; font-weight: 800; color: #F5D061;" data-i18n="scratch_max_val">৳২৫,০০০ পর্যন্ত ইনস্ট্যান্ট বোনাস</div>
+                <div style="font-size: 0.72rem; color: var(--accent-primary); margin-top: 0.2rem;" data-i18n="scratch_payout_check">✓ ১০০% নিশ্চিত পেআউট কোড</div>
               </div>
 
               <div style="display: flex; flex-direction: column; gap: 0.75rem;">
@@ -3689,13 +4183,13 @@
                   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
                   </svg>
-                  <span>Claim Reward (রিওয়ার্ড ক্লেইম)</span>
+                  <span data-i18n="scratch_claim_cta">Claim Reward (রিওয়ার্ড ক্লেইম)</span>
                 </button>
                 <div style="display: flex; gap: 0.75rem;">
-                  <button type="button" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;" onclick="autoRevealScratchCard()">
+                  <button type="button" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;" onclick="autoRevealScratchCard()" data-i18n="scratch_auto_btn">
                     স্বয়ংক্রিয় স্ক্র্যাচ
                   </button>
-                  <button type="button" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;" onclick="resetScratchCard()">
+                  <button type="button" class="btn btn-secondary" style="flex: 1; font-size: 0.82rem;" onclick="resetScratchCard()" data-i18n="scratch_new_btn">
                     নতুন কার্ড নিন
                   </button>
                 </div>
@@ -3714,9 +4208,9 @@
     <section class="section-spacing" id="features">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">প্রিমিয়াম প্ল্যাটফর্ম</span>
-          <h2 class="section-title">প্ল্যাটফর্মের প্রধান সুবিধাসমূহ</h2>
-          <p class="section-subtitle">আধুনিক গেমিং এবং প্রিমিয়াম রিওয়ার্ড সিস্টেমের অতুলনীয় সুবিধা।</p>
+          <span class="section-eyebrow" data-i18n="features_eyebrow">প্রিমিয়াম প্ল্যাটফর্ম</span>
+          <h2 class="section-title" data-i18n="features_title">প্ল্যাটফর্মের প্রধান সুবিধাসমূহ</h2>
+          <p class="section-subtitle" data-i18n="features_subtitle">আধুনিক গেমিং এবং প্রিমিয়াম রিওয়ার্ড সিস্টেমের অতুলনীয় সুবিধা।</p>
         </div>
 
         <div class="features-grid">
@@ -3783,9 +4277,9 @@
         <!-- Section Header with Left Content & Right Scroll Controls -->
         <div class="vip-header-wrapper">
           <div class="section-header" style="margin-bottom: 0;">
-            <span class="section-eyebrow">এক্সক্লুসিভ রিওয়ার্ড স্ট্যাটাস</span>
-            <h2 class="section-title">ভিআইপি মেম্বারশিপ টায়ার (VIP Membership Tiers)</h2>
-            <p class="section-subtitle">
+            <span class="section-eyebrow" data-i18n="vip_eyebrow">এক্সক্লুসিভ রিওয়ার্ড স্ট্যাটাস</span>
+            <h2 class="section-title" data-i18n="vip_title">ভিআইপি মেম্বারশিপ টায়ার (VIP Membership Tiers)</h2>
+            <p class="section-subtitle" data-i18n="vip_subtitle">
               উচ্চতর টায়ারে উন্নীত হয়ে আনলক করুন সর্বোচ্চ ক্যাশব্যাক (Cashback %), অগ্রাধিকার সেবা ও এক্সক্লুসিভ অ্যাক্সেস (Exclusive Access)।
             </p>
           </div>
@@ -3829,8 +4323,8 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="vip-tier-title">ব্রোঞ্জ টায়ার (Bronze)</h3>
-                  <div class="vip-tier-req">নতুন সদস্যদের জন্য স্বাগতম স্তর</div>
+                  <h3 class="vip-tier-title" data-i18n="vip_tier1_title">ব্রোঞ্জ টায়ার (Bronze)</h3>
+                  <div class="vip-tier-req" data-i18n="vip_tier1_req">নতুন সদস্যদের জন্য স্বাগতম স্তর</div>
                 </div>
               </div>
 
@@ -3877,7 +4371,7 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="vip-tier-title">সিলভার টায়ার (Silver)</h3>
+                  <h3 class="vip-tier-title" data-i18n="vip_tier2_title">সিলভার টায়ার (Silver)</h3>
                   <div class="vip-tier-req">নিয়মিত সক্রিয় খেলোয়াড়</div>
                 </div>
               </div>
@@ -3924,7 +4418,7 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="vip-tier-title">গোল্ড ভিআইপি (Gold VIP)</h3>
+                  <h3 class="vip-tier-title" data-i18n="vip_tier3_title">গোল্ড ভিআইপি (Gold VIP)</h3>
                   <div class="vip-tier-req">টপ পারফর্মার ও সক্রিয় ডিপোজিটর</div>
                 </div>
               </div>
@@ -4015,7 +4509,7 @@
                   </svg>
                 </div>
                 <div>
-                  <h3 class="vip-tier-title">ডায়মন্ড এলিট (Diamond Elite)</h3>
+                  <h3 class="vip-tier-title" data-i18n="vip_tier5_title">ডায়মন্ড এলিট (Diamond Elite)</h3>
                   <div class="vip-tier-req">ইনভিটেশন-অনলি সর্বোচ্চ মর্যাদা</div>
                 </div>
               </div>
@@ -4058,30 +4552,30 @@
     <section class="section-spacing" id="how-it-works">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">সহজ গাইডলাইন</span>
-          <h2 class="section-title">কীভাবে শুরু করবেন</h2>
-          <p class="section-subtitle">মাত্র ৪টি সহজ ধাপে আপনার রিওয়ার্ড ক্লেইম করুন ও উপভোগ করুন।</p>
+          <span class="section-eyebrow" data-i18n="how_eyebrow">সহজ গাইডলাইন</span>
+          <h2 class="section-title" data-i18n="how_title">কীভাবে শুরু করবেন</h2>
+          <p class="section-subtitle" data-i18n="how_subtitle">মাত্র ৪টি সহজ ধাপে আপনার রিওয়ার্ড ক্লেইম করুন ও উপভোগ করুন।</p>
         </div>
 
         <div class="timeline-grid">
           <!-- Step 1 -->
           <div class="timeline-step">
             <span class="step-number">01</span>
-            <h3 class="step-title">অ্যাকাউন্ট আইডি দিন</h3>
-            <p class="step-desc">আপনার ইউজারনেম বা আইডি দিয়ে তাৎক্ষণিকভাবে লগইন ও সেশন শুরু করুন।</p>
+            <h3 class="step-title" data-i18n="how_step1_title">অ্যাকাউন্ট আইডি দিন</h3>
+            <p class="step-desc" data-i18n="how_step1_desc">আপনার ইউজারনেম বা আইডি দিয়ে তাৎক্ষণিকভাবে লগইন ও সেশন শুরু করুন।</p>
           </div>
 
           <!-- Step 2 -->
           <div class="timeline-step">
             <span class="step-number">02</span>
-            <h3 class="step-title">বোনাস অফার পছন্দ করুন</h3>
-            <p class="step-desc">ওয়েলকাম বোনাস, দৈনিক ক্যাশব্যাক এবং ভিআইপি অফারের শর্তাবলী যাচাই করুন।</p>
+            <h3 class="step-title" data-i18n="how_step2_title">বোনাস অফার পছন্দ করুন</h3>
+            <p class="step-desc" data-i18n="how_step2_desc">ওয়েলকাম বোনাস, দৈনিক ক্যাশব্যাক এবং ভিআইপি অফারের শর্তাবলী যাচাই করুন।</p>
           </div>
 
           <!-- Step 3 -->
           <div class="timeline-step">
             <span class="step-number">03</span>
-            <h3 class="step-title">হুইল ঘুরিয়ে স্পিন করুন</h3>
+            <h3 class="step-title" data-i18n="how_step3_title">হুইল ঘুরিয়ে স্পিন করুন</h3>
             <p class="step-desc">স্মুথ ফিজিক্স অ্যানিমেশনযুক্ত লাকি হুইল ঘুরিয়ে আকর্ষণীয় রিওয়ার্ড জিতে নিন।</p>
           </div>
 
@@ -4101,9 +4595,9 @@
     <section class="section-spacing" id="leaderboard">
       <div class="container">
         <div class="section-header">
-          <span class="section-eyebrow">টপ প্লেয়ার্স</span>
-          <h2 class="section-title">টপ উইনার লিডারবোর্ড</h2>
-          <p class="section-subtitle">আজকের এবং সর্বকালীন শীর্ষস্থান অর্জনকারী সক্রিয় খেলোয়াড়দের লাইভ তালিকা।</p>
+          <span class="section-eyebrow" data-i18n="lb_eyebrow">টপ প্লেয়ার্স</span>
+          <h2 class="section-title" data-i18n="lb_title">টপ উইনার লিডারবোর্ড</h2>
+          <p class="section-subtitle" data-i18n="lb_subtitle">আজকের এবং সর্বকালীন শীর্ষস্থান অর্জনকারী সক্রিয় খেলোয়াড়দের লাইভ তালিকা।</p>
         </div>
 
         <!-- Leaderboard Filter Controls -->
@@ -4174,16 +4668,16 @@
     <section class="section-spacing" id="faq">
       <div class="container">
         <div class="section-header" style="text-align: center; max-width: 680px; margin: 0 auto 3rem;">
-          <span class="section-eyebrow">সহায়তা ও তথ্য</span>
-          <h2 class="section-title">সাধারণ জিজ্ঞাসা (FAQ)</h2>
-          <p class="section-subtitle">BetBonus প্ল্যাটফর্মের রিওয়ার্ড সিস্টেম, বোনাস ক্লেইম এবং ফিচার সম্পর্কিত যাবতীয় তথ্য।</p>
+          <span class="section-eyebrow" data-i18n="faq_eyebrow">সহায়তা ও তথ্য</span>
+          <h2 class="section-title" data-i18n="faq_title">সাধারণ জিজ্ঞাসা (FAQ)</h2>
+          <p class="section-subtitle" data-i18n="faq_subtitle">ClaimBonus24 প্ল্যাটফর্মের রিওয়ার্ড সিস্টেম, বোনাস ক্লেইম এবং ফিচার সম্পর্কিত যাবতীয় তথ্য।</p>
         </div>
 
         <div class="faq-list">
           <!-- FAQ 1 -->
           <div class="faq-item active">
             <button type="button" class="faq-trigger" aria-expanded="true">
-              <span>কিভাবে ওয়েলকাম বোনাস ক্লেইম করব?</span>
+              <span data-i18n="faq_q1">কিভাবে ওয়েলকাম বোনাস ক্লেইম করব?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -4196,7 +4690,7 @@
           <!-- FAQ 2 -->
           <div class="faq-item">
             <button type="button" class="faq-trigger" aria-expanded="false">
-              <span>লাকি হুইল স্পিন কিভাবে কাজ করে?</span>
+              <span data-i18n="faq_q2">লাকি হুইল স্পিন কিভাবে কাজ করে?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -4209,7 +4703,7 @@
           <!-- FAQ 3 -->
           <div class="faq-item">
             <button type="button" class="faq-trigger" aria-expanded="false">
-              <span>লিডারবোর্ড র‍্যাংকিং কিভাবে নির্ধারিত হয়?</span>
+              <span data-i18n="faq_q3">লিডারবোর্ড র‍্যাংকিং কিভাবে নির্ধারিত হয়?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -4222,7 +4716,7 @@
           <!-- FAQ 4 -->
           <div class="faq-item">
             <button type="button" class="faq-trigger" aria-expanded="false">
-              <span>ড্যাশবোর্ডের ব্যালেন্স কখন আপডেট হয়?</span>
+              <span data-i18n="faq_q4">ড্যাশবোর্ডের ব্যালেন্স কখন আপডেট হয়?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
@@ -4235,13 +4729,13 @@
           <!-- FAQ 5 -->
           <div class="faq-item">
             <button type="button" class="faq-trigger" aria-expanded="false">
-              <span>মোবাইল ডিভাইসে কি এটি ব্যবহার করা যাবে?</span>
+              <span data-i18n="faq_q5">মোবাইল ডিভাইসে কি এটি ব্যবহার করা যাবে?</span>
               <svg class="faq-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </button>
             <div class="faq-content">
-              হ্যাঁ, BetBonus সম্পূর্ণ রেসপন্সিভ এবং যেকোনো স্মার্টফোন, ট্যাবলেট কিংবা কম্পিউটারে অত্যন্ত দ্রুত ও মসৃণভাবে পরিচালিত হয়।
+              হ্যাঁ, ClaimBonus24 সম্পূর্ণ রেসপন্সিভ এবং যেকোনো স্মার্টফোন, ট্যাবলেট কিংবা কম্পিউটারে অত্যন্ত দ্রুত ও মসৃণভাবে পরিচালিত হয়।
             </div>
           </div>
         </div>
@@ -4312,7 +4806,7 @@
       <div class="footer-top">
         <div class="footer-brand">
           <div class="brand-title">CLAIM<span class="text-accent">BONUS</span><span class="text-gold">24</span></div>
-          <p>অফিসিয়াল প্রিমিয়াম বোনাস ও ইনস্ট্যান্ট রিওয়ার্ড প্ল্যাটফর্ম।</p>
+          <p data-i18n="footer_brand_desc">অফিসিয়াল প্রিমিয়াম বোনাস ও ইনস্ট্যান্ট রিওয়ার্ড প্ল্যাটফর্ম।</p>
         </div>
         <nav class="footer-nav" aria-label="Footer Links">
           <a href="#dashboard">ড্যাশবোর্ড</a>
@@ -4326,13 +4820,13 @@
 
       <!-- Standard Footer Legal & Trust Links -->
       <div class="footer-legal-bar" aria-label="Legal and Support Links">
-        <button type="button" class="footer-link-btn" onclick="openLegalModal('privacy')">Privacy Policy (গোপনীয়তা নীতি)</button>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('privacy')" data-i18n="footer_privacy">Privacy Policy (গোপনীয়তা নীতি)</button>
         <span class="footer-divider">•</span>
-        <button type="button" class="footer-link-btn" onclick="openLegalModal('terms')">Terms of Service (ব্যবহারের শর্তাবলী)</button>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('terms')" data-i18n="footer_terms">Terms of Service (ব্যবহারের শর্তাবলী)</button>
         <span class="footer-divider">•</span>
-        <button type="button" class="footer-link-btn" onclick="openLegalModal('disclaimer')">Disclaimer (দাবিত্যাগ)</button>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('disclaimer')" data-i18n="footer_disclaimer">Disclaimer (দাবিত্যাগ)</button>
         <span class="footer-divider">•</span>
-        <button type="button" class="footer-link-btn" onclick="openLegalModal('support')">Contact Support (২৪/৭ সহায়তা কেন্দ্র)</button>
+        <button type="button" class="footer-link-btn" onclick="openLegalModal('support')" data-i18n="footer_support">Contact Support (২৪/৭ সহায়তা কেন্দ্র)</button>
       </div>
 
       <!-- Security & Trust Seals Strip -->
@@ -4364,8 +4858,8 @@
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 ClaimBonus24. All rights reserved.</div>
-        <div>এনক্রিপ্টেড সিকিউরিটি ও ২৪/৭ নির্ভরযোগ্য কাস্টমার সাপোর্ট দ্বারা সুরক্ষিত।</div>
+        <div data-i18n="footer_copy">© 2026 ClaimBonus24. All rights reserved.</div>
+        <div data-i18n="footer_security_desc">এনক্রিপ্টেড সিকিউরিটি ও ২৪/৭ নির্ভরযোগ্য কাস্টমার সাপোর্ট দ্বারা সুরক্ষিত।</div>
       </div>
     </div>
   </footer>
@@ -4390,7 +4884,7 @@
       <div class="modal-step active" id="modalStep1">
         <div class="step-progress-wrapper">
           <div class="step-progress-header">
-            <span>ধাপ ১ / ৩: একাউন্ট ভেরিফিকেশন</span>
+            <span data-i18n="modal_step1_progress">ধাপ ১ / ৩: একাউন্ট ভেরিফিকেশন</span>
             <span class="text-accent">৩৩% সম্পন্ন</span>
           </div>
           <div class="step-progress-bar">
@@ -4398,15 +4892,15 @@
           </div>
         </div>
 
-        <h3 class="modal-title" id="modalTitle">আপনার অ্যাকাউন্ট ভেরিফাই করুন</h3>
+        <h3 class="modal-title" id="modalTitle" data-i18n="modal_step1_title">আপনার অ্যাকাউন্ট ভেরিফাই করুন</h3>
         <p class="modal-desc">
           যে ওয়ালেট বা অ্যাকাউন্টে ক্যাশ বোনাস গ্রহণ করতে চান তার বিবরণ প্রদান করুন।
         </p>
 
         <!-- Method Selector Tabs -->
         <div class="step-method-selector">
-          <div class="method-pill active" id="methodPillPhone" onclick="selectClaimMethod('phone')">📱 বিকাশ / নগদ / রকেট</div>
-          <div class="method-pill" id="methodPillId" onclick="selectClaimMethod('id')">🆔 প্লেয়ার আইডি / ইমেইল</div>
+          <div class="method-pill active" id="methodPillPhone" onclick="selectClaimMethod('phone')" data-i18n="modal_method_phone">📱 বিকাশ / নগদ / রকেট</div>
+          <div class="method-pill" id="methodPillId" onclick="selectClaimMethod('id')" data-i18n="modal_method_id">🆔 প্লেয়ার আইডি / ইমেইল</div>
         </div>
 
         <div>
@@ -4423,13 +4917,13 @@
               <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
               <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
             </svg>
-            <span>256-Bit SSL এনক্রিপশনের মাধ্যমে সম্পূর্ণ নিরাপদে সংরক্ষিত</span>
+            <span data-i18n="modal_ssl_guarantee">256-Bit SSL এনক্রিপশনের মাধ্যমে সম্পূর্ণ নিরাপদে সংরক্ষিত</span>
           </div>
         </div>
 
         <div class="modal-actions" style="margin-top: 1.5rem;">
           <button type="button" class="btn btn-primary" style="width: 100%; justify-content: center;" onclick="proceedToStep2()">
-            <span>পরবর্তী ধাপ: টাস্ক সম্পন্ন করুন</span>
+            <span data-i18n="modal_step1_next_btn">পরবর্তী ধাপ: টাস্ক সম্পন্ন করুন</span>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
@@ -4442,7 +4936,7 @@
       <div class="modal-step" id="modalStep2">
         <div class="step-progress-wrapper">
           <div class="step-progress-header">
-            <span>ধাপ ২ / ৩: রিওয়ার্ড আনলক টাস্ক</span>
+            <span data-i18n="modal_step2_progress">ধাপ ২ / ৩: রিওয়ার্ড আনলক টাস্ক</span>
             <span class="text-accent" id="step2PercentText">৬৭% সম্পন্ন</span>
           </div>
           <div class="step-progress-bar">
@@ -4450,8 +4944,8 @@
           </div>
         </div>
 
-        <h3 class="modal-title">একটি সহজ টাস্ক সম্পন্ন করুন</h3>
-        <p class="modal-desc">
+        <h3 class="modal-title" data-i18n="modal_step2_title">একটি সহজ টাস্ক সম্পন্ন করুন</h3>
+        <p class="modal-desc" data-i18n="modal_step2_desc">
           নিচের যেকোনো ১টি ইন্টারেক্টিভ টাস্ক সম্পন্ন করে তাত্ক্ষণিকভাবে ১০০% রিওয়ার্ড আনলক করুন:
         </p>
 
@@ -4517,7 +5011,7 @@
       <div class="modal-step" id="modalStep3">
         <div class="step-progress-wrapper">
           <div class="step-progress-header">
-            <span>ধাপ ৩ / ৩: রিওয়ার্ড প্রস্তুত</span>
+            <span data-i18n="modal_step3_progress">ধাপ ৩ / ৩: রিওয়ার্ড প্রস্তুত</span>
             <span style="color: #22C55E; font-weight: 700;">১০০% সম্পন্ন!</span>
           </div>
           <div class="step-progress-bar">
@@ -4525,24 +5019,24 @@
           </div>
         </div>
 
-        <span class="badge-live" style="margin-bottom: 0.6rem;">🎉 বোনাস সফলভাবে নির্ধারিত</span>
-        <h3 class="modal-title">অভিনন্দন! আপনার রিওয়ার্ড প্রস্তুত</h3>
+        <span class="badge-live" style="margin-bottom: 0.6rem;" data-i18n="modal_step3_badge">🎉 বোনাস সফলভাবে নির্ধারিত</span>
+        <h3 class="modal-title" data-i18n="modal_step3_title">অভিনন্দন! আপনার রিওয়ার্ড প্রস্তুত</h3>
 
         <div class="simulated-result-display" id="modalResultDisplay" style="margin: 1.2rem 0;">
-          <div class="card-title-sm">হিসাবকৃত চূড়ান্ত ক্যাশ বোনাস</div>
+          <div class="card-title-sm" data-i18n="modal_step3_calc_title">হিসাবকৃত চূড়ান্ত ক্যাশ বোনাস</div>
           <div class="simulated-result-number" id="modalBonusResult">৳৮,৭৫০</div>
           
           <div style="background: rgba(0, 0, 0, 0.3); border-radius: var(--radius-sm); padding: 0.85rem; margin-top: 0.8rem; text-align: left; font-size: 0.78rem;">
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-              <span style="color: #94A3B8;">প্রাপক ওয়ালেট:</span>
+              <span style="color: #94A3B8;" data-i18n="modal_step3_recipient_lbl">প্রাপক ওয়ালেট:</span>
               <strong id="modalSummaryRecipient" style="color: #F4F7F4;">017*****678</strong>
             </div>
             <div style="display: flex; justify-content: space-between; margin-bottom: 0.3rem;">
-              <span style="color: #94A3B8;">ট্রানজেকশন টাইপ:</span>
-              <span style="color: #4ADE80; font-weight: 700;">ইনস্ট্যান্ট ক্যাশ ক্রেডিট</span>
+              <span style="color: #94A3B8;" data-i18n="modal_step3_type_lbl">ট্রানজেকশন টাইপ:</span>
+              <span style="color: #4ADE80; font-weight: 700;" data-i18n="modal_step3_type_val">ইনস্ট্যান্ট ক্যাশ ক্রেডিট</span>
             </div>
             <div style="display: flex; justify-content: space-between;">
-              <span style="color: #94A3B8;">অফার মেয়াদ বাকি:</span>
+              <span style="color: #94A3B8;" data-i18n="modal_step3_expiry_lbl">অফার মেয়াদ বাকি:</span>
               <strong style="color: #F5D061;" id="modalClaimCountdown">০৪:৫৯</strong>
             </div>
           </div>
@@ -4555,9 +5049,57 @@
               <rect x="2" y="5" width="20" height="14" rx="2"></rect>
               <line x1="2" y1="10" x2="22" y2="10"></line>
             </svg>
-            <span>ওয়ালেটে ট্রান্সফার করুন (Claim to Wallet)</span>
+            <span data-i18n="modal_claim_to_wallet_btn">ওয়ালেটে ট্রান্সফার করুন (Claim to Wallet)</span>
           </button>
         </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================
+       DYNAMIC ERROR & WARNING MODAL (Claim to Wallet Verification)
+       ========================================================== -->
+  <div class="modal-overlay claim-error-overlay" id="claimErrorModal" role="dialog" aria-modal="true" aria-labelledby="errorModalTitle" style="z-index: 10050;">
+    <div class="modal-box claim-error-box" id="claimErrorBox">
+      <!-- Animated Status Icon -->
+      <div class="claim-error-icon-wrap" id="errorIconWrap">
+        <svg id="errorIconSvg" width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="18" cy="5" r="3"></circle>
+          <circle cx="6" cy="12" r="3"></circle>
+          <circle cx="18" cy="19" r="3"></circle>
+          <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+          <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+        </svg>
+      </div>
+
+      <!-- Warning Badge -->
+      <div class="claim-error-badge" id="errorModalBadge">অসম্পূর্ণ রিকোয়ারমেন্ট</div>
+
+      <h3 class="modal-title claim-error-title" id="errorModalTitle">শেয়ার অসম্পূর্ণ!</h3>
+      
+      <p class="modal-desc claim-error-desc" id="errorModalMessage">
+        শেয়ার অসম্পূর্ণ! আপনি সঠিকভাবে মেসেঞ্জার বা হোয়াটসঅ্যাপে অফারটি শেয়ার করেননি। অনুগ্রহ করে আবার ৩+ জন বন্ধুকে শেয়ার করে চেষ্টা করুন।
+      </p>
+
+      <div class="claim-error-meta-box" id="errorMetaBox">
+        <div class="error-meta-item">
+          <span class="meta-label">স্ট্যাটাস:</span>
+          <span class="meta-val text-warning" id="errorStatusLabel">ভেরিফিকেশন পেন্ডিং (Pending)</span>
+        </div>
+        <div class="error-meta-item">
+          <span class="meta-label">প্রয়োজনীয় পদক্ষেপ:</span>
+          <span class="meta-val" id="errorActionGuidance">৩+ জন বন্ধুকে শেয়ার সম্পন্ন করুন</span>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="modal-actions" style="display: flex; flex-direction: column; gap: 0.75rem;">
+        <button type="button" class="btn btn-primary" id="errorPrimaryActionBtn" onclick="handleErrorPrimaryAction()" style="width: 100%; justify-content: center; font-size: 0.98rem; padding: 0.85rem;">
+          <span id="errorPrimaryBtnText">শেয়ার সম্পন্ন করুন</span>
+        </button>
+        <button type="button" class="btn btn-secondary" id="errorSecondaryActionBtn" onclick="handleErrorSecondaryAction()" style="width: 100%; justify-content: center; font-size: 0.88rem; padding: 0.72rem;">
+          <span id="errorSecondaryBtnText">পুনরায় চেষ্টা করুন</span>
+        </button>
       </div>
     </div>
   </div>
@@ -4799,6 +5341,9 @@
           ? 'border-color: var(--accent-gold); color: var(--accent-gold);' 
           : (index === 1 ? 'border-color: #E2E8F0; color: #E2E8F0;' : (index === 2 ? 'border-color: #F97316; color: #F97316;' : ''));
 
+        const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
+        const displayName = isEn ? item.name : (item.bangla || item.name);
+        const sessionLabel = isEn ? `Session #${item.sessionEn || item.session}` : `সেশন #${item.session}`;
         html += `
           <tr class="leaderboard-row ${rankClass} ${highlightClass}" data-rank="${rankNum}">
             <td class="leaderboard-cell" style="width: 70px;">
@@ -4808,8 +5353,8 @@
               <div class="user-profile">
                 <div class="user-avatar" style="${avatarBorder}">${item.initials || 'BD'}</div>
                 <div>
-                  <div class="username-title">${item.bangla || item.name}</div>
-                  <div style="font-size: 0.72rem; color: var(--text-muted);">সেশন #${item.session}</div>
+                  <div class="username-title">${displayName}</div>
+                  <div style="font-size: 0.72rem; color: var(--text-muted);">${sessionLabel}</div>
                 </div>
               </div>
             </td>
@@ -5014,26 +5559,202 @@
     window.addEventListener('resize', resizeConfetti);
     resizeConfetti();
 
-    function triggerConfetti() {
-      const colors = ['#B9F34B', '#D7FF78', '#FFFFFF', '#F5D061', '#233129'];
-      confettiParticles = [];
-      for (let i = 0; i < 90; i++) {
-        confettiParticles.push({
-          x: confettiCanvas.width / 2 + (Math.random() - 0.5) * 200,
-          y: confettiCanvas.height / 2 + (Math.random() - 0.5) * 100,
-          vx: (Math.random() - 0.5) * 14,
-          vy: (Math.random() - 0.8) * 14,
+        /* ==========================================================
+       DYNAMIC CONFETTI DIFFICULTY & CELEBRATION ENGINE
+       ========================================================== */
+    const CONFETTI_DIFFICULTY_TIERS = {
+      bronze: {
+        tierName: "Bronze / Starter Win",
+        minReward: 0,
+        maxReward: 2499,
+        baseParticles: 75,
+        velocityMult: 0.95,
+        spread: 160,
+        burstWaves: 1,
+        waveDelayMs: 0,
+        shapes: ['rect', 'circle'],
+        colors: ['#B9F34B', '#D7FF78', '#FFFFFF', '#F5D061', '#233129']
+      },
+      silver: {
+        tierName: "Silver / Medium Win",
+        minReward: 2500,
+        maxReward: 7499,
+        baseParticles: 160,
+        velocityMult: 1.3,
+        spread: 280,
+        burstWaves: 2,
+        waveDelayMs: 140,
+        shapes: ['rect', 'circle', 'star'],
+        colors: ['#B9F34B', '#F5D061', '#FFD700', '#FFFFFF', '#10B981', '#14241B']
+      },
+      gold: {
+        tierName: "Gold / High-Roller Win",
+        minReward: 7500,
+        maxReward: 19999,
+        baseParticles: 280,
+        velocityMult: 1.65,
+        spread: 420,
+        burstWaves: 2,
+        waveDelayMs: 180,
+        shapes: ['rect', 'circle', 'star', 'ribbon'],
+        colors: ['#FFD700', '#F5D061', '#B9F34B', '#00F0FF', '#FF5E7E', '#FFFFFF']
+      },
+      jackpot: {
+        tierName: "Diamond / Mega Jackpot Win",
+        minReward: 20000,
+        maxReward: Infinity,
+        baseParticles: 460,
+        velocityMult: 2.1,
+        spread: 600,
+        burstWaves: 3,
+        waveDelayMs: 160,
+        shapes: ['rect', 'circle', 'star', 'ribbon'],
+        colors: ['#FFD700', '#B9F34B', '#FF3366', '#00E5FF', '#FFB800', '#FFFFFF', '#A855F7']
+      }
+    };
+
+    // Global dynamic difficulty settings state
+    // Mode: 'auto' (dynamically scales with won reward size), 'bronze', 'silver', 'gold', 'jackpot'
+    const confettiSettings = {
+      mode: 'auto',
+      particleScaleMultiplier: 1.0
+    };
+
+    /**
+     * Configure the confetti animation difficulty setting
+     * @param {string|number} setting - 'auto' | 'bronze' | 'silver' | 'gold' | 'jackpot' or numeric multiplier (0.5 to 3.0)
+     */
+    function setConfettiDifficulty(setting) {
+      if (typeof setting === 'number' && setting > 0) {
+        confettiSettings.particleScaleMultiplier = Math.max(0.5, Math.min(3.0, setting));
+      } else if (typeof setting === 'string' && (setting === 'auto' || CONFETTI_DIFFICULTY_TIERS[setting])) {
+        confettiSettings.mode = setting;
+      }
+    }
+
+    /**
+     * Parses raw reward amounts (numbers, Bengali strings, currency labels)
+     */
+    function parseRewardValue(raw) {
+      if (typeof raw === 'number' && !isNaN(raw)) return raw;
+      if (!raw) return 1000;
+      let str = String(raw).trim();
+      if (/মেগা|MEGA/i.test(str)) return 50000;
+      if (/২X|2X/i.test(str)) return 20000;
+
+      const bnMap = {'০':'0','১':'1','২':'2','৩':'3','৪':'4','৫':'5','৬':'6','৭':'7','৮':'8','৯':'9'};
+      str = str.replace(/[০-৯]/g, d => bnMap[d] || d);
+
+      if (/k/i.test(str)) {
+        const num = parseFloat(str.replace(/[^0-9.]/g, '')) || 50;
+        return num * 1000;
+      }
+      const digits = str.replace(/[^0-9]/g, '');
+      return digits ? parseInt(digits, 10) : 1000;
+    }
+
+    /**
+     * Calculates the dynamic difficulty parameters based on reward size and current setting
+     */
+    function calculateConfettiDifficulty(rewardAmount) {
+      const amount = parseRewardValue(rewardAmount);
+
+      let selectedKey = 'bronze';
+      if (confettiSettings.mode !== 'auto' && CONFETTI_DIFFICULTY_TIERS[confettiSettings.mode]) {
+        selectedKey = confettiSettings.mode;
+      } else {
+        if (amount >= 20000) selectedKey = 'jackpot';
+        else if (amount >= 7500) selectedKey = 'gold';
+        else if (amount >= 2500) selectedKey = 'silver';
+        else selectedKey = 'bronze';
+      }
+
+      const tier = CONFETTI_DIFFICULTY_TIERS[selectedKey];
+      // Dynamic bonus scaling: larger wins get a continuous proportional particle boost
+      const dynamicScaleBonus = Math.min(180, Math.round(Math.sqrt(amount) * 0.9));
+      const rawCount = (tier.baseParticles + dynamicScaleBonus) * confettiSettings.particleScaleMultiplier;
+      const finalCount = Math.max(60, Math.min(650, Math.round(rawCount)));
+
+      return {
+        ...tier,
+        tierKey: selectedKey,
+        amount,
+        particleCount: finalCount
+      };
+    }
+
+    /**
+     * Triggers dynamic celebration confetti with particle count and intensity based on reward size
+     * @param {number|string} rewardAmount - The won reward (e.g. 1000, 2500, 8500, 50000 or "৳৮,৫০০")
+     * @param {object} [customOverride] - Optional custom particle/difficulty override
+     */
+    function triggerConfetti(rewardAmount = 1000, customOverride = null) {
+      const difficulty = customOverride || calculateConfettiDifficulty(rewardAmount);
+      const colors = difficulty.colors;
+      const totalParticles = difficulty.particleCount;
+      const vMult = difficulty.velocityMult || 1.0;
+      const shapes = difficulty.shapes || ['rect', 'circle'];
+      const cx = confettiCanvas.width / 2;
+      const cy = confettiCanvas.height / 2;
+      const spread = difficulty.spread || 200;
+
+      function spawnParticle(originX, originY, angleSpread = 1.0, speedMult = 1.0, forceShape = null) {
+        const shape = forceShape || shapes[Math.floor(Math.random() * shapes.length)];
+        return {
+          x: originX + (Math.random() - 0.5) * spread * 0.4,
+          y: originY + (Math.random() - 0.5) * 80,
+          vx: (Math.random() - 0.5) * 16 * angleSpread * vMult * speedMult,
+          vy: ((Math.random() * -18) - 4) * vMult * speedMult,
           size: Math.random() * 8 + 4,
+          aspect: Math.random() * 1.6 + 0.6,
           color: colors[Math.floor(Math.random() * colors.length)],
           rotation: Math.random() * 360,
-          vRot: (Math.random() - 0.5) * 10,
-          alpha: 1
-        });
+          vRot: (Math.random() - 0.5) * (14 * vMult),
+          alpha: 1,
+          shape: shape,
+          decay: Math.random() * 0.005 + 0.008,
+          gravity: 0.28 + Math.random() * 0.12
+        };
       }
+
+      // Wave 1: Central explosive burst
+      const wave1Count = Math.floor(totalParticles / difficulty.burstWaves);
+      for (let i = 0; i < wave1Count; i++) {
+        confettiParticles.push(spawnParticle(cx, cy, 1.0, 1.0));
+      }
+
+      // Wave 2: Dual-flank cannons for medium, high, and jackpot tiers
+      if (difficulty.burstWaves >= 2) {
+        setTimeout(() => {
+          const wave2Count = Math.floor(totalParticles / difficulty.burstWaves);
+          for (let i = 0; i < wave2Count; i++) {
+            const sideX = (i % 2 === 0) ? cx * 0.35 : cx * 1.65;
+            confettiParticles.push(spawnParticle(sideX, cy * 0.9, 1.45, 1.15));
+          }
+        }, difficulty.waveDelayMs || 140);
+      }
+
+      // Wave 3: Massive overhead starfall barrage for Mega Jackpot wins
+      if (difficulty.burstWaves >= 3) {
+        setTimeout(() => {
+          const wave3Count = totalParticles - (wave1Count * 2);
+          for (let i = 0; i < wave3Count; i++) {
+            confettiParticles.push(spawnParticle(cx, cy * 0.75, 1.9, 1.35, 'star'));
+          }
+        }, (difficulty.waveDelayMs || 140) * 2);
+      }
+
       if (!confettiAnimId) {
         updateConfetti();
       }
     }
+
+    // Alias launchConfetti to triggerConfetti so all celebratory calls utilize dynamic difficulty
+    const launchConfetti = triggerConfetti;
+    window.triggerConfetti = triggerConfetti;
+    window.launchConfetti = launchConfetti;
+    window.setConfettiDifficulty = setConfettiDifficulty;
+    window.calculateConfettiDifficulty = calculateConfettiDifficulty;
 
     function updateConfetti() {
       confettiCtx.clearRect(0, 0, confettiCanvas.width, confettiCanvas.height);
@@ -5041,11 +5762,12 @@
         const p = confettiParticles[i];
         p.x += p.vx;
         p.y += p.vy;
-        p.vy += 0.35; // gravity
+        p.vy += p.gravity || 0.35; // gravity
+        p.vx *= 0.985; // air friction
         p.rotation += p.vRot;
-        p.alpha -= 0.012;
+        p.alpha -= (p.decay || 0.012);
 
-        if (p.alpha <= 0) {
+        if (p.alpha <= 0 || p.y > confettiCanvas.height + 60) {
           confettiParticles.splice(i, 1);
           continue;
         }
@@ -5053,9 +5775,41 @@
         confettiCtx.save();
         confettiCtx.translate(p.x, p.y);
         confettiCtx.rotate((p.rotation * Math.PI) / 180);
-        confettiCtx.globalAlpha = p.alpha;
+        confettiCtx.globalAlpha = Math.max(0, p.alpha);
         confettiCtx.fillStyle = p.color;
-        confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+
+        if (p.shape === 'circle') {
+          confettiCtx.beginPath();
+          confettiCtx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+          confettiCtx.fill();
+        } else if (p.shape === 'star') {
+          // 5-point celebratory star
+          confettiCtx.beginPath();
+          const spikes = 5;
+          const outer = p.size;
+          const inner = p.size * 0.45;
+          let rot = (Math.PI / 2) * 3;
+          let x = 0, y = 0;
+          const step = Math.PI / spikes;
+          confettiCtx.moveTo(0, -outer);
+          for (let s = 0; s < spikes; s++) {
+            x = Math.cos(rot) * outer;
+            y = Math.sin(rot) * outer;
+            confettiCtx.lineTo(x, y);
+            rot += step;
+            x = Math.cos(rot) * inner;
+            y = Math.sin(rot) * inner;
+            confettiCtx.lineTo(x, y);
+            rot += step;
+          }
+          confettiCtx.lineTo(0, -outer);
+          confettiCtx.closePath();
+          confettiCtx.fill();
+        } else {
+          // Rectangle or ribbon
+          confettiCtx.fillRect(-p.size / 2, (-p.size * (p.aspect || 1)) / 2, p.size, p.size * (p.aspect || 1));
+        }
+
         confettiCtx.restore();
       }
 
@@ -5070,11 +5824,33 @@
     /* ==========================================================
        BONUS WHEEL RENDER & PHYSICS
        ========================================================== */
+    const WHEEL_SEGMENTS_BN = [
+      { label: "৳১,০০০", value: 1000, color: "#0E1812" },
+      { label: "৳২,৫০০", value: 2500, color: "#14241B" },
+      { label: "৳৫,০০০", value: 5000, color: "#0E1812" },
+      { label: "৳৭,৫০০", value: 7500, color: "#1E3827" },
+      { label: "৳১০,০০০", value: 10000, color: "#0E1812" },
+      { label: "৳১৫,০০০", value: 15000, color: "#14241B" },
+      { label: "২X বোনাস", value: 20000, color: "#0E1812" },
+      { label: "মেগা ৳৫০,০০০", value: 50000, color: "#1E3827" }
+    ];
+    const WHEEL_SEGMENTS_EN = [
+      { label: "৳1,000", value: 1000, color: "#0E1812" },
+      { label: "৳2,500", value: 2500, color: "#14241B" },
+      { label: "৳5,000", value: 5000, color: "#0E1812" },
+      { label: "৳7,500", value: 7500, color: "#1E3827" },
+      { label: "৳10,000", value: 10000, color: "#0E1812" },
+      { label: "৳15,000", value: 15000, color: "#14241B" },
+      { label: "2X Bonus", value: 20000, color: "#0E1812" },
+      { label: "MEGA ৳50K", value: 50000, color: "#1E3827" }
+    ];
+
     function renderWheel() {
       const canvas = document.getElementById('wheelCanvas');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
-      const numSegments = wheelSegments.length;
+      const segments = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en") ? WHEEL_SEGMENTS_EN : WHEEL_SEGMENTS_BN;
+      const numSegments = segments.length;
       const arc = (2 * Math.PI) / numSegments;
       const cx = canvas.width / 2;
       const cy = canvas.height / 2;
@@ -5082,7 +5858,7 @@
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      wheelSegments.forEach((seg, i) => {
+      segments.forEach((seg, i) => {
         const angle = i * arc;
         // Segment slice
         ctx.beginPath();
@@ -5159,7 +5935,7 @@
         isSpinning = false;
         clearInterval(tickInterval);
         playWinSound();
-        triggerConfetti();
+        triggerConfetti(targetSegment.value || targetSegment.label || 5000);
 
         // Update result box
         const resultAmountEl = document.getElementById('wheelResultAmount');
@@ -5382,7 +6158,7 @@
         playEmphaticSuccessSound();
       }, 240);
 
-      triggerConfetti();
+      triggerConfetti(dashBonus ? dashBonus.textContent : 15000);
     }
 
     function finishClaimFlow() {
@@ -5399,476 +6175,7 @@
     }
 
     function shareToPlatform(platform) {
-      const shareUrl = window.location.href.split('#')[0];
-      const defaultMsg = "Join me on BetBonus — Claim exclusive rewards and daily bonuses!";
-      const shareMessage = (window.DEMO_CONFIG && window.DEMO_CONFIG.SHARE_MESSAGES && window.DEMO_CONFIG.SHARE_MESSAGES.en)
-        ? window.DEMO_CONFIG.SHARE_MESSAGES.en
-        : defaultMsg;
-
-      const encodedMsg = encodeURIComponent(shareMessage);
-      const encodedUrl = encodeURIComponent(shareUrl);
-
-      if (platform === 'messenger') {
-        const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-        if (isMobile) {
-          // On mobile, attempt to open the Messenger share/deep-link flow
-          const messengerDeepLink = `fb-messenger://share?link=${encodedUrl}`;
-          const webFallbackUrl = `https://www.facebook.com/dialog/share?app_id=87741124305&href=${encodedUrl}&quote=${encodedMsg}`;
-          const startTime = Date.now();
-
-          // Try custom scheme invocation
-          try {
-            window.location.href = messengerDeepLink;
-          } catch (e) {
-            window.open(webFallbackUrl, '_blank', 'noopener,noreferrer');
-            proceedToStep3();
-            return;
-          }
-
-          // Fallback: If page is still active/visible after timeout, open web share
-          setTimeout(() => {
-            if (Date.now() - startTime < 2200 && !document.hidden) {
-              window.open(webFallbackUrl, '_blank', 'noopener,noreferrer');
-            }
-          }, 1500);
-        } else {
-          // Desktop fallback: Facebook / Messenger web sharing dialog
-          const desktopDialogUrl = `https://www.facebook.com/dialog/share?app_id=87741124305&href=${encodedUrl}&quote=${encodedMsg}&display=popup`;
-          const popupWidth = 620;
-          const popupHeight = 520;
-          const left = window.screenLeft + (window.outerWidth - popupWidth) / 2;
-          const top = window.screenTop + (window.outerHeight - popupHeight) / 2;
-          window.open(
-            desktopDialogUrl,
-            'messenger_share',
-            `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes`
-          );
-        }
-      } else if (platform === 'whatsapp') {
-        // WhatsApp: Open WhatsApp share with URL and message
-        const waUrl = `https://api.whatsapp.com/send?text=${encodedMsg}%20${encodedUrl}`;
-        window.open(waUrl, '_blank', 'noopener,noreferrer');
-      }
-
-      proceedToStep3();
-    }
-
-    /* ==========================================================
-       FAQ ACCORDION
-       ========================================================== */
-    function initFAQ() {
-      const faqItems = document.querySelectorAll('.faq-item');
-      faqItems.forEach(item => {
-        const trigger = item.querySelector('.faq-trigger');
-        trigger.addEventListener('click', () => {
-          const isActive = item.classList.contains('active');
-          faqItems.forEach(i => {
-            i.classList.remove('active');
-            i.querySelector('.faq-trigger').setAttribute('aria-expanded', 'false');
-          });
-          if (!isActive) {
-            item.classList.add('active');
-            trigger.setAttribute('aria-expanded', 'true');
-          }
-        });
-      });
-    }
-
-    /* ==========================================================
-       LIVE DEMO ACTIVITY TICKER ROTATOR
-       ========================================================== */
-    function initLiveActivityRotator() {
-      const liveTextEl = document.getElementById('liveActivityText');
-      if (!liveTextEl) return;
-      let currentIndex = 0;
-      setInterval(() => {
-        currentIndex = (currentIndex + 1) % demoLiveActivities.length;
-        liveTextEl.style.opacity = '0';
-        setTimeout(() => {
-          liveTextEl.textContent = demoLiveActivities[currentIndex];
-          liveTextEl.style.opacity = '1';
-        }, 250);
-      }, 4500);
-    }
-
-    /* ==========================================================
-       RANDOM COUNTER INITIALIZATION & SLOT-MACHINE ROLLER
-       ========================================================== */
-    let currentHeroSessionValue = 2847;
-
-    function renderSlotMachineCounter(containerEl, targetNumberStr, animate = true) {
-      if (!containerEl) return;
-
-      const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (prefersReducedMotion || !animate) {
-        containerEl.textContent = targetNumberStr;
-        return;
-      }
-
-      // Preserve existing structure or build reels
-      containerEl.innerHTML = '';
-      const slotCounter = document.createElement('span');
-      slotCounter.className = 'slot-counter';
-      slotCounter.setAttribute('aria-label', targetNumberStr);
-
-      const chars = targetNumberStr.split('');
-      const reelsToAnimate = [];
-
-      chars.forEach((char, index) => {
-        if (/\d/.test(char)) {
-          const targetDigit = parseInt(char, 10);
-          const col = document.createElement('span');
-          col.className = 'slot-digit-column';
-
-          const reel = document.createElement('span');
-          reel.className = 'slot-digit-reel';
-
-          // Build a loop of numbers ending on targetDigit to give realistic casino slot spin
-          // E.g., [0, 1, 2, ..., 9, 0, 1, ..., targetDigit]
-          const spinRounds = 2; // full cycles before settling
-          const sequence = [];
-          for (let r = 0; r <= spinRounds; r++) {
-            const limit = r === spinRounds ? targetDigit : 9;
-            for (let d = 0; d <= limit; d++) {
-              sequence.push(d);
-            }
-          }
-
-          sequence.forEach(num => {
-            const digitEl = document.createElement('span');
-            digitEl.className = 'slot-digit';
-            digitEl.textContent = num;
-            reel.appendChild(digitEl);
-          });
-
-          // Initially render at top (showing first item)
-          reel.style.transform = 'translateY(0%)';
-          col.appendChild(reel);
-          slotCounter.appendChild(col);
-
-          const targetIndex = sequence.length - 1;
-          const totalItems = sequence.length;
-          // Percentage offset: each item is 100% / totalItems of reel height
-          const translatePercent = (targetIndex / totalItems) * 100;
-
-          // Stagger reels from left to right (e.g. 50ms per digit)
-          const delay = index * 80;
-          const duration = 1.1 + index * 0.12;
-
-          reelsToAnimate.push({
-            reel,
-            translatePercent,
-            delay,
-            duration
-          });
-        } else {
-          // Static characters like ',', '+', etc.
-          const staticSpan = document.createElement('span');
-          staticSpan.className = 'slot-static-char';
-          staticSpan.textContent = char;
-          slotCounter.appendChild(staticSpan);
-        }
-      });
-
-      containerEl.appendChild(slotCounter);
-
-      // Trigger the CSS transforms on next frame for smooth GPU acceleration
-      requestAnimationFrame(() => {
-        requestAnimationFrame(() => {
-          reelsToAnimate.forEach(({ reel, translatePercent, delay, duration }) => {
-            reel.style.transition = `transform ${duration}s cubic-bezier(0.12, 0.9, 0.18, 1) ${delay}ms`;
-            reel.style.transform = `translateY(-${translatePercent}%)`;
-          });
-        });
-      });
-    }
-
-    function updateHeroSessionCounter(newVal, animate = true) {
-      currentHeroSessionValue = newVal;
-      const formatted = `${newVal.toLocaleString()}+`;
-
-      const heroCounter = document.getElementById('heroSessionCounter');
-      if (heroCounter) {
-        renderSlotMachineCounter(heroCounter, formatted, animate);
-      }
-
-      const dashCounter = document.getElementById('dashSessionCount');
-      if (dashCounter) {
-        dashCounter.textContent = formatted;
-      }
-    }
-
-    function initCounters() {
-      // Pick a random user count from demoUsers array
-      const randomUserCount = demoUsers[Math.floor(Math.random() * demoUsers.length)];
-      updateHeroSessionCounter(randomUserCount, true);
-
-      // Periodically update the counter slightly to demonstrate live activity & rolling slot animation
-      setInterval(() => {
-        // Increment or choose a new lively simulated session count
-        const increment = Math.floor(Math.random() * 5) + 1;
-        const nextVal = currentHeroSessionValue + increment;
-        updateHeroSessionCounter(nextVal, true);
-      }, 7000);
-    }
-
-    /* ==========================================================
-       MOBILE MENU & BACKDROP CONTROLS
-       ========================================================== */
-    function openMobileMenu() {
-      const drawer = document.getElementById('mobileDrawer');
-      const backdrop = document.getElementById('mobileNavBackdrop');
-      const toggle = document.getElementById('mobileMenuToggle');
-      if (!drawer) return;
-
-      drawer.classList.add('open');
-      if (backdrop) backdrop.classList.add('active');
-      if (toggle) {
-        toggle.classList.add('active');
-        toggle.setAttribute('aria-expanded', 'true');
-      }
-      document.body.classList.add('mobile-menu-open');
-    }
-
-    function closeMobileMenu() {
-      const drawer = document.getElementById('mobileDrawer');
-      const backdrop = document.getElementById('mobileNavBackdrop');
-      const toggle = document.getElementById('mobileMenuToggle');
-      if (!drawer) return;
-
-      drawer.classList.remove('open');
-      if (backdrop) backdrop.classList.remove('active');
-      if (toggle) {
-        toggle.classList.remove('active');
-        toggle.setAttribute('aria-expanded', 'false');
-      }
-      document.body.classList.remove('mobile-menu-open');
-    }
-
-    function toggleMobileMenu() {
-      const drawer = document.getElementById('mobileDrawer');
-      if (!drawer) return;
-      if (drawer.classList.contains('open')) {
-        closeMobileMenu();
-      } else {
-        openMobileMenu();
-      }
-    }
-
-    // Close drawer when backdrop overlay is clicked
-    document.getElementById('mobileNavBackdrop')?.addEventListener('click', closeMobileMenu);
-
-    // Auto-close mobile drawer if window resizes to desktop breakpoint
-    window.addEventListener('resize', () => {
-      if (window.innerWidth > 768) {
-        closeMobileMenu();
-      }
-    });
-
-    /* ==========================================================
-       KEYBOARD ACCESSIBILITY
-       ========================================================== */
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        const modal = document.getElementById('claimModal');
-        if (modal && modal.classList.contains('active')) {
-          closeClaimModal();
-        }
-        const drawer = document.getElementById('mobileDrawer');
-        if (drawer && drawer.classList.contains('open')) {
-          closeMobileMenu();
-        }
-      }
-    });
-
-    // Close modal on outside backdrop click
-    document.getElementById('claimModal')?.addEventListener('click', (e) => {
-      if (e.target.id === 'claimModal') {
-        closeClaimModal();
-      }
-    });
-
-    document.getElementById('mobileMenuToggle')?.addEventListener('click', toggleMobileMenu);
-
-    /* ==========================================================
-       HERO GLASS CARD PARALLAX & TILT EFFECT
-       ========================================================== */
-    function initHeroCardTilt() {
-      const card = document.getElementById('heroGlassCard');
-      const glare = document.getElementById('cardGlare');
-      if (!card) return;
-
-      // Honor user's motion preferences
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        return;
-      }
-
-      let bounds = null;
-      let rafId = null;
-      let targetX = 0;
-      let targetY = 0;
-      let currentX = 0;
-      let currentY = 0;
-      let isHovering = false;
-
-      function updateBounds() {
-        bounds = card.getBoundingClientRect();
-      }
-
-      function onMouseEnter() {
-        isHovering = true;
-        updateBounds();
-        card.classList.add('is-tilting');
-        if (glare) glare.style.opacity = '1';
-        card.style.transition = 'transform 0.08s ease-out, border-color 0.3s, box-shadow 0.3s';
-        if (!rafId) {
-          rafId = requestAnimationFrame(renderLoop);
-        }
-      }
-
-      function onMouseMove(e) {
-        if (!bounds) updateBounds();
-        const mouseX = e.clientX - bounds.left;
-        const mouseY = e.clientY - bounds.top;
-
-        // Normalized relative coordinates: -1 (left/top) to +1 (right/bottom)
-        const normX = (mouseX / bounds.width) * 2 - 1;
-        const normY = (mouseY / bounds.height) * 2 - 1;
-
-        // Subtle, elegant tilt limits (max ~10-12 deg)
-        targetX = -normY * 11; // rotateX around horizontal axis
-        targetY = normX * 13;  // rotateY around vertical axis
-
-        // Reposition highlight sheen
-        if (glare) {
-          const glarePercentX = Math.max(0, Math.min(100, (mouseX / bounds.width) * 100));
-          const glarePercentY = Math.max(0, Math.min(100, (mouseY / bounds.height) * 100));
-          glare.style.background = `radial-gradient(circle 320px at ${glarePercentX.toFixed(1)}% ${glarePercentY.toFixed(1)}%, rgba(185, 243, 75, 0.22) 0%, rgba(255, 255, 255, 0.09) 35%, transparent 70%)`;
-        }
-      }
-
-      function onMouseLeave() {
-        isHovering = false;
-        targetX = 0;
-        targetY = 0;
-        card.classList.remove('is-tilting');
-        if (glare) glare.style.opacity = '0';
-        card.style.transition = 'transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1), border-color 0.3s, box-shadow 0.3s';
-      }
-
-      function renderLoop() {
-        // Smooth linear interpolation for buttery motion
-        currentX += (targetX - currentX) * 0.16;
-        currentY += (targetY - currentY) * 0.16;
-
-        if (isHovering || Math.abs(currentX) > 0.04 || Math.abs(currentY) > 0.04) {
-          card.style.transform = `perspective(1200px) rotateX(${currentX.toFixed(2)}deg) rotateY(${currentY.toFixed(2)}deg) translateZ(8px)`;
-          rafId = requestAnimationFrame(renderLoop);
-        } else {
-          card.style.transform = '';
-          rafId = null;
-        }
-      }
-
-      card.addEventListener('mouseenter', onMouseEnter);
-      card.addEventListener('mousemove', onMouseMove);
-      card.addEventListener('mouseleave', onMouseLeave);
-
-      // Handle touch start/move for mobile devices
-      card.addEventListener('touchstart', () => {
-        updateBounds();
-      }, { passive: true });
-
-      window.addEventListener('resize', () => {
-        if (isHovering) updateBounds();
-      });
-    }
-
-    /* ==========================================================
-       VIP MEMBERSHIP TIERS HORIZONTAL SCROLL CONTROLS
-       ========================================================== */
-    function scrollVipList(direction) {
-      const track = document.getElementById("vipScrollTrack");
-      if (!track) return;
-      const card = track.querySelector(".vip-tier-card");
-      const scrollDistance = card ? (card.offsetWidth + 24) * direction : 360 * direction;
-      track.scrollBy({ left: scrollDistance, behavior: "smooth" });
-    }
-
-    function updateVipScrollIndicator() {
-      const track = document.getElementById("vipScrollTrack");
-      const indicator = document.getElementById("vipScrollIndicator");
-      if (!track || !indicator) return;
-      const cards = track.querySelectorAll(".vip-tier-card");
-      const dots = indicator.querySelectorAll(".vip-dot");
-      if (!cards.length || !dots.length) return;
-
-      const scrollLeft = track.scrollLeft;
-      const cardWidth = cards[0].offsetWidth + 24;
-      const activeIndex = Math.min(
-        dots.length - 1,
-        Math.max(0, Math.round(scrollLeft / cardWidth))
-      );
-
-      dots.forEach((dot, idx) => {
-        if (idx === activeIndex) {
-          dot.classList.add("active");
-        } else {
-          dot.classList.remove("active");
-        }
-      });
-    }
-
-    function initVipScroll() {
-      const track = document.getElementById("vipScrollTrack");
-      if (!track) return;
-      track.addEventListener("scroll", updateVipScrollIndicator, { passive: true });
-      updateVipScrollIndicator();
-    }
-
-    /* ==========================================================
-       APP INITIALIZATION
-       ========================================================== */
-
-    /* ==========================================================
-       ADSTERRA DIRECT LINK & CLICK REDIRECTION ENGINE
-       ========================================================== */
-    const ADSTERRA_LINK = (window.AD_CONFIG && (window.AD_CONFIG.ADSTERRA_DIRECT_LINK || window.AD_CONFIG.ADSTERRA_LINK)) 
-      || "https://your-adsterra-link.com";
-
-    function getAdsterraDirectLink() {
-      const adCfg = window.AD_CONFIG || {};
-      if (adCfg.ADSTERRA_CLICK_ENABLED === false) return "";
-      return (typeof adCfg.ADSTERRA_DIRECT_LINK === "string" && adCfg.ADSTERRA_DIRECT_LINK.trim())
-        ? adCfg.ADSTERRA_DIRECT_LINK.trim()
-        : ADSTERRA_LINK;
-    }
-
-    function openAdsterraDirectLink() {
-      const adUrl = getAdsterraDirectLink();
-      if (!adUrl) return false;
-      try {
-        const newTab = window.open(adUrl, "_blank", "noopener,noreferrer");
-        if (!newTab || newTab.closed || typeof newTab.closed === "undefined") {
-          const tempLink = document.createElement("a");
-          tempLink.href = adUrl;
-          tempLink.target = "_blank";
-          tempLink.rel = "noopener noreferrer";
-          tempLink.style.display = "none";
-          document.body.appendChild(tempLink);
-          tempLink.click();
-          setTimeout(() => {
-            if (document.body.contains(tempLink)) {
-              document.body.removeChild(tempLink);
-            }
-          }, 100);
-        }
-        return true;
-      } catch (err) {
-        console.warn("Ad redirection notice:", err);
-        return false;
-      }
+      handleTaskShare(platform);
     }
 
     function handleBonusClaimAction(event) {
@@ -5899,25 +6206,233 @@
       }, 1200);
     }
 
+        /* Audio warning / alert chime for error modal feedback */
+    function playWarningAlertSound() {
+      try {
+        const ctx = getAudioContext();
+        if (!ctx) return;
+        const now = ctx.currentTime;
+        const osc1 = ctx.createOscillator();
+        const osc2 = ctx.createOscillator();
+        const gain = ctx.createGain();
+
+        osc1.type = "sawtooth";
+        osc2.type = "sine";
+        osc1.frequency.setValueAtTime(320, now);
+        osc1.frequency.exponentialRampToValueAtTime(220, now + 0.22);
+        osc2.frequency.setValueAtTime(440, now);
+        osc2.frequency.exponentialRampToValueAtTime(330, now + 0.22);
+
+        gain.gain.setValueAtTime(0.25, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.24);
+
+        osc1.connect(gain);
+        osc2.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc1.start(now);
+        osc2.start(now);
+        osc1.stop(now + 0.25);
+        osc2.stop(now + 0.25);
+      } catch (e) {
+        // silent fallback
+      }
+    }
+
+    let currentErrorType = 'share'; // 'share' | 'server' | 'verification'
+
+    /**
+     * "Claim to Wallet Now" Button Handler
+     * 1. AD REDIRECTION: Opens Adsterra Direct Link in a new tab (_blank)
+     * 2. DYNAMIC RANDOM POPUP ERRORS: Displays a warning/error modal randomly selected from predefined reasons
+     */
     function handleClaimToWalletAction(event) {
       if (event && typeof event.preventDefault === "function") {
         event.preventDefault();
       }
+
+      // 1. AD REDIRECTION: Opens Adsterra Direct Link in a new tab (_blank)
       openAdsterraDirectLink();
-      playVictorySound();
-      launchConfetti();
-      
-      // Credit wallet
-      const currentVal = parseInt(document.getElementById("userBalanceCount") ? document.getElementById("userBalanceCount").innerText.replace(/[^0-9]/g, "") : "18500", 10) || 18500;
-      const newVal = currentVal + 8750;
-      if (document.getElementById("userBalanceCount")) {
-        document.getElementById("userBalanceCount").innerText = "৳" + newVal.toLocaleString("en-US");
+
+      // Micro-feedback on the button
+      const btn = document.getElementById("claimToWalletBtn");
+      if (btn) {
+        btn.style.pointerEvents = "none";
+        btn.style.opacity = "0.75";
       }
 
-      showFloatingToast("017*****678 just credited ৳8,750", "bKash Instant");
-      setTimeout(() => {
-        closeClaimModal();
-      }, 1500);
+      // 2. DYNAMIC RANDOM POPUP ERRORS:
+      // Show immediately or upon window focus if user returns from the new tab
+      let triggered = false;
+      const triggerErrorOnce = () => {
+        if (triggered) return;
+        triggered = true;
+        if (btn) {
+          btn.style.pointerEvents = "auto";
+          btn.style.opacity = "1";
+        }
+        window.removeEventListener("focus", triggerErrorOnce);
+        triggerRandomClaimError();
+      };
+
+      window.addEventListener("focus", triggerErrorOnce);
+      setTimeout(triggerErrorOnce, 500);
+    }
+
+    /**
+     * Generates dynamic random popup error with weighted probability:
+     * - 80% Chance: Share Incomplete
+     * - 10% Chance: Server Overload
+     * - 10% Chance: Verification Failed
+     */
+    function triggerRandomClaimError() {
+      const rand = Math.random();
+      const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
+
+      const errorModal = document.getElementById("claimErrorModal");
+      const errorBox = document.getElementById("claimErrorBox");
+      const iconSvg = document.getElementById("errorIconSvg");
+      const badge = document.getElementById("errorModalBadge");
+      const title = document.getElementById("errorModalTitle");
+      const message = document.getElementById("errorModalMessage");
+      const statusLabel = document.getElementById("errorStatusLabel");
+      const guidance = document.getElementById("errorActionGuidance");
+      const primaryBtnText = document.getElementById("errorPrimaryBtnText");
+      const secondaryBtnText = document.getElementById("errorSecondaryBtnText");
+
+      if (!errorModal) return;
+
+      playWarningAlertSound();
+
+      if (rand < 0.80) {
+        // 80% Chance: Share Incomplete Warning
+        currentErrorType = 'share';
+        if (errorBox) errorBox.className = 'modal-box claim-error-box';
+
+        // Share Icon SVG
+        if (iconSvg) {
+          iconSvg.innerHTML = '<circle cx="18" cy="5" r="3"></circle><circle cx="6" cy="12" r="3"></circle><circle cx="18" cy="19" r="3"></circle><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>';
+        }
+
+        if (badge) badge.textContent = isEn ? "REQUIREMENT INCOMPLETE" : "শেয়ার রিকোয়ারমেন্ট পেন্ডিং";
+        if (title) title.textContent = isEn ? "Share Incomplete!" : "শেয়ার অসম্পূর্ণ!";
+        if (message) {
+          message.textContent = isEn
+            ? "Share incomplete! You have not shared the offer on Messenger or WhatsApp properly. Please share with 3+ friends and try again."
+            : "শেয়ার অসম্পূর্ণ! আপনি সঠিকভাবে মেসেঞ্জার বা হোয়াটসঅ্যাপে অফারটি শেয়ার করেননি। অনুগ্রহ করে আবার ৩+ জন বন্ধুকে শেয়ার করে চেষ্টা করুন।";
+        }
+        if (statusLabel) {
+          statusLabel.className = "meta-val text-warning";
+          statusLabel.textContent = isEn ? "Awaiting 3+ Shares" : "৩+ শেয়ার যাচাই বাকি";
+        }
+        if (guidance) {
+          guidance.textContent = isEn ? "Share via WhatsApp or Messenger" : "হোয়াটসঅ্যাপ বা মেসেঞ্জারে ৩+ জনকে পাঠান";
+        }
+        if (primaryBtnText) primaryBtnText.textContent = isEn ? "Complete Sharing (Step 2)" : "শেয়ার সম্পন্ন করুন";
+        if (secondaryBtnText) secondaryBtnText.textContent = isEn ? "Try Again" : "পুনরায় চেষ্টা করুন";
+
+      } else if (rand < 0.90) {
+        // 10% Chance: Server Overload Warning
+        currentErrorType = 'server';
+        if (errorBox) errorBox.className = 'modal-box claim-error-box server-error';
+
+        // Server Icon SVG
+        if (iconSvg) {
+          iconSvg.innerHTML = '<rect x="2" y="2" width="20" height="8" rx="2" ry="2"></rect><rect x="2" y="14" width="20" height="8" rx="2" ry="2"></rect><line x1="6" y1="6" x2="6.01" y2="6"></line><line x1="6" y1="18" x2="6.01" y2="18"></line>';
+        }
+
+        if (badge) badge.textContent = isEn ? "SERVER BUSY" : "সার্ভার কনজেশন";
+        if (title) title.textContent = isEn ? "Server Overload!" : "সার্ভার ওভারলোড!";
+        if (message) {
+          message.textContent = isEn
+            ? "Server overload! High visitor traffic has caused a temporary connection delay. Please try again shortly."
+            : "সার্ভার ওভারলোড! অতিরিক্ত ভিজিটরের কারণে কানেকশন বিজি রয়েছে। কিছুক্ষন পর আবার চেষ্টা করুন।";
+        }
+        if (statusLabel) {
+          statusLabel.className = "meta-val text-danger";
+          statusLabel.textContent = isEn ? "Heavy Traffic Queue" : "অতিরিক্ত ট্রাফিক চাপ (কানেকশন বিজি)";
+        }
+        if (guidance) {
+          guidance.textContent = isEn ? "Retry in a few seconds" : "কিছুক্ষন পর আবার চেষ্টা করুন";
+        }
+        if (primaryBtnText) primaryBtnText.textContent = isEn ? "Retry Connection" : "পুনরায় চেষ্টা করুন";
+        if (secondaryBtnText) secondaryBtnText.textContent = isEn ? "Return to Tasks" : "টাস্ক ধাপে ফিরুন";
+
+      } else {
+        // 10% Chance: Verification Failed Warning
+        currentErrorType = 'verification';
+        if (errorBox) errorBox.className = 'modal-box claim-error-box server-error';
+
+        // Shield / Alert Icon SVG
+        if (iconSvg) {
+          iconSvg.innerHTML = '<path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line>';
+        }
+
+        if (badge) badge.textContent = isEn ? "VERIFICATION FAILED" : "ভেরিফিকেশন ব্যর্থ";
+        if (title) title.textContent = isEn ? "Verification Failed!" : "ভেরিফিকেশন ব্যর্থ!";
+        if (message) {
+          message.textContent = isEn
+            ? "Verification failed! Unable to verify your wallet number. Please re-submit your details."
+            : "ভেরিফিকেশন ব্যর্থ! আপনার ওয়ালেট নম্বর ভেরিফাই করা সম্ভব হয়নি। পুনরায় সাবমিট করুন।";
+        }
+        if (statusLabel) {
+          statusLabel.className = "meta-val text-danger";
+          statusLabel.textContent = isEn ? "Unverified Wallet Number" : "ওয়ালেট নম্বর সঠিক নয়";
+        }
+        if (guidance) {
+          guidance.textContent = isEn ? "Re-enter bKash / Nagad / Rocket ID" : "পুনরায় সঠিক ওয়ালেট নম্বর দিন";
+        }
+        if (primaryBtnText) primaryBtnText.textContent = isEn ? "Re-submit (Step 1)" : "পুনরায় সাবমিট করুন (ধাপ ১)";
+        if (secondaryBtnText) secondaryBtnText.textContent = isEn ? "Try Again" : "পুনরায় চেষ্টা করুন";
+      }
+
+      errorModal.classList.add("active");
+    }
+
+    function closeClaimErrorModal() {
+      const errorModal = document.getElementById("claimErrorModal");
+      if (errorModal) {
+        errorModal.classList.remove("active");
+      }
+    }
+
+    /**
+     * Primary action button inside error modal:
+     * - Takes user to Step 1 (if verification failed) or Step 2 (if share incomplete / server retry)
+     */
+    function handleErrorPrimaryAction() {
+      closeClaimErrorModal();
+      if (currentErrorType === 'verification') {
+        showModalStep(1);
+        const input = document.getElementById("claimUserIdInput");
+        if (input) {
+          input.focus();
+          input.classList.add("input-error-pulse");
+          setTimeout(() => input.classList.remove("input-error-pulse"), 1200);
+        }
+      } else {
+        showModalStep(2);
+        const step2 = document.getElementById("modalStep2");
+        if (step2) {
+          const taskItems = step2.querySelectorAll(".modal-task-item");
+          taskItems.forEach(t => {
+            t.classList.add("task-highlight-pulse");
+            setTimeout(() => t.classList.remove("task-highlight-pulse"), 2000);
+          });
+        }
+      }
+    }
+
+    /**
+     * Secondary action button inside error modal ("পুনরায় চেষ্টা করুন")
+     */
+    function handleErrorSecondaryAction() {
+      closeClaimErrorModal();
+      if (currentErrorType === 'verification') {
+        showModalStep(1);
+      } else {
+        showModalStep(2);
+      }
     }
 
     /* ==========================================================
@@ -6005,13 +6520,13 @@
       scratchCtx.textAlign = "center";
       scratchCtx.fillText("CLAIMBONUS24 VIP", w / 2, h / 2 - 25);
 
+      const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
       scratchCtx.fillStyle = "#382500";
-      scratchCtx.font = "bold 15px 'Hind Siliguri', sans-serif";
-      scratchCtx.fillText("এখানে ঘষুন এবং পুরস্কার জিতুন", w / 2, h / 2 + 8);
+      scratchCtx.font = isEn ? "bold 15px 'Space Grotesk', sans-serif" : "bold 15px 'Hind Siliguri', sans-serif";
+      scratchCtx.fillText(isEn ? "Scratch Here to Win Prize" : "এখানে ঘষুন এবং পুরস্কার জিতুন", w / 2, h / 2 + 8);
 
       scratchCtx.font = "12px 'Space Grotesk', sans-serif";
-      scratchCtx.fillStyle = "#593C00";
-      scratchCtx.fillText("✦ SCRATCH TO REVEAL REWARD ✦", w / 2, h / 2 + 32);
+      scratchCtx.fillText(isEn ? "REVEAL 50% TO UNLOCK REWARD" : "৫০% স্ক্র্যাচ করলেই আনলক হবে", w / 2, h / 2 + 30);
 
       updateScratchMeter(0);
 
@@ -6124,7 +6639,7 @@
       }
 
       playVictorySound();
-      launchConfetti();
+      launchConfetti(8500); // ৳8,500 VIP scratch card reward
 
       // Highlight claim button
       const claimBtn = document.getElementById("scratchClaimBtn");
@@ -6160,14 +6675,12 @@
        REALISTIC LIVE-ACTIVITY FEEDS & FLOATING CLAIM TOAST
        ========================================================== */
     const liveVerifiedClaims = [
-      { phone: "017*****92", amount: "৳7,500", method: "bKash Instant", time: "১ সেকেন্ড আগে" },
-      { phone: "018*****14", amount: "৳12,000", method: "Nagad VIP", time: "৩ সেকেন্ড আগে" },
-      { phone: "019*****88", amount: "৳5,200", method: "Rocket", time: "৫ সেকেন্ড আগে" },
-      { phone: "013*****45", amount: "৳15,000", method: "bKash Instant", time: "৮ সেকেন্ড আগে" },
-      { phone: "016*****71", amount: "৳9,800", method: "Upay", time: "১১ সেকেন্ড আগে" },
-      { phone: "017*****33", amount: "৳25,000", method: "VIP Wallet", time: "১৪ সেকেন্ড আগে" },
-      { phone: "015*****62", amount: "৳6,500", method: "Nagad", time: "১৮ সেকেন্ড আগে" },
-      { phone: "018*****99", amount: "৳18,200", method: "bKash Instant", time: "২২ সেকেন্ড আগে" }
+      { phone: "017*****92", amountBn: "৳৭,৫০০", amountEn: "৳7,500", method: "bKash", timeBn: "১ সেকেন্ড আগে", timeEn: "1s ago" },
+      { phone: "019*****43", amountBn: "৳১২,০০০", amountEn: "৳12,000", method: "Nagad", timeBn: "৫ সেকেন্ড আগে", timeEn: "5s ago" },
+      { phone: "018*****77", amountBn: "৳৩,৮৫০", amountEn: "৳3,850", method: "Rocket", timeBn: "৯ সেকেন্ড আগে", timeEn: "9s ago" },
+      { phone: "016*****15", amountBn: "৳২৫,০০০", amountEn: "৳25,000", method: "VIP Wallet", timeBn: "১৪ সেকেন্ড আগে", timeEn: "14s ago" },
+      { phone: "013*****62", amountBn: "৳৬,৫০০", amountEn: "৳6,500", method: "Nagad", timeBn: "১৮ সেকেন্ড আগে", timeEn: "18s ago" },
+      { phone: "018*****99", amountBn: "৳১৮,২০০", amountEn: "৳18,200", method: "bKash Instant", timeBn: "২২ সেকেন্ড আগে", timeEn: "22s ago" }
     ];
 
     let currentClaimIndex = 0;
@@ -6177,12 +6690,17 @@
     function rotateLiveTicker() {
       const tickerItem = document.getElementById("activeTickerItem");
       if (!tickerItem) return;
+
       currentClaimIndex = (currentClaimIndex + 1) % liveVerifiedClaims.length;
       const claim = liveVerifiedClaims[currentClaimIndex];
+      const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
+      const amt = isEn ? claim.amountEn : claim.amountBn;
+      const timeStr = isEn ? claim.timeEn : claim.timeBn;
+      const actionStr = isEn ? "just claimed" : "ক্লেইম করেছেন";
 
       tickerItem.classList.remove("ticker-item-animated");
       void tickerItem.offsetWidth; // Trigger reflow
-      tickerItem.innerHTML = `<strong class="text-accent">${claim.phone}</strong> just claimed <strong class="text-gold">${claim.amount}</strong> via ${claim.method} <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${claim.time})</span>`;
+      tickerItem.innerHTML = `<strong class="text-accent">${claim.phone}</strong> ${actionStr} <strong class="text-gold">${amt}</strong> via ${claim.method} <span style="opacity: 0.65; font-size: 0.72rem; margin-left: 4px;">(${timeStr})</span>`;
       tickerItem.classList.add("ticker-item-animated");
     }
 
@@ -6191,11 +6709,14 @@
       const title = document.getElementById("toastTitle");
       if (!toast || !title) return;
 
+      const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
       if (customTitle) {
         title.innerText = customTitle;
       } else {
         const claim = liveVerifiedClaims[Math.floor(Math.random() * liveVerifiedClaims.length)];
-        title.innerText = `${claim.phone} just claimed ${claim.amount}`;
+        const amt = isEn ? claim.amountEn : claim.amountBn;
+        const actionStr = isEn ? "just claimed" : "ক্লেইম করেছেন";
+        title.innerText = `${claim.phone} ${actionStr} ${amt}`;
       }
 
       toast.classList.add("visible");
@@ -6249,14 +6770,63 @@
       if (step2) step2.classList.add("active");
     }
 
+    /**
+     * Constructs the official dynamic sharing message and clean destination URL
+     */
+    function getShareMessageAndUrl() {
+      const shareUrl = window.location.href.split('#')[0] || "https://claimbonus24.com";
+      const isEn = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en");
+
+      const shareText = isEn
+        ? `100% I received a bonus! No need to deposit your own money anymore, claim free game wallet bonuses by watching sponsored ads.\n\n(Note: This website is NOT a betting site; free bonuses are rewarded by watching ads)\n\nClaim your bonus now: ${shareUrl}`
+        : `১০০% আমি বোনাস পেয়েছি! এখন আর পকেটের টাকা দিয়ে ডিপোজিট করতে হবে না, স্পন্সরড অ্যাড দেখে ফ্রিতে গেম ওয়ালেট বোনাস ক্লেইম করুন। \n\n(বি:দ্র: এই সাইটটি কোনো বেটিং সাইট নয়, বিজ্ঞাপন দেখার মাধ্যমে ফ্রিতে বোনাস দেওয়া হয়)\n\nএখনই বোনাস ক্লেইম করুন: ${shareUrl}`;
+
+      return { shareUrl, shareText };
+    }
+
+    /**
+     * Dynamic WhatsApp and Messenger Share Handler
+     * Sends the exact required promotional text, disclaimer, and current URL together
+     */
     function handleTaskShare(platform) {
-      const shareUrl = encodeURIComponent("https://claimbonus24.com");
-      const text = encodeURIComponent("ClaimBonus24 এ আজই স্পিন ও স্ক্র্যাচ করে ইনস্ট্যান্ট ক্যাশ রিওয়ার্ড ক্লেইম করুন!");
+      const { shareUrl, shareText } = getShareMessageAndUrl();
+      const encodedMsg = encodeURIComponent(shareText);
+      const encodedUrl = encodeURIComponent(shareUrl);
 
       if (platform === "whatsapp") {
-        window.open(`https://api.whatsapp.com/send?text=${text}%20${shareUrl}`, "_blank");
+        // WhatsApp share with text containing full message and URL
+        const waUrl = `https://api.whatsapp.com/send?text=${encodedMsg}`;
+        window.open(waUrl, "_blank", "noopener,noreferrer");
+      } else if (platform === "messenger") {
+        // Messenger share logic (deep link on mobile, dialog on desktop)
+        const isMobile = /Android|iPhone|iPad|iPod|webOS|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        if (isMobile) {
+          const messengerDeepLink = `fb-messenger://share?link=${encodedUrl}`;
+          const webFallbackUrl = `https://www.facebook.com/dialog/share?app_id=87741124305&href=${encodedUrl}&quote=${encodedMsg}`;
+          try {
+            window.location.href = messengerDeepLink;
+          } catch (e) {
+            window.open(webFallbackUrl, "_blank", "noopener,noreferrer");
+          }
+          setTimeout(() => {
+            if (!document.hidden) {
+              window.open(webFallbackUrl, "_blank", "noopener,noreferrer");
+            }
+          }, 1500);
+        } else {
+          const desktopDialogUrl = `https://www.facebook.com/dialog/share?app_id=87741124305&href=${encodedUrl}&quote=${encodedMsg}&display=popup`;
+          const popupWidth = 620;
+          const popupHeight = 520;
+          const left = window.screenLeft + (window.outerWidth - popupWidth) / 2;
+          const top = window.screenTop + (window.outerHeight - popupHeight) / 2;
+          window.open(
+            desktopDialogUrl,
+            'messenger_share',
+            `width=${popupWidth},height=${popupHeight},left=${left},top=${top},scrollbars=yes,resizable=yes`
+          );
+        }
       } else {
-        window.open(`https://www.facebook.com/sharer/sharer.php?u=${shareUrl}`, "_blank");
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}&quote=${encodedMsg}`, "_blank", "noopener,noreferrer");
       }
 
       completeTaskAndAdvance();
@@ -6277,7 +6847,7 @@
       }
 
       playVictorySound();
-      launchConfetti();
+      launchConfetti(10000); // Task bonus unlock
 
       setTimeout(() => {
         proceedToStep3();
@@ -6317,39 +6887,76 @@
        LEGAL MODAL (PRIVACY, TERMS, DISCLAIMER, SUPPORT)
        ========================================================== */
     const legalContents = {
-      privacy: `
-        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Privacy Policy (গোপনীয়তা নীতি)</h4>
-        <p>ClaimBonus24 ব্যবহারকারীদের তথ্যের পূর্ণ নিরাপত্তা ও গোপনীয়তা রক্ষায় দৃঢ় প্রতিশ্রুতিবদ্ধ। এই প্ল্যাটফর্মটি আন্তর্জাতিক ডেটা সুরক্ষা মানদণ্ড এবং 256-Bit SSL সামরিক-গ্রেড এনক্রিপশনের অধীনে পরিচালিত হয়।</p>
-        <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">তথ্য সংগ্রহ ও ব্যবহার</h5>
-        <p>আমরা শুধুমাত্র রিওয়ার্ড প্রক্রিয়াকরণ এবং অ্যাকাউন্ট যাচাইকরণের জন্য প্রয়োজনীয় তথ্য (যেমন ফোন নম্বর বা প্লেয়ার আইডি) সংগ্রহ করি। আপনার সম্মতি ব্যতীত কোনো তৃতীয় পক্ষের সাথে ব্যক্তিগত তথ্য বিনিময় বা বিক্রয় করা হয় না।</p>
-        <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">কুকিজ ও ট্র্যাকিং নীতি</h5>
-        <p>ব্যবহারকারীর অভিজ্ঞতা উন্নত করতে এবং সেশনের ধারাবাহিকতা বজায় রাখতে নিরাপদ সেশন কুকিজ ব্যবহৃত হয়।</p>
-      `,
-      terms: `
-        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Terms of Service (ব্যবহারের শর্তাবলী)</h4>
-        <p>ClaimBonus24 প্ল্যাটফর্মে প্রবেশ ও অংশগ্রহণের মাধ্যমে আপনি নিম্নোক্ত শর্তাবলীতে পূর্ণ সম্মতি জ্ঞাপন করছেন:</p>
-        <ul style="padding-left: 1.2rem; margin: 0.6rem 0;">
-          <li>প্ল্যাটফর্মে অংশগ্রহণের ন্যূনতম বয়স ১৮ বছর বা তদূর্ধ্ব হতে হবে।</li>
-          <li>প্রতিটি ব্যবহারকারী একাউন্ট প্রতি দিনে নির্দিষ্ট সংখ্যক ফ্রি স্পিন ও স্ক্র্যাচ কার্ড পাওয়ার অধিকারী।</li>
-          <li>কোনো প্রকার স্বয়ংক্রিয় বট বা অননুমোদিত স্ক্রিপ্ট ব্যবহারের মাধ্যমে রিওয়ার্ড ক্লেইম করার চেষ্টা করা সম্পূর্ণ নিষিদ্ধ।</li>
-          <li>কর্তৃপক্ষ যেকোনো সময় প্রতারণামূলক অ্যাকাউন্ট বাতিল বা স্থগিত করার অধিকার সংরক্ষণ করে।</li>
-        </ul>
-      `,
-      disclaimer: `
-        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Disclaimer (দাবিত্যাগ ও স্বচ্ছতা)</h4>
-        <p>ClaimBonus24 একটি স্বনামধন্য ও দায়িত্বশীল রিওয়ার্ডস প্ল্যাটফর্ম। এখানে প্রদর্শিত সমস্ত বোনাস, ভাউচার কোড এবং রিওয়ার্ড পয়েন্ট আমাদের নির্ধারিত নিয়মাবলী সাপেক্ষে প্রদান করা হয়।</p>
-        <p style="margin-top: 0.6rem;">গেমিং ও রিওয়ার্ড কার্যক্রমে সর্বদা দায়িত্বশীলতার সাথে অংশগ্রহণ করুন। এটি কোনো আর্থিক বিনিয়োগ বা নিশ্চিত মুনাফার প্ল্যাটফর্ম নয়।</p>
-      `,
-      support: `
-        <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Contact Support (২৪/৭ গ্রাহক সেবা)</h4>
-        <p>আমাদের ডেডিকেটেড সাপোর্ট টিম সপ্তাহে ৭ দিন, ২৪ ঘণ্টা আপনার সেবায় নিয়োজিত রয়েছে।</p>
-        <div style="background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 1rem; margin-top: 0.8rem;">
-          <div style="margin-bottom: 0.5rem;"><strong>📧 ইমেইল সহায়তা:</strong> <a href="mailto:support@claimbonus24.com" style="color: #B9F34B;">support@claimbonus24.com</a></div>
-          <div style="margin-bottom: 0.5rem;"><strong>💬 লাইভ চ্যাট:</strong> গড়ে ২ মিনিটের মধ্যে সরাসরি প্রতিনিধির সাথে সংযোগ</div>
-          <div style="margin-bottom: 0.5rem;"><strong>📱 টেলিগ্রাম অফিসিয়াল:</strong> @ClaimBonus24_Official</div>
-          <div><strong>⚡ গড় রেসপন্স সময়:</strong> ১ - ২ মিনিট (২৪/৭ সচল)</div>
-        </div>
-      `
+      bn: {
+        privacy: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Privacy Policy (গোপনীয়তা নীতি)</h4>
+          <p>ClaimBonus24 ব্যবহারকারীদের তথ্যের পূর্ণ নিরাপত্তা ও গোপনীয়তা রক্ষায় দৃঢ় প্রতিশ্রুতিবদ্ধ। এই প্ল্যাটফর্মটি আন্তর্জাতিক ডেটা সুরক্ষা মানদণ্ড এবং 256-Bit SSL সামরিক-গ্রেড এনক্রিপশনের অধীনে পরিচালিত হয়।</p>
+          <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">তথ্য সংগ্রহ ও ব্যবহার</h5>
+          <p>আমরা শুধুমাত্র রিওয়ার্ড প্রক্রিয়াকরণ এবং অ্যাকাউন্ট যাচাইকরণের জন্য প্রয়োজনীয় তথ্য (যেমন ফোন নম্বর বা প্লেয়ার আইডি) সংগ্রহ করি। আপনার সম্মতি ব্যতীত কোনো তৃতীয় পক্ষের সাথে ব্যক্তিগত তথ্য বিনিময় বা বিক্রয় করা হয় না।</p>
+          <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">কুকিজ ও ট্র্যাকিং নীতি</h5>
+          <p>ব্যবহারকারীর অভিজ্ঞতা উন্নত করতে এবং সেশনের ধারাবাহিকতা বজায় রাখতে নিরাপদ সেশন কুকিজ ব্যবহৃত হয়।</p>
+        `,
+        terms: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Terms of Service (ব্যবহারের শর্তাবলী)</h4>
+          <p>ClaimBonus24 প্ল্যাটফর্মে প্রবেশ ও অংশগ্রহণের মাধ্যমে আপনি নিম্নোক্ত শর্তাবলীতে পূর্ণ সম্মতি জ্ঞাপন করছেন:</p>
+          <ul style="padding-left: 1.2rem; margin: 0.6rem 0;">
+            <li>প্ল্যাটফর্মে অংশগ্রহণের ন্যূনতম বয়স ১৮ বছর বা তদূর্ধ্ব হতে হবে।</li>
+            <li>প্রতিটি ব্যবহারকারী একাউন্ট প্রতি দিনে নির্দিষ্ট সংখ্যক ফ্রি স্পিন ও স্ক্র্যাচ কার্ড পাওয়ার অধিকারী।</li>
+            <li>কোনো প্রকার স্বয়ংক্রিয় বট বা অননুমোদিত স্ক্রিপ্ট ব্যবহারের মাধ্যমে রিওয়ার্ড ক্লেইম করার চেষ্টা করা সম্পূর্ণ নিষিদ্ধ।</li>
+            <li>কর্তৃপক্ষ যেকোনো সময় প্রতারণামূলক অ্যাকাউন্ট বাতিল বা স্থগিত করার অধিকার সংরক্ষণ করে।</li>
+          </ul>
+        `,
+        disclaimer: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Disclaimer (দাবিত্যাগ ও স্বচ্ছতা)</h4>
+          <p>ClaimBonus24 একটি স্বনামধন্য ও দায়িত্বশীল রিওয়ার্ডস প্ল্যাটফর্ম। এখানে প্রদর্শিত সমস্ত বোনাস, ভাউচার কোড এবং রিওয়ার্ড পয়েন্ট আমাদের নির্ধারিত নিয়মাবলী সাপেক্ষে প্রদান করা হয়।</p>
+          <p style="margin-top: 0.6rem;">গেমিং ও রিওয়ার্ড কার্যক্রমে সর্বদা দায়িত্বশীলতার সাথে অংশগ্রহণ করুন। এটি কোনো আর্থিক বিনিয়োগ বা নিশ্চিত মুনাফার প্ল্যাটফর্ম নয়।</p>
+        `,
+        support: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Contact Support (২৪/৭ গ্রাহক সেবা)</h4>
+          <p>আমাদের ডেডিকেটেড সাপোর্ট টিম সপ্তাহে ৭ দিন, ২৪ ঘণ্টা আপনার সেবায় নিয়োজিত রয়েছে।</p>
+          <div style="background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 1rem; margin-top: 0.8rem;">
+            <div style="margin-bottom: 0.5rem;"><strong>📧 ইমেইল সহায়তা:</strong> <a href="mailto:support@claimbonus24.com" style="color: #B9F34B;">support@claimbonus24.com</a></div>
+            <div style="margin-bottom: 0.5rem;"><strong>💬 লাইভ চ্যাট:</strong> গড়ে ২ মিনিটের মধ্যে সরাসরি প্রতিনিধির সাথে সংযোগ</div>
+            <div style="margin-bottom: 0.5rem;"><strong>📱 টেলিগ্রাম অফিসিয়াল:</strong> @ClaimBonus24_Official</div>
+            <div><strong>⚡ গড় রেসপন্স সময়:</strong> ১ - ২ মিনিট (২৪/৭ সচল)</div>
+          </div>
+        `
+      },
+      en: {
+        privacy: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Privacy Policy & Data Protection</h4>
+          <p>ClaimBonus24 is strictly committed to protecting user data privacy. The entire application operates under international data compliance standards safeguarded by military-grade 256-Bit SSL end-to-end encryption.</p>
+          <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">Information Collection & Usage</h5>
+          <p>We only collect minimal credentials (such as account IDs or verified phone numbers) required to calculate rewards and credit instant payouts. We never sell, rent, or distribute personal identity information to third parties.</p>
+          <h5 style="color: #B9F34B; margin: 0.8rem 0 0.3rem;">Cookies & Session Security</h5>
+          <p>Encrypted session tokens are utilized solely to keep user streaks, claimed items, and language preferences synchronized.</p>
+        `,
+        terms: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Terms of Service & Participation Rules</h4>
+          <p>By accessing or interacting with ClaimBonus24, you confirm full adherence to our service agreement:</p>
+          <ul style="padding-left: 1.2rem; margin: 0.6rem 0;">
+            <li>Participants must be at least 18 years of age or meet local legal majority requirements.</li>
+            <li>Each verified user account is eligible for daily free lucky wheel spins and golden scratch vouchers.</li>
+            <li>Automated bots, click farms, or unauthorized scraping tools are strictly forbidden.</li>
+            <li>Platform management reserves the right to freeze or flag accounts violating fair-play integrity.</li>
+          </ul>
+        `,
+        disclaimer: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Disclaimer & Responsible Participation</h4>
+          <p>ClaimBonus24 is an official gamified promotional and loyalty reward system. All bonus prizes, voucher credits, and points are subject to compliance with promotional rules.</p>
+          <p style="margin-top: 0.6rem;">Please engage responsibly. This platform does not offer speculative financial investment vehicles or guaranteed income schemes.</p>
+        `,
+        support: `
+          <h4 style="font-size: 1.1rem; color: #FFFFFF; margin-bottom: 0.8rem;">Contact Priority Support (24/7)</h4>
+          <p>Our dedicated operations team is standing by 24 hours a day, 7 days a week to assist you with any questions or claims.</p>
+          <div style="background: rgba(255, 255, 255, 0.04); border-radius: 8px; padding: 1rem; margin-top: 0.8rem;">
+            <div style="margin-bottom: 0.5rem;"><strong>📧 Email Support:</strong> <a href="mailto:support@claimbonus24.com" style="color: #B9F34B;">support@claimbonus24.com</a></div>
+            <div style="margin-bottom: 0.5rem;"><strong>💬 Live Agent Chat:</strong> Typical queue under 2 minutes</div>
+            <div style="margin-bottom: 0.5rem;"><strong>📱 Official Telegram:</strong> @ClaimBonus24_Official</div>
+            <div><strong>⚡ Average Response Time:</strong> Under 2 Minutes (24/7 Online)</div>
+          </div>
+        `
+      }
     };
 
     function openLegalModal(tab) {
@@ -6367,8 +6974,10 @@
 
     function switchLegalTab(tab) {
       const content = document.getElementById("legalModalContent");
-      if (content && legalContents[tab]) {
-        content.innerHTML = legalContents[tab];
+      const activeLang = (typeof currentAppLanguage !== "undefined" && currentAppLanguage === "en") ? "en" : "bn";
+      const bundle = legalContents[activeLang] || legalContents.bn;
+      if (content && bundle && bundle[tab]) {
+        content.innerHTML = bundle[tab];
       }
 
       ["privacy", "terms", "disclaimer", "support"].forEach(t => {
@@ -6417,8 +7026,355 @@
       } catch (e) {}
     }
 
+    
+    /* ==========================================================
+       FULL APPLICATION MULTILINGUAL I18N ENGINE (BANGLA / ENGLISH)
+       ========================================================== */
+    const I18N_DICTIONARY = {
+  "bn": {
+    "hero_notice_verified": "১০০% আইনি ও স্পন্সরড প্ল্যাটফর্ম",
+    "hero_notice_title": "অফিসিয়াল সতর্কতা ও রিওয়ার্ড তথ্য",
+    "hero_notice_text": "সতর্কবার্তা ও তথ্য: আমাদের এই প্ল্যাটফর্মটি কোনো বেটিং বা জুয়ার সাইট নয়। এটি একটি সম্পূর্ণ আইনি ও স্পন্সরড রিওয়ার্ড ভিত্তিক ওয়েবসাইট। ব্যবহারকারীরা স্পন্সরড ভিডিও ও বিজ্ঞাপন দেখার মাধ্যমে সম্পূর্ণ বিনামূল্যে গেম টপ-আপ ও ওয়ালেট বোনাস পেয়ে থাকেন।",
+    "hero_alert_badge": "জিরো ডিপোজিট অফার",
+    "hero_alert_headline": "নিজের টাকায় আর ডিপোজিট নয়! ১০০% ফ্রি ইনস্ট্যান্ট গেম ডিপোজিট বোনাস",
+    "hero_alert_subtext": "এখন আর পকেটের টাকা খরচ করতে হবে না! আমাদের প্ল্যাটফর্মে স্পন্সরড অফার ও সহজ টাস্ক সম্পন্ন করে সরাসরি আপনার গেমিং অ্যাকাউন্টে ফ্রি ডিপোজিট ও ওয়ালেট বোনাস ক্লেইম করুন।",
+    "brand_tagline": "অফিসিয়াল রিওয়ার্ড প্ল্যাটফর্ম",
+    "ssl_title": "256-BIT SSL ENCRYPTED",
+    "ssl_sub": "100% সুরক্ষিত গেমিং প্ল্যাটফর্ম",
+    "nav_dashboard": "ড্যাশবোর্ড",
+    "nav_wheel": "বোনাস হুইল",
+    "nav_scratch": "স্ক্র্যাচ কার্ড",
+    "nav_leaderboard": "লিডারবোর্ড",
+    "nav_vip": "ভিআইপি টায়ার",
+    "nav_how": "কীভাবে কাজ করে",
+    "nav_faq": "FAQ",
+    "nav_claim_btn": "বোনাস ক্লেইম করুন",
+    "mobile_lang_label": "ভাষা পরিবর্তন (Language):",
+    "ticker_badge": "লাইভ ভেরিফাইড ক্লেইম",
+    "hero_badge": "অফিসিয়াল রিওয়ার্ড পোর্টাল ২০২৬",
+    "hero_title": "প্রতি ক্লিকে নিশ্চিত বোনাস, তাত্ক্ষণিক রিওয়ার্ড উপভোগ করুন",
+    "hero_claim_btn": "এখনই বোনাস ক্লেইম করুন",
+    "hero_explore_btn": "লাকি হুইল স্পিন করুন",
+    "hero_trust_1": "ইনস্ট্যান্ট রিওয়ার্ড ক্রেডিট",
+    "hero_trust_2": "নিরাপদ ও ভেরিফাইড",
+    "hero_trust_3": "দৈনিক ফ্রি স্পিন সুবিধা",
+    "hero_trust_4": "২৪/৭ সার্বক্ষণিক সহায়তা",
+    "hero_card_title": "ওয়েলকাম বোনাস",
+    "hero_card_sub": "ভিআইপি রিওয়ার্ড স্ট্যাটাস",
+    "hero_card_progress": "বোনাস আনলক প্রগ্রেস",
+    "hero_card_sessions_lbl": "সক্রিয় প্লেয়ার সেশন",
+    "hero_card_sessions_sub": "রিয়েল-টাইম প্ল্যাটফর্ম ট্র্যাকিং",
+    "dash_eyebrow": "রিয়েল-টাইম ওভারভিউ",
+    "dash_title": "প্লেয়ার রিওয়ার্ড ড্যাশবোর্ড",
+    "dash_lead": "আপনার বর্তমান ব্যালেন্স, অর্জিত বোনাস এবং সাম্প্রতিক রিওয়ার্ড অ্যাক্টিভিটি এক নজরে নিরীক্ষণ করুন।",
+    "today_claim_label": "আজকের বোনাস ড্র",
+    "game_eyebrow": "গেমিফায়েড রিওয়ার্ড জোন",
+    "game_title": "স্পিন করুন এবং স্ক্র্যাচ করে জিতুন",
+    "tab_wheel": "লাকি স্পিন হুইল",
+    "tab_scratch": "গোল্ডেন স্ক্র্যাচ কার্ড",
+    "wheel_badge": "রিয়েল-টাইম স্পিন ড্র",
+    "wheel_h3": "ফরচুন বোনাস হুইল",
+    "wheel_p": "হুইল ঘুরিয়ে জিতে নিন তাৎক্ষণিক রিওয়ার্ড পয়েন্ট ও এক্সক্লুসিভ ক্যাশ প্রাইজ। ১০০% ভেরিফাইড ড্র।",
+    "wheel_verified": "✓ ১০০% সার্টিফাইড র‌্যান্ডম ফেয়ারনেস অ্যালগরিদম",
+    "wheel_spin_cta": "স্পিন করুন ও ক্যাশ আনলক করুন",
+    "wheel_last_res": "সর্বশেষ ড্র ফলাফল:",
+    "scratch_badge": "ইনস্ট্যান্ট ভাউচার ড্র",
+    "scratch_h3": "গোল্ডেন ভিআইপি স্ক্র্যাচ কার্ড",
+    "scratch_max_label": "সর্বোচ্চ সম্ভাব্য রিওয়ার্ড",
+    "scratch_max_val": "৳৮,৫০০ ক্যাশ",
+    "scratch_payout_check": "✓ ১০০% নিশ্চিত পে-আউট ভাউচার",
+    "scratch_claim_cta": "অর্জিত পুরস্কার ক্লেইম করুন",
+    "scratch_auto_btn": "স্বয়ংক্রিয় স্ক্র্যাচ",
+    "scratch_new_btn": "নতুন কার্ড নিন",
+    "features_eyebrow": "প্ল্যাটফর্ম হাইলাইটস",
+    "features_title": "কেন ClaimBonus24 বেছে নেবেন?",
+    "features_subtitle": "সর্বাধুনিক প্রযুক্তি ও বিশ্বস্ত গেমিং অভিজ্ঞতার সাথে উপভোগ করুন দ্রুততম রিওয়ার্ড প্রসেসিং।",
+    "vip_eyebrow": "এক্সক্লুসিভ রিওয়ার্ড স্ট্যাটাস",
+    "vip_title": "ভিআইপি মেম্বারশিপ টায়ার (VIP Membership Tiers)",
+    "vip_subtitle": "উচ্চতর টায়ারে উন্নীত হয়ে আনলক করুন সর্বোচ্চ ক্যাশব্যাক (Cashback %), অগ্রাধিকার সেবা ও এক্সক্লুসিভ অ্যাক্সেস (Exclusive Access)।",
+    "vip_tier1_title": "ব্রোঞ্জ টায়ার (Bronze)",
+    "vip_tier1_req": "নতুন সদস্যদের জন্য স্বাগতম স্তর",
+    "vip_tier1_btn": "ব্রোঞ্জ টায়ার ক্লেইম",
+    "vip_tier2_title": "সিলভার টায়ার (Silver)",
+    "vip_tier2_req": "সক্রিয় প্লেয়ারদের জন্য প্রিমিয়াম স্তর",
+    "vip_tier2_btn": "সিলভার টায়ারে আপগ্রেড",
+    "vip_tier3_title": "গোল্ড ভিআইপি (Gold VIP)",
+    "vip_tier3_req": "হাই-রোলারদের জন্য এক্সক্লুসিভ স্তর",
+    "vip_tier3_btn": "গোল্ড ভিআইপি আনলক করুন",
+    "vip_tier4_title": "প্লাটিনাম প্রো (Platinum Pro)",
+    "vip_tier4_req": "এলিট গেমিং পার্টনারদের জন্য",
+    "vip_tier4_btn": "প্লাটিনাম প্রো জয়েন করুন",
+    "vip_tier5_title": "ডায়মন্ড এলিট (Diamond Elite)",
+    "vip_tier5_req": "আলটিমেট ভিআইপি লাক্সারি ও পার্সোনাল কনসিয়ার্জ",
+    "vip_tier5_btn": "ডায়মন্ড এলিট কনসিয়ার্জ",
+    "how_eyebrow": "নির্দেশিকা",
+    "how_title": "কীভাবে শুরু করবেন",
+    "how_subtitle": "মাত্র ৪টি সহজ ধাপে আপনার রিওয়ার্ড ক্লেইম করুন ও উপভোগ করুন।",
+    "how_step1_title": "অ্যাকাউন্ট আইডি দিন",
+    "how_step1_desc": "আপনার ইউজারনেম বা আইডি দিয়ে তাৎক্ষণিকভাবে লগইন ও সেশন শুরু করুন।",
+    "how_step2_title": "বোনাস অফার পছন্দ করুন",
+    "how_step2_desc": "ওয়েলকাম বোনাস, দৈনিক ক্যাশব্যাক এবং ভিআইপি অফারের শর্তাবলী যাচাই করুন।",
+    "how_step3_title": "হুইল ঘুরিয়ে স্পিন করুন",
+    "how_step3_desc": "স্মুথ ফিজিক্স অ্যানিমেশনে হুইল ঘুরিয়ে আকর্ষণীয় ক্যাশ রিওয়ার্ড ড্র করুন।",
+    "how_step4_title": "তাৎক্ষণিক ক্লেইম গ্রহণ",
+    "how_step4_desc": "উইনিং রিওয়ার্ড সরাসরি আপনার ড্যাশবোর্ডে ক্রেডিট ও লাইভ কাউন্টারে আপডেট হবে।",
+    "lb_eyebrow": "টপ প্লেয়ার্স",
+    "lb_title": "টপ উইনার লিডারবোর্ড",
+    "lb_subtitle": "আজকের এবং সর্বকালীন শীর্ষস্থান অর্জনকারী সক্রিয় খেলোয়াড়দের লাইভ তালিকা।",
+    "lb_filter_all": "সর্বকালীন",
+    "lb_filter_today": "আজকের সেরা",
+    "lb_th_rank": "র‍্যাঙ্ক",
+    "lb_th_player": "প্লেয়ার / ইউজার",
+    "lb_th_session": "অ্যাক্টিভ সেশন",
+    "lb_th_score": "মোট বোনাস স্কোর",
+    "faq_eyebrow": "সহায়তা ও তথ্য",
+    "faq_title": "সাধারণ জিজ্ঞাসা (FAQ)",
+    "faq_subtitle": "ClaimBonus24 প্ল্যাটফর্মের রিওয়ার্ড সিস্টেম, বোনাস ক্লেইম এবং ফিচার সম্পর্কিত যাবতীয় তথ্য।",
+    "faq_q1": "কিভাবে ওয়েলকাম বোনাস ক্লেইম করব?",
+    "faq_a1": "আপনার ইউজার আইডি বা মোবাইল নম্বর প্রবেশ করিয়ে 'বোনাস ক্লেইম করুন' বাটনে ক্লিক করুন। প্রথম ধাপ সম্পন্ন হলেই এক্সক্লুসিভ ওয়েলকাম বোনাস ক্রেডিট হয়ে যাবে।",
+    "faq_q2": "লাকি হুইল স্পিন কিভাবে কাজ করে?",
+    "faq_a2": "প্রত্যেক সক্রিয় মেম্বার দৈনিক ফ্রি স্পিন সুবিধা পাবেন। হুইল ঘুরিয়ে আপনি তাৎক্ষণিক ৳৫০০ থেকে সর্বোচ্চ ৳৮,৮৮৮ পর্যন্ত ক্যাশ রিওয়ার্ড ও সারপ্রাইজ অফার জিততে পারবেন।",
+    "faq_q3": "লিডারবোর্ড র‍্যাংকিং কিভাবে নির্ধারিত হয়?",
+    "faq_a3": "খেলোয়াড়দের নিয়মিত অ্যাক্টিভিটি, স্পিন স্কোর এবং সংগৃহীত মোট রিওয়ার্ডের ওপর ভিত্তি করে লিডারবোর্ড তালিকা রিয়েল-টাইমে স্বয়ংক্রিয়ভাবে আপডেট হয়।",
+    "faq_q4": "ড্যাশবোর্ডের ব্যালেন্স কখন আপডেট হয়?",
+    "faq_a4": "স্পিন সমাপ্ত হওয়ার সাথে সাথে অথবা বোনাস ক্লেইম সম্পন্ন হওয়ার পর তাৎক্ষণিকভাবে আপনার ড্যাশবোর্ডের ব্যালেন্স ও প্রগ্রেস কাউন্টারে ডাটা সিঙ্ক হয়ে যায়।",
+    "faq_q5": "মোবাইল ডিভাইসে কি এটি ব্যবহার করা যাবে?",
+    "faq_a5": "হ্যাঁ, ClaimBonus24 সম্পূর্ণ রেসপন্সিভ এবং যেকোনো স্মার্টফোন, ট্যাবলেট কিংবা কম্পিউটারে অত্যন্ত দ্রুত ও মসৃণভাবে পরিচালিত হয়।",
+    "modal_step1_progress": "ধাপ ১ / ৩: অ্যাকাউন্ট ও ওয়ালেট যাচাই",
+    "modal_step1_title": "আপনার অ্যাকাউন্ট ভেরিফাই করুন",
+    "modal_step1_desc": "যে অ্যাকাউন্ট বা ওয়ালেটে রিওয়ার্ড গ্রহণ করতে চান তা নির্বাচন করে নম্বর বা আইডি প্রবেশ করান।",
+    "modal_method_phone": "📱 bKash / Nagad / Rocket",
+    "modal_method_id": "🆔 প্লেয়ার আইডি / ইমেইল",
+    "modal_ssl_guarantee": "256-Bit SSL এনক্রিপশন দ্বারা আপনার তথ্য সম্পূর্ণ সুরক্ষিত",
+    "modal_step1_next_btn": "টাস্ক ভেরিফিকেশনে এগিয়ে যান",
+    "modal_step2_progress": "ধাপ ২ / ৩: ইন্টারেক্টিভ রিওয়ার্ড আনলক",
+    "modal_step2_title": "একটি সহজ টাস্ক সম্পন্ন করুন",
+    "modal_step2_desc": "আপনার বোনাস তাৎক্ষণিকভাবে আনলক করতে নিচের যেকোনো একটি টাস্কে অংশগ্রহণ করুন:",
+    "modal_task_whatsapp": "WhatsApp এ শেয়ার করুন",
+    "modal_task_whatsapp_sub": "বন্ধুদের শেয়ার করে ১০০% রিওয়ার্ড আনলক নিশ্চিত করুন",
+    "modal_task_messenger": "Messenger এ ইনভাইট করুন",
+    "modal_task_messenger_sub": "ফেসবুক মেসেঞ্জারে বন্ধুদের বোনাস লিংক পাঠিয়ে আনলক করুন",
+    "modal_task_spin": "কুইক স্পিন টাস্ক",
+    "modal_task_spin_sub": "১-ক্লিকে তাৎক্ষণিক স্পিন চালিয়ে ড্র নিশ্চিত করুন",
+    "modal_step2_direct_btn": "সরাসরি রিওয়ার্ডে এগিয়ে যান",
+    "modal_step3_progress": "ধাপ ৩ / ৩: রিওয়ার্ড প্রস্তুত!",
+    "modal_step3_badge": "🎉 বোনাস সফলভাবে নির্ধারিত হয়েছে",
+    "modal_step3_title": "অভিনন্দন! আপনার রিওয়ার্ড প্রস্তুত",
+    "modal_step3_calc_title": "নির্ধারিত মোট ক্যাশ বোনাস",
+    "modal_step3_recipient_lbl": "প্রাপক ওয়ালেট:",
+    "modal_step3_type_lbl": "ট্রানজেকশন ধরন:",
+    "modal_step3_type_val": "ইনস্ট্যান্ট ক্যাশ ক্রেডিট",
+    "modal_step3_expiry_lbl": "অফারের মেয়াদ বাকি:",
+    "modal_claim_to_wallet_btn": "ওয়ালেটে ক্লেইম করুন",
+    "footer_brand_desc": "ClaimBonus24 বাংলাদেশের শীর্ষস্থানীয় ও সম্পূর্ণ বিশ্বস্ত গেমিফায়েড রিওয়ার্ডস এবং ভেরিফাইড বোনাস প্ল্যাটফর্ম।",
+    "footer_privacy": "Privacy Policy (গোপনীয়তা নীতি)",
+    "footer_terms": "Terms of Service (শর্তাবলী)",
+    "footer_disclaimer": "Disclaimer (দাবিত্যাগ)",
+    "footer_support": "Contact Support (২৪/৭ সহায়তা)",
+    "footer_copy": "© 2026 ClaimBonus24. সর্বস্বত্ব সংরক্ষিত। 18+ দায়িত্বশীলতার সাথে খেলুন।",
+    "footer_security_desc": "256-Bit সামরিক গ্রেড এনক্রিপশন ও সিকিউরিটি শিল্ড দ্বারা প্রতিটি রিওয়ার্ড ট্রানজেকশন সুরক্ষিত।"
+  },
+  "en": {
+    "hero_notice_verified": "100% Legal & Sponsored Platform",
+    "hero_notice_title": "Official Notice & Reward Information",
+    "hero_notice_text": "Warning & Information: Our platform is NOT a betting or gambling site. It is a 100% legal, sponsored rewards-based portal. Users receive completely free game top-ups and wallet bonuses simply by viewing sponsored videos and partner ads.",
+    "hero_alert_badge": "ZERO DEPOSIT OFFER",
+    "hero_alert_headline": "No More Spending Your Own Money! 100% Free Instant Game Deposit Bonus",
+    "hero_alert_subtext": "Never spend out of pocket again! Complete simple sponsored offers and tasks on our platform to claim free deposit credits and wallet bonuses directly into your gaming account.",
+    "brand_tagline": "Official Rewards Platform",
+    "ssl_title": "256-BIT SSL ENCRYPTED",
+    "ssl_sub": "100% Secured Gaming Platform",
+    "nav_dashboard": "Dashboard",
+    "nav_wheel": "Lucky Wheel",
+    "nav_scratch": "Scratch Card",
+    "nav_leaderboard": "Leaderboard",
+    "nav_vip": "VIP Tiers",
+    "nav_how": "How It Works",
+    "nav_faq": "FAQ",
+    "nav_claim_btn": "Claim Bonus",
+    "mobile_lang_label": "Change Language:",
+    "ticker_badge": "LIVE VERIFIED CLAIMS",
+    "hero_badge": "Official Reward Portal 2026",
+    "hero_title": "Guaranteed Bonus on Every Action, Enjoy Instant Payouts",
+    "hero_claim_btn": "Claim Bonus Now",
+    "hero_explore_btn": "Spin Lucky Wheel",
+    "hero_trust_1": "Instant Reward Credits",
+    "hero_trust_2": "Safe & 100% Verified",
+    "hero_trust_3": "Daily Free Lucky Spins",
+    "hero_trust_4": "24/7 Priority Support",
+    "hero_card_title": "Welcome Bonus",
+    "hero_card_sub": "VIP Reward Status",
+    "hero_card_progress": "Bonus Unlock Progress",
+    "hero_card_sessions_lbl": "Active Player Sessions",
+    "hero_card_sessions_sub": "Real-time Platform Tracking",
+    "dash_eyebrow": "Real-time Overview",
+    "dash_title": "Player Reward Dashboard",
+    "dash_lead": "Monitor your verified balance, claimed milestones, and recent reward transactions at a glance.",
+    "today_claim_label": "Today's Bonus Drop",
+    "game_eyebrow": "Gamified Rewards Zone",
+    "game_title": "Spin Wheel & Scratch to Win Cash",
+    "tab_wheel": "Lucky Fortune Wheel",
+    "tab_scratch": "Golden Scratch Voucher",
+    "wheel_badge": "Real-time Spin Drop",
+    "wheel_h3": "Fortune Bonus Wheel",
+    "wheel_p": "Spin the wheel to win instant cash points and verified multipliers. 100% verified fair algorithm.",
+    "wheel_verified": "✓ 100% Certified Random Fairness Algorithm",
+    "wheel_spin_cta": "Spin Now & Unlock Cash",
+    "wheel_last_res": "Latest Spin Result:",
+    "scratch_badge": "Instant Voucher Reveal",
+    "scratch_h3": "Golden VIP Scratch Card",
+    "scratch_max_label": "Max Potential Payout",
+    "scratch_max_val": "৳8,500 Cash",
+    "scratch_payout_check": "✓ 100% Guaranteed Payout Voucher",
+    "scratch_claim_cta": "Claim Revealed Reward",
+    "scratch_auto_btn": "Auto Scratch",
+    "scratch_new_btn": "Get New Card",
+    "features_eyebrow": "Platform Highlights",
+    "features_title": "Why Choose ClaimBonus24?",
+    "features_subtitle": "Cutting-edge security, instantaneous wallet transfers, and unrivaled gaming privileges.",
+    "vip_eyebrow": "Exclusive Privilege Tiers",
+    "vip_title": "VIP Membership Tiers & Privileges",
+    "vip_subtitle": "Level up your membership to unlock higher cashback rebates (Cashback %), priority transfers, and exclusive tournament access.",
+    "vip_tier1_title": "Bronze Tier (Bronze)",
+    "vip_tier1_req": "Starter Tier for All New Members",
+    "vip_tier1_btn": "Claim Bronze Tier",
+    "vip_tier2_title": "Silver Tier (Silver)",
+    "vip_tier2_req": "Premium Tier for Active Regulars",
+    "vip_tier2_btn": "Upgrade to Silver",
+    "vip_tier3_title": "Gold VIP (Gold VIP)",
+    "vip_tier3_req": "Exclusive Club for High Rollers",
+    "vip_tier3_btn": "Unlock Gold VIP",
+    "vip_tier4_title": "Platinum Pro (Platinum Pro)",
+    "vip_tier4_req": "Dedicated for Elite Gaming Partners",
+    "vip_tier4_btn": "Join Platinum Pro",
+    "vip_tier5_title": "Diamond Elite (Diamond Elite)",
+    "vip_tier5_req": "Ultimate VIP Luxury & Dedicated Concierge",
+    "vip_tier5_btn": "Diamond Elite Concierge",
+    "how_eyebrow": "User Guide",
+    "how_title": "How to Claim in 4 Simple Steps",
+    "how_subtitle": "Receive your verified bonus in your wallet in just 4 swift steps.",
+    "how_step1_title": "Provide Account ID",
+    "how_step1_desc": "Enter your username or phone number to initiate an encrypted secure session.",
+    "how_step2_title": "Select Bonus Offer",
+    "how_step2_desc": "Choose between Welcome Bonus, Daily Cashback, or VIP Tier upgrade options.",
+    "how_step3_title": "Spin the Fortune Wheel",
+    "how_step3_desc": "Engage with the wheel or scratch card to trigger instant multiplier rewards.",
+    "how_step4_title": "Instant Wallet Transfer",
+    "how_step4_desc": "Your verified payout is credited directly into your chosen bKash, Nagad, or Rocket wallet.",
+    "lb_eyebrow": "Top Winners",
+    "lb_title": "Official Winners Leaderboard",
+    "lb_subtitle": "Live verified ledger displaying the highest-earning players and points champions.",
+    "lb_filter_all": "All Time Top",
+    "lb_filter_today": "Today's Top",
+    "lb_th_rank": "Rank",
+    "lb_th_player": "Player / User",
+    "lb_th_session": "Active Sessions",
+    "lb_th_score": "Total Bonus Score",
+    "faq_eyebrow": "Help & Support",
+    "faq_title": "Frequently Asked Questions (FAQ)",
+    "faq_subtitle": "Everything you need to know about ClaimBonus24 reward distribution and security.",
+    "faq_q1": "How do I claim my welcome bonus?",
+    "faq_a1": "Simply enter your User ID or verified mobile wallet number and click 'Claim Bonus'. Once step 1 is verified, your welcome package is unlocked.",
+    "faq_q2": "How does the Lucky Fortune Wheel work?",
+    "faq_a2": "Active members receive daily free spins. Spin the wheel to win guaranteed payouts from ৳500 up to ৳8,888 along with 2X bonus multipliers.",
+    "faq_q3": "How are leaderboard rankings determined?",
+    "faq_a3": "Rankings are updated automatically in real-time based on active member participation, successful spins, and verified claimed rewards.",
+    "faq_q4": "When is my dashboard balance updated?",
+    "faq_a4": "Immediately upon completing a lucky spin or scratching a card, points and wallet credits are synchronized instantly with your dashboard counters.",
+    "faq_q5": "Is the platform mobile compatible?",
+    "faq_a5": "Yes, ClaimBonus24 is fully responsive and optimized for ultra-smooth performance across iOS, Android, tablets, and desktop browsers.",
+    "modal_step1_progress": "Step 1 / 3: Account & Wallet Verification",
+    "modal_step1_title": "Verify Your Account",
+    "modal_step1_desc": "Select your receiving wallet or account and enter your registered details below.",
+    "modal_method_phone": "📱 bKash / Nagad / Rocket",
+    "modal_method_id": "🆔 Player ID / Email",
+    "modal_ssl_guarantee": "Protected by 256-Bit SSL Military Grade Encryption",
+    "modal_step1_next_btn": "Proceed to Task Verification",
+    "modal_step2_progress": "Step 2 / 3: Interactive Reward Task",
+    "modal_step2_title": "Complete Quick Task",
+    "modal_step2_desc": "Complete any 1 interactive task below to confirm 100% verified cash payout:",
+    "modal_task_whatsapp": "Share via WhatsApp",
+    "modal_task_whatsapp_sub": "Share with friends to secure instant bonus unlock",
+    "modal_task_messenger": "Invite via Messenger",
+    "modal_task_messenger_sub": "Send bonus invitation to friends on Messenger",
+    "modal_task_spin": "Quick Spin Task",
+    "modal_task_spin_sub": "1-click rapid spin to confirm verified drop",
+    "modal_step2_direct_btn": "Proceed Directly to Reward",
+    "modal_step3_progress": "Step 3 / 3: Reward Ready",
+    "modal_step3_badge": "🎉 Bonus Successfully Calculated",
+    "modal_step3_title": "Congratulations! Your Reward is Ready",
+    "modal_step3_calc_title": "Calculated Total Cash Bonus",
+    "modal_step3_recipient_lbl": "Recipient Wallet:",
+    "modal_step3_type_lbl": "Transaction Type:",
+    "modal_step3_type_val": "Instant Cash Credit",
+    "modal_step3_expiry_lbl": "Offer Time Remaining:",
+    "modal_claim_to_wallet_btn": "Claim to Wallet Now",
+    "footer_brand_desc": "ClaimBonus24 is the leading, 100% verified gamified rewards and bonus loyalty network.",
+    "footer_privacy": "Privacy Policy",
+    "footer_terms": "Terms of Service",
+    "footer_disclaimer": "Disclaimer",
+    "footer_support": "Contact Support (24/7)",
+    "footer_copy": "© 2026 ClaimBonus24. All rights reserved. 18+ Play Responsibly.",
+    "footer_security_desc": "Military-grade 256-Bit SSL encryption ensures full data integrity and immediate payout safety."
+  }
+};
+
+    let currentAppLanguage = localStorage.getItem("cb24_lang") || "bn";
+
+    function setAppLanguage(lang) {
+      if (lang !== "bn" && lang !== "en") lang = "bn";
+      currentAppLanguage = lang;
+      try {
+        localStorage.setItem("cb24_lang", lang);
+      } catch (e) {}
+
+      // Update html lang attribute
+      document.documentElement.lang = lang;
+
+      // Update switcher button states in desktop and mobile
+      document.querySelectorAll("[data-lang-btn]").forEach(btn => {
+        const btnLang = btn.getAttribute("data-lang-btn");
+        const isActive = btnLang === lang;
+        btn.classList.toggle("active", isActive);
+        btn.setAttribute("aria-pressed", isActive ? "true" : "false");
+      });
+
+      // Translate all data-i18n elements
+      const dict = I18N_DICTIONARY[lang] || I18N_DICTIONARY.bn;
+      document.querySelectorAll("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] !== undefined) {
+          el.innerHTML = dict[key];
+        }
+      });
+
+      // Update place-holders if any
+      document.querySelectorAll("[data-i18n-placeholder]").forEach(el => {
+        const key = el.getAttribute("data-i18n-placeholder");
+        if (dict[key] !== undefined) {
+          el.placeholder = dict[key];
+        }
+      });
+
+      // Re-render wheel canvas slices for the language
+      if (typeof renderWheel === "function") {
+        renderWheel();
+      }
+
+      // Re-init scratch card text in canvas
+      if (typeof initScratchCard === "function") {
+        initScratchCard();
+      }
+
+      // Re-render leaderboard for the language
+      if (typeof renderLeaderboard === "function" && typeof activeLeaderboardFilter !== "undefined") {
+        renderLeaderboard(activeLeaderboardFilter);
+      }
+    }
+
     function initApp() {
       initAdSlots();
+      setAppLanguage(currentAppLanguage);
       renderLeaderboard(activeLeaderboardFilter);
       startLeaderboardAutoSimulation();
       renderWheel();
